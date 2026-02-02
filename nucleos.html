@@ -5,7 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Núcleos - ANE 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-dark: #006185;
+            --glass: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --accent-gold: #ffb700;
+            --text-light: #e0e6ed;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,262 +22,198 @@
         }
 
         body {
-            font-family: 'Tahoma', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top right, #007ba8, #006185 70%);
+            background-attachment: fixed;
+            color: var(--text-light);
+            min-height: 100vh;
         }
 
-        /* HEADER COM ONDAS */
         header {
-            background: #ffb700;
-            color: #0a3a70;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 40, 55, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 1.2rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
-            position: relative;
-        }
-
-        /* ONDAS ANIMADAS */
-        .waves {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            margin-top: -1px;
-            transform: scaleY(-1);
-            z-index: 101;
-        }
-
-        /* ANIMAÇÃO DE ONDA INFINITA */
-        .parallax>use {
-            animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
-        }
-
-        /* Cores das ondas SÓLIDAS */
-        .parallax>use:nth-child(1) {
-            animation-delay: -2s;
-            animation-duration: 7s;
-            fill: #0083c3;
-        }
-
-        .parallax>use:nth-child(2) {
-            animation-delay: -3s;
-            animation-duration: 10s;
-            fill: #f24c7c;
-        }
-
-        .parallax>use:nth-child(3) {
-            animation-delay: -4s;
-            animation-duration: 13s;
-            fill: #ffb700;
-        }
-
-        @keyframes move-forever {
-            0% {
-                transform: translate3d(-90px, 0, 0);
-            }
-
-            100% {
-                transform: translate3d(85px, 0, 0);
-            }
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .brand h1 {
-            font-size: 1.5rem;
-            margin: 0;
-            color: #0a3a70;
-        }
-
-        nav {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        }
-
-        nav a {
-            color: #0a3a70;
-            text-decoration: none;
-            padding: 0.5rem 0.8rem;
-            position: relative;
-            transition: color 0.3s;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        nav a:not(.btn-matricula)::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #000;
-            transition: width 0.3s ease;
-        }
-
-        nav a:not(.btn-matricula):hover::after {
-            width: 100%;
-        }
-
-        /* Cores ÚNICAS e DIFERENTES para cada item no hover */
-        nav a:not(.btn-matricula):nth-child(1):hover::after {
-            background-color: #d90429;
-        }
-
-        nav a:not(.btn-matricula):nth-child(2):hover::after {
-            background-color: #3a86ff;
-        }
-
-        nav a:not(.btn-matricula):nth-child(3):hover::after {
-            background-color: #8338ec;
-        }
-
-        nav a:not(.btn-matricula):nth-child(4):hover::after {
-            background-color: #ff006e;
-        }
-
-        nav a:not(.btn-matricula):nth-child(5):hover::after {
-            background-color: #fb5607;
-        }
-
-        nav a:not(.btn-matricula):nth-child(6):hover::after {
-            background-color: #007f5f;
-        }
-
-        nav a:not(.btn-matricula):nth-child(7):hover::after {
-            background-color: #000000;
-        }
-
-        nav a:not(.btn-matricula):hover {
-            color: #000;
-            background: transparent;
-        }
-
-        .btn-matricula {
-            background: #0a3a70;
-            color: white !important;
-            padding: 0.5rem 1.2rem;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: transform 0.2s, background 0.3s;
-        }
-
-        .btn-matricula:hover {
-            background: #1a5a9f;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid var(--glass-border);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 4rem 2rem;
         }
 
-        h2 {
-            color: #2c5aa0;
-            margin: 2rem 0;
+        .section-header {
             text-align: center;
+            margin-bottom: 5rem;
         }
 
+        /*Cor - Núcleos de Atuação*/
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #ffb700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+        }
+
+        /* GRID DE CARDS */
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
         }
 
         .card {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 25px;
+            overflow: hidden; /* Importante para a imagem não sair do card */
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            display: flex;
+            flex-direction: column;
         }
 
-        .card h3 {
-            color: #2c5aa0;
-            margin-bottom: 1rem;
+        /* CONTAINER DA IMAGEM */
+        .card-image-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
         }
 
-        footer {
-            background: #1a3a52;
-            color: white;
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        /* Overlay gradiente sobre a imagem para dar elegância */
+        .card-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0, 97, 133, 0.8), transparent);
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .card:hover img {
+            transform: scale(1.15);
+        }
+
+        /* CONTEÚDO DO CARD */
+        .card-content {
             padding: 2rem;
             text-align: center;
         }
 
-        /* RESPONSIVO */
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #d1e1f0;
+            font-weight: 300;
+        }
+
+        footer {
+            margin-top: 5rem;
+            padding: 4rem 2rem;
+            background: rgba(0, 30, 45, 0.4);
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            nav {
-                width: 100%;
-            }
+            .section-header h2 { font-size: 2.5rem; }
+            .container { padding: 2rem 1rem; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Header com menu -->
-<script src="menu.js"></script>
+    <script src="menu.js"></script>
 
     <div class="container">
-        <h2>🎯 Núcleos de Atuação</h2>
+        <div class="section-header">
+            <p>Nossas Sedes</p>
+            <h2>Núcleos de Atuação</h2>
+        </div>
+        
         <div class="cards">
             <div class="card">
-                <h3>🎵 Música Clássica</h3>
-                <p>Formação clássica em instrumentos como piano, violão e teoria musical.</p>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?auto=format&fit=crop&w=800&q=80" alt="Florianópolis">
+                </div>
+                <div class="card-content">
+                    <h3>Florianópolis/SC</h3>
+                    <p>Cultura e inovação integradas na capital catarinense, promovendo artes visuais e música.</p>
+                </div>
             </div>
+
             <div class="card">
-                <h3>🎤 Vocal</h3>
-                <p>Desenvolvimento de técnicas vocais e apresentações em coral.</p>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1523050335382-47595ae6b010?auto=format&fit=crop&w=800&q=80" alt="São José">
+                </div>
+                <div class="card-content">
+                    <h3>São José/SC</h3>
+                    <p>Desenvolvimento artístico comunitário focado na expressão teatral e inclusão social.</p>
+                </div>
             </div>
+
             <div class="card">
-                <h3>🎭 Artes Cênicas</h3>
-                <p>Teatro e expressão artística para desenvolvimento pessoal.</p>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&w=800&q=80" alt="Chapecó">
+                </div>
+                <div class="card-content">
+                    <h3>Chapecó/SC</h3>
+                    <p>Nossa força no Oeste, expandindo os horizontes através de oficinas de música clássica.</p>
+                </div>
             </div>
+
             <div class="card">
-                <h3>🎨 Artes Plásticas</h3>
-                <p>Desenho e técnicas de artes visuais.</p>
-            </div>
-            <div class="card">
-                <h3>👥 Comunidade</h3>
-                <p>Projetos comunitários e apresentações sociais.</p>
-            </div>
-            <div class="card">
-                <h3>📚 Educação</h3>
-                <p>Programas educacionais e capacitações.</p>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Irecê">
+                </div>
+                <div class="card-content">
+                    <h3>Irecê/BA</h3>
+                    <p>Talento e criatividade sob o sol da Bahia, unindo ritmos e educação artística transformadora.</p>
+                </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 ANE 2026 - Todos os direitos reservados</p>
+        <p>PROJETO ARTE NAS ESCOLAS &copy; 2026</p>
     </footer>
-</body>
 
+</body>
 </html>

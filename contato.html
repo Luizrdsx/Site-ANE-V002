@@ -1,134 +1,271 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link rel="stylesheet" href="footer.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato - ANE 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="footer.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Tahoma', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+            line-height: 1.6;
         }
-        
-        nav a { color: #0a3a70; text-decoration: none; padding: 0.5rem 0.8rem; position: relative; transition: color 0.3s; font-size: 0.9rem; font-weight: 600; }
-        nav a:not(.btn-matricula)::after {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
-            background-color: #000; transition: width 0.3s ease;
+
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 20px; 
         }
-        nav a:not(.btn-matricula):hover::after { width: 100%; }
-        /* Cores ÚNICAS e DIFERENTES para cada item no hover */
-        nav a:not(.btn-matricula):nth-child(1):hover::after { background-color: #d90429; }
-        nav a:not(.btn-matricula):nth-child(2):hover::after { background-color: #3a86ff; }
-        nav a:not(.btn-matricula):nth-child(3):hover::after { background-color: #8338ec; }
-        nav a:not(.btn-matricula):nth-child(4):hover::after { background-color: #ff006e; }
-        nav a:not(.btn-matricula):nth-child(5):hover::after { background-color: #fb5607; }
-        nav a:not(.btn-matricula):nth-child(6):hover::after { background-color: #007f5f; }
-        nav a:not(.btn-matricula):nth-child(7):hover::after { background-color: #000000; }
-        nav a:not(.btn-matricula):hover { color: #000; background: transparent; }
-        .btn-matricula { background: #0a3a70; color: white !important; padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: bold; transition: transform 0.2s, background 0.3s; }
-        .btn-matricula:hover { background: #1a5a9f; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-        .container { max-width: 1000px; margin: 2rem auto; padding: 2rem; }
-        h2 { color: #2c5aa0; margin-bottom: 2rem; text-align: center; }
-        .content { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .info-box { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .info-box h3 { color: #2c5aa0; margin-bottom: 1rem; }
-        .info-item { margin-bottom: 1.5rem; }
-        .info-item strong { color: #2c5aa0; }
+
+        .page-header {
+            position: sticky;
+            top: 90px;
+            z-index: 10;
+            background-color: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px; 
+            padding: 12px 20px; 
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .page-header h1 { color: #0056B3; font-size: 1.8rem; font-weight: 800; }
+
+        .content { 
+            display: grid; 
+            grid-template-columns: 1fr 1.2fr; 
+            gap: 30px; 
+            margin-bottom: 50px;
+        }
+
+        .info-box { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 16px; 
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .info-box h3 { 
+            color: #0F172A; 
+            margin-bottom: 25px; 
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-item { 
+            margin-bottom: 20px; 
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #E2E8F0;
+        }
+        .info-item:last-child { border: none; }
+        .info-item strong { color: #0056B3; display: block; margin-bottom: 5px; font-size: 1.1rem; }
+        .info-item p { font-size: 0.95rem; color: #475569; display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+
         .form-group { margin-bottom: 1.5rem; }
-        label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
-        input, textarea { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; font-size: 1rem; }
-        input:focus, textarea:focus { outline: none; border-color: #2c5aa0; box-shadow: 0 0 5px rgba(44, 90, 160, 0.3); }
-        button { background: #2c5aa0; color: white; padding: 0.75rem 2rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; }
-        button:hover { background: #1a3a52; }
-        @media (max-width: 768px) { .content { grid-template-columns: 1fr; } }
+        label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: #334155; }
+
+        input, textarea { 
+            width: 100%; 
+            padding: 12px 15px; 
+            border: 1px solid #CBD5E1; 
+            border-radius: 8px; 
+            font-family: inherit; 
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: #F8FAFC;
+        }
+
+        input:focus, textarea:focus { 
+            outline: none; 
+            border-color: #0056B3; 
+            background: #FFFFFF;
+            box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.1); 
+        }
+
+        button { 
+            background: #0056B3; 
+            color: white; 
+            padding: 15px; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 700; 
+            width: 100%; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button:hover:not(:disabled) { 
+            background: #003D80; 
+            box-shadow: 0 10px 15px -3px rgba(0, 86, 179, 0.3);
+        }
+
+        button:disabled {
+            background-color: #94A3B8;
+            cursor: not-allowed;
+        }
+
+        .spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ffffff66;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 850px) { 
+            .content { grid-template-columns: 1fr; } 
+            .container { padding-top: 100px; }
+            .page-header { top: 70px; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header com menu -->
     <script src="menu.js"></script>
     
-    <div class="container">
-        <h2>📞 Entre em Contato</h2>
+    <div class="container" style="padding-top: 110px;">
+        <header class="page-header">
+            <h1>📞 Entre em Contato</h1>
+        </header>
         
         <div class="content">
-            <!-- INFORMAÇÕES -->
             <div class="info-box">
-                <h3>ℹ️ Nossas Sedes</h3>
-                
+                <h3><i class="fa-solid fa-location-dot" style="color: #0056B3;"></i> Nossas Sedes</h3>
                 <div class="info-item">
-                    <strong>📍 Florianópolis - SC</strong><br>
-                    Rua da Música, 100<br>
-                    ☎️ (48) 3333-3333<br>
-                    ✉️ florianopolis@ane2026.com.br
+                    <strong>📍 Florianópolis - SC</strong>
+                    <p><i class="fa-solid fa-map"></i> Rua da Música, 100</p>
+                    <p><i class="fa-solid fa-phone"></i> (48) 3333-3333</p>
+                    <p><i class="fa-solid fa-envelope"></i> florianopolis@ane2026.com.br</p>
                 </div>
-                
                 <div class="info-item">
-                    <strong>📍 São José - SC</strong><br>
-                    Av. Central, 200<br>
-                    ☎️ (48) 3434-3434<br>
-                    ✉️ saojose@ane2026.com.br
+                    <strong>📍 São José - SC</strong>
+                    <p><i class="fa-solid fa-map"></i> Av. Central, 200</p>
+                    <p><i class="fa-solid fa-phone"></i> (48) 3434-3434</p>
+                    <p><i class="fa-solid fa-envelope"></i> saojose@ane2026.com.br</p>
                 </div>
-                
                 <div class="info-item">
-                    <strong>📍 Chapecó - SC</strong><br>
-                    Rua da Arte, 300<br>
-                    ☎️ (49) 3535-3535<br>
-                    ✉️ chapeco@ane2026.com.br
-                </div>
-                
-                <div class="info-item">
-                    <strong>📍 Irecê - BA</strong><br>
-                    Praça da Harmonia, 400<br>
-                    ☎️ (74) 3636-3636<br>
-                    ✉️ irece@ane2026.com.br
+                    <strong>📍 Chapecó - SC</strong>
+                    <p><i class="fa-solid fa-map"></i> Rua da Arte, 300</p>
+                    <p><i class="fa-solid fa-phone"></i> (49) 3535-3535</p>
+                    <p><i class="fa-solid fa-envelope"></i> chapeco@ane2026.com.br</p>
                 </div>
             </div>
             
-            <!-- FORMULÁRIO -->
             <div class="info-box">
-                <h3>📬 Envie uma Mensagem</h3>
+                <h3><i class="fa-solid fa-paper-plane" style="color: #0056B3;"></i> Envie uma Mensagem</h3>
+                
                 <form id="contatoForm">
                     <div class="form-group">
-                        <label for="nome">Nome</label>
-                        <input type="text" id="nome" required>
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" name="nome" id="nome" placeholder="Ex: João Silva" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="telefone">Telefone</label>
-                        <input type="tel" id="telefone">
+                        <label for="email">Seu E-mail</label>
+                        <input type="email" name="_replyto" id="email" placeholder="email@exemplo.com" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="assunto">Assunto</label>
-                        <input type="text" id="assunto" required>
+                        <input type="text" name="assunto" id="assunto" placeholder="Dúvida ou Sugestão" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="mensagem">Mensagem</label>
-                        <textarea id="mensagem" rows="4" required></textarea>
+                        <textarea name="mensagem" id="mensagem" rows="5" placeholder="Como podemos ajudar?" required></textarea>
                     </div>
+
+                    <input type="hidden" name="_subject" value="Novo Contato - Site ANE">
                     
-                    <button type="submit">Enviar Mensagem</button>
+                    <button type="submit" id="btnEnviar">
+                        <span id="btnText">Enviar Mensagem</span>
+                        <div class="spinner" id="spinner"></div>
+                    </button>
                 </form>
             </div>
         </div>
     </div>
     
     <script>
-        document.getElementById('contatoForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Obrigado por sua mensagem! Em breve entraremos em contato.');
-            this.reset();
+        const form = document.getElementById('contatoForm');
+        const btn = document.getElementById('btnEnviar');
+        const spinner = document.getElementById('spinner');
+        const btnText = document.getElementById('btnText');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede o redirecionamento da página
+
+            // 1. Bloqueia o botão e inicia animação
+            btn.disabled = true;
+            spinner.style.display = 'block';
+            btnText.innerText = 'Enviando...';
+
+            // 2. Envia os dados via Fetch (AJAX)
+            const formData = new FormData(form);
+
+            fetch('https://formspree.io/f/mlglavzj', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // 3. Mostra o Popup de Sucesso
+                    Swal.fire({
+                        title: 'Mensagem Enviada!',
+                        text: 'Obrigado por entrar em contato. Responderemos em breve!',
+                        icon: 'success',
+                        confirmButtonColor: '#0056B3',
+                        borderRadius: '12px'
+                    });
+                    form.reset(); // Limpa o formulário
+                } else {
+                    throw new Error('Erro no servidor');
+                }
+            })
+            .catch(error => {
+                // 4. Mostra Popup de Erro se algo falhar
+                Swal.fire({
+                    title: 'Ops!',
+                    text: 'Ocorreu um erro ao enviar. Tente novamente mais tarde.',
+                    icon: 'error',
+                    confirmButtonColor: '#0056B3'
+                });
+            })
+            .finally(() => {
+                // 5. Restaura o botão
+                btn.disabled = false;
+                spinner.style.display = 'none';
+                btnText.innerText = 'Enviar Mensagem';
+            });
         });
     </script>
+
     <script src="footer.js"></script>
 </body>
 </html>

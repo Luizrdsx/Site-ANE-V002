@@ -1,193 +1,255 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link rel="stylesheet" href="footer.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quem Somos - ANE 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="footer.css">
     <style>
+        :root {
+            --azul-viva: #0088ff;
+            --amarelo-viva: #ffc800;
+            --rosa-viva: #ff4d88;
+            --bg-suave-azul: #f0f7ff;
+            --bg-suave-amarelo: #fffdf2;
+            --bg-suave-rosa: #fff5f8;
+            --texto: #2d3436;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-       body {
-            font-family: 'Tahoma', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #e1f1ff;
+            color: var(--texto);
+            line-height: 1.6;
         }
-        /* HEADER */
-        header {
-            background: #ffb700;
-            color: #0a3a70;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+
+        /* Hero com Gradiente Suave e "Vida" */
+        .hero {
+            padding: 140px 20px 100px;
+            background-color:#0083c3; 
+            text-align: center;
             position: relative;
+            overflow: hidden;
         }
 
-        /* ONDAS ANIMADAS */
-        .waves {
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            margin-top: -1px;
-            transform: scaleY(-1);
-            z-index: 101;
-            pointer-events: none;
+            width: 300px;
+            height: 300px;
+            background: var(--amarelo-viva);
+            filter: blur(100px);
+            opacity: 0.15;
+            top: -100px;
+            left: -100px;
         }
 
-        .parallax>use {
-            animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 4.2rem);
+            font-weight: 800;
+            color: #ffc800;
+            margin-bottom: 20px;
+            line-height: 1.1;
         }
 
-        .parallax>use:nth-child(1) {
-            animation-delay: -2s;
-            animation-duration: 7s;
-            fill: #0088ffcc;
+        .hero p {
+            font-size: 1.3rem;
+            color: #ffffff;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .parallax>use:nth-child(2) {
-            animation-delay: -3s;
-            animation-duration: 10s;
-            fill: #ff005599;
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Blocos de Conteúdo Coloridos */
+        .grid-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
         }
 
-        .parallax>use:nth-child(3) {
-            animation-delay: -4s;
-            animation-duration: 13s;
-            fill: #ffb700;
+        .card-viva {
+            padding: 40px;
+            border-radius: 30px;
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
         }
 
-        @keyframes move-forever {
-            0% { transform: translate3d(-90px,0,0); }
-            100% { transform: translate3d(85px,0,0); }
+        .card-viva:hover { transform: translateY(-10px); }
+
+        .azul { background: var(--bg-suave-azul); border-color: #e1efff; }
+        .amarelo { background: var(--bg-suave-amarelo); border-color: #fff9db; }
+        .rosa { background: var(--bg-suave-rosa); border-color: #ffeef4; }
+
+        .card-viva i {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
         }
 
-        .brand { 
-            display: flex; 
-            align-items: center;
-        }
-        
-        .logo { 
-            width: 150px; 
-            height: 100px; 
-            object-fit: contain;
-        }
-        
-        nav {
+        .azul i { color: var(--azul-viva); }
+        .amarelo i { color: var(--amarelo-viva); }
+        .rosa i { color: var(--rosa-viva); }
+
+        .card-viva h3 { font-size: 1.6rem; margin-bottom: 15px; }
+
+        /* Seção Nossa Jornada (Mais Informações) */
+        .jornada {
+            background: var(--bg-suave-azul);
+            padding: 80px 40px;
+            border-radius: 40px;
+            margin: 80px 0;
             display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
             align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
         }
+
+        .jornada-content { flex: 1; min-width: 300px; }
+        .jornada-content h2 { font-size: 2.5rem; color: #0083c3; margin-bottom: 20px; }
         
-        nav a { 
-            color: #0a3a70; 
-            text-decoration: none; 
-            padding: 0.5rem 0.8rem; 
-            position: relative; 
-            transition: color 0.3s; 
-            font-size: 0.9rem; 
-            font-weight: 600; 
+        .badges-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
         }
-        
-        nav a:not(.btn-matricula)::after {
-            content: ''; 
-            position: absolute; 
-            width: 0; 
-            height: 2px; 
-            bottom: 0; 
-            left: 0;
-            background-color: #000; 
-            transition: width 0.3s ease;
+
+        .badge-item {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+            border-left: 5px solid var(--rosa-viva);
         }
-        
-        nav a:not(.btn-matricula):hover::after { width: 100%; }
-        
-        nav a:not(.btn-matricula):nth-child(1):hover::after { background-color: #d90429; }
-        nav a:not(.btn-matricula):nth-child(2):hover::after { background-color: #3a86ff; }
-        nav a:not(.btn-matricula):nth-child(3):hover::after { background-color: #8338ec; }
-        nav a:not(.btn-matricula):nth-child(4):hover::after { background-color: #ff006e; }
-        nav a:not(.btn-matricula):nth-child(5):hover::after { background-color: #fb5607; }
-        nav a:not(.btn-matricula):nth-child(6):hover::after { background-color: #007f5f; }
-        nav a:not(.btn-matricula):nth-child(7):hover::after { background-color: #000000; }
-        
-        nav a:not(.btn-matricula):hover { color: #000; background: transparent; }
-        
-        .btn-matricula { 
-            background: #0a3a70; 
-            color: white !important; 
-            padding: 0.5rem 1.2rem; 
-            border-radius: 4px; 
-            font-weight: bold; 
-            transition: transform 0.2s, background 0.3s; 
+
+        /* Liderança com Cores */
+        .lideranca-section { text-align: center; margin-bottom: 100px; }
+        .lideranca-section h2 { margin-bottom: 50px; font-size: 2.2rem; }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
         }
-        
-        .btn-matricula:hover { 
-            background: #1a5a9f; 
-            transform: translateY(-2px); 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+
+        .leader-card {
+            background: white;
+            border: 2px solid #ffb700;
+            padding: 30px;
+            border-radius: 25px;
+            position: relative;
+            z-index: 1;
         }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        h2 { color: #2c5aa0; margin: 2rem 0; }
-        h3 { color: #2c5aa0; margin: 1rem 0; }
-        .secao { background: white; padding: 2rem; margin: 1rem 0; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        
-        /* Responsivo */
-        @media (max-width: 968px) {
-            header {
-                flex-direction: column;
-                padding: 1rem;
-                gap: 1rem;
-            }
-            nav {
-                justify-content: center;
-            }
+
+        .leader-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #ffb700;
+            border-radius: 25px;
+            z-index: -1;
+            transform: scale(0.95);
+            transition: 0.3s;
+        }
+
+        .leader-card:hover::after { transform: scale(1.05) rotate(3deg); }
+
+        .leader-card h4 { color: #0a3a70; font-size: 1.3rem; margin-bottom: 5px; }
+        .leader-card p { color: #242424; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .jornada { padding: 40px 20px; }
+            .badges-info { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Header com menu -->
+
     <script src="menu.js"></script>
-    
+
+    <section class="hero">
+        <div class="container">
+            <h1>Criatividade que<br>ilumina caminhos.</h1>
+            <p>O Projeto <b>Arte nas Escolas</b> une educação e alma artística para transformar o aprendizado em uma experiência vibrante.</p>
+        </div>
+    </section>
+
     <div class="container">
-        <h2>👥 Quem Somos</h2>
         
-        <div class="secao">
-            <h3>🎯 Nossa Missão</h3>
-            <p>Proporcionar acesso à educação musical e artística de qualidade, desenvolvendo talentos e contribuindo para o crescimento cultural e social da comunidade.</p>
+        <div class="grid-info">
+            <div class="card-viva azul">
+                <i class="fa-solid fa-rocket"></i>
+                <h3>Nossa Missão</h3>
+                <p>Levar a magia das artes para dentro das escolas, desenvolvendo habilidades que vão muito além da técnica: foco, empatia e coragem.</p>
+            </div>
+            <div class="card-viva amarelo">
+                <i class="fa-solid fa-lightbulb"></i>
+                <h3>Nossa Visão</h3>
+                <p>Ser o farol da educação cultural no Brasil, inspirando uma geração de mentes criativas e preparadas para os desafios do futuro.</p>
+            </div>
+            <div class="card-viva rosa">
+                <i class="fa-solid fa-heart"></i>
+                <h3>Nossos Valores</h3>
+                <p>Amamos o que fazemos. Nossa base é a alegria, o respeito à diversidade e a busca incansável pela excelência artística.</p>
+            </div>
         </div>
-        
-        <div class="secao">
-            <h3>👁️ Nossa Visão</h3>
-            <p>Ser uma instituição referência em educação musical e artes, reconhecida pela excelência no ensino, inovação e compromisso com o desenvolvimento integral dos alunos.</p>
-        </div>
-        
-        <div class="secao">
-            <h3>💎 Nossos Valores</h3>
-            <ul style="margin-left: 2rem; line-height: 2;">
-                <li>Excelência - Comprometimento com a qualidade</li>
-                <li>Inclusão - Acesso para todos</li>
-                <li>Inovação - Busca por novas metodologias</li>
-                <li>Respeito - Valorização da diversidade</li>
-                <li>Transparência - Integridade em nossas ações</li>
-            </ul>
-        </div>
-        
-        <div class="secao">
-            <h3>👨‍💼 Liderança</h3>
-            <p><strong>Diretor Geral:</strong> Anderson Silva</p>
-            <p><strong>Coordenador Pedagógico:</strong> Maria Santos</p>
-            <p><strong>Coordenador Administrativo:</strong> João Pereira</p>
-        </div>
+
+        <section class="jornada">
+            <div class="jornada-content">
+                <h2>Uma década de impacto</h2>
+                <p>Desde nossa fundação, entendemos que a arte é a ferramenta mais poderosa de inclusão. O ANE não é apenas uma aula extra, é um ecossistema completo.</p>
+                <div class="badges-info">
+                    <div class="badge-item">
+                        <strong>Metodologia Ativa</strong>
+                        <p>O aluno é o protagonista da sua própria criação.</p>
+                    </div>
+                    <div class="badge-item">
+                        <strong>Impacto Social</strong>
+                        <p>Mais de 15 mil vidas transformadas pela música.</p>
+                    </div>
+                    <div class="badge-item">
+                        <strong>Inovação Digital</strong>
+                        <p>Artes clássicas integradas às tecnologias modernas.</p>
+                    </div>
+                    <div class="badge-item">
+                        <strong>Corpo Docente</strong>
+                        <p>Mestres e artistas atuantes no mercado nacional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lideranca-section">
+            <h2>Nossa Liderança</h2>
+            <div class="team-grid">
+                <div class="leader-card">
+                    <h4>Julian Tainã</h4>
+                    <p>Direção Geral</p>
+                </div>
+                <div class="leader-card">
+                    <h4>Tayná Borges</h4>
+                    <p>Pedagógico</p>
+                </div>
+                <div class="leader-card">
+                    <h4>Joice</h4>
+                    <p>Administrativo</p>
+                </div>
+                <div class="leader-card">
+                    <h4>Talita</h4>
+                    <p>Relacionamento</p>
+                </div>
+            </div>
+        </section>
+
     </div>
+
     <script src="footer.js"></script>
 </body>
 </html>

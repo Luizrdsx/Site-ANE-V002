@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
 <head>
+    <link rel="stylesheet" href="footer.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matricule-se - ANE 2026</title>
@@ -15,8 +16,9 @@
         body {
             font-family: 'Tahoma', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
-            /* Fundo da página pintado com gradiente para destacar o Aero */
-            background: linear-gradient(135deg, #0083c3 0%, #0a3a70 100%);
+            background-image: linear-gradient(0deg, #002e46cc, #002e46cc), url(./img/bg-matricula.avif);
+            background-size: cover;
+            background-position: center;
             background-attachment: fixed;
             min-height: 100vh;
         }
@@ -25,7 +27,6 @@
             max-width: 800px;
             margin: 5rem auto;
             padding: 2rem;
-            /* Efeito Aero Glass (Transparência com Desfoque) */
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -151,16 +152,6 @@
             display: none;
         }
 
-        footer {
-            background: rgba(26, 58, 82, 0.9);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-            backdrop-filter: blur(5px);
-        }
-
-        /* POPUP MODAL */
         .popup-overlay {
             position: fixed;
             top: 0;
@@ -394,8 +385,8 @@
                 <label>Cursos em Grupo (Selecione quantos quiser) *</label>
                 <div class="checkbox-group" id="cursosGroup">
                     <div class="checkbox-item" data-sede="" style="display: none;">
-                        <input type="checkbox" id="curso-piano" name="cursos" value="Piano">
-                        <label for="curso-piano">🎹 Piano</label>
+                        <input type="checkbox" id="curso-piano-grp" name="cursos" value="Piano">
+                        <label for="curso-piano-grp">🎹 Piano</label>
                     </div>
                     <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC,Chapecó/SC,Irecê/BA" style="display: none;">
                         <input type="checkbox" id="curso-teatro" name="cursos" value="Teatro">
@@ -409,7 +400,7 @@
                         <input type="checkbox" id="curso-desenho" name="cursos" value="Desenho">
                         <label for="curso-desenho">🎨 Desenho</label>
                     </div>
-                    <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC" style="display: none;">
+                    <div class="checkbox-item" data-sede="" style="display: none;">
                         <input type="checkbox" id="curso-teoria" name="cursos" value="Teoria Musical">
                         <label for="curso-teoria">🎵 Teoria Musical</label>
                     </div>
@@ -425,13 +416,18 @@
             </div>
 
             <div class="form-group">
-                <label for="cursoAdicional">Curso Individual (Violão ou Piano) *</label>
-                <select id="cursoAdicional" name="cursoAdicional" required>
-                    <option value="">Selecione</option>
-                    <option value="Violão">Violão</option>
-                    <option value="Piano">Piano</option>
-                    <option value="Nenhum">Nenhum</option>
-                </select>
+                <label>Curso Individual (Selecione apenas um) *</label>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="radio" name="cursoAdicional" value="Violão" required> 🎸 Violão
+                    </label>
+                    <label>
+                        <input type="radio" name="cursoAdicional" value="Piano"> 🎹 Piano
+                    </label>
+                    <label>
+                        <input type="radio" name="cursoAdicional" value="Nenhum"> ❌ Nenhum
+                    </label>
+                </div>
             </div>
 
             <div class="form-group">
@@ -483,11 +479,6 @@
             <button type="submit" id="btnEnviar">Enviar Inscrição</button>
         </form>
     </div>
-
-    <footer>
-        <p>&copy; 2026 ANE 2026 - Todos os direitos reservados</p>
-        <p>Contacte-nos: contato@ane2026.com.br | (47) 9999-9999</p>
-    </footer>
 
     <script>
         window.onload = function() {
@@ -573,6 +564,7 @@
             e.preventDefault();
             const btn = document.getElementById('btnEnviar');
             const cursosSelecionados = document.querySelectorAll('input[name="cursos"]:checked');
+            const cursoIndividual = document.querySelector('input[name="cursoAdicional"]:checked');
             const errorMsg = document.getElementById('errorMessage');
             errorMsg.style.display = 'none';
 
@@ -593,7 +585,7 @@
                 turno: document.getElementById('turno').value,
                 sede: document.getElementById('sede').value,
                 cursos: Array.from(cursosSelecionados).map(c => c.value).join(', '),
-                cursoAdicional: document.getElementById('cursoAdicional').value,
+                cursoAdicional: cursoIndividual ? cursoIndividual.value : 'Nenhum',
                 contatoAluno: document.getElementById('contatoAluno').value,
                 nomeResp: document.getElementById('nomeResp').value,
                 contatoResp: document.getElementById('contatoResp').value,
@@ -628,6 +620,7 @@
             }
         });
     </script>
+    <script src="footer.js"></script>
 </body>
 
 </html>

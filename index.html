@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
 <head>
+    <link rel="stylesheet" href="footer.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANE 2026 - Academia de Música</title>
@@ -308,113 +309,6 @@
 
         .card-link:hover {
             gap: 8px;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #1a3a52;
-            color: #ffffff;
-            padding: 3rem 2rem 1.5rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto 1.5rem;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .footer-col h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            color: #ffb700;
-        }
-
-        .footer-col p,
-        .footer-col li,
-        .footer-col a {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 0.95rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin: 0.4rem 0;
-        }
-
-        .footer-links a {
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .footer-links a:hover {
-            color: #ffffff;
-            margin-left: 4px;
-        }
-
-        .footer-brand {
-            display: flex;
-            gap: 0.75rem;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-brand img {
-            width: 120px;
-            height: 100;
-            object-fit: contain;
-        }
-
-        .socials {
-            display: flex;
-            gap: 0.6rem;
-            margin-top: 0.75rem;
-        }
-
-        .socials a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
-            color: #fff;
-            text-decoration: none;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-
-        .socials a:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.18);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 1.2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            text-align: center;
-            color: rgba(255, 255, 255, 0.75);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 900px) {
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
         }
 
         /* COURSES SECTION BG */
@@ -1072,54 +966,7 @@
     </section>
     <!--FIM INSTAGRAM CTA-->
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <div class="footer-brand">
-                    <img src="./img/logo-ane.png" alt="ANE Logo">
-                    <div>
-                        <!--<h4>Arte nas Escolas</h4>-->
-                    </div>
-                </div>
-                <p>Projeto sociocultural que democratiza o acesso à música e às artes, transformando vidas e
-                    comunidades.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Navegação</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html">Início</a></li>
-                    <!--<li><a href="nucleos.html">Núcleos</a></li>-->
-                    <li><a href="quem-somos.html">Quem Somos</a></li>
-                    <!--<li><a href="galeria.html">Galeria</a></li>-->
-                    <!--<li><a href="contribua.html">Contribua</a></li>-->
-                    <li><a href="contato.html">Contato</a></li>
-                    <!--<li><a href="acesso-interno.html">Reservas</a></li>-->
-                    <li><a href="matricule-se.html">Matricule-se</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contato</h4>
-                <ul class="footer-links">
-                    <li>Email: contato@contato.com.br</li>
-                    <li>Telefone: (48) 99146-8442</li>
-                    <li>Florianópolis/SC</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Redes Sociais</h4>
-                <p>Siga nossas redes socais:</p>
-                <a href="https://instagram.com/artenasescolas" target="_blank"
-                    style="color:#fff; text-decoration:none;">@artenasescolas</a>
-                <div class="socials">
-                    <a href="#" aria-label="Instagram">IG</a>
-                    <a href="#" aria-label="Facebook">FB</a>
-                    <a href="#" aria-label="YouTube">YT</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">&copy; Arte Nas Escolas 2026 - Todos os direitos reservados</div>
-    </footer>
+    <script src="footer.js"></script>
 </body>
 
 </html>

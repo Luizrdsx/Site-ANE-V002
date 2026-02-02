@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANE 2026 - Academia de Música</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tahoma', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            background: #0a3a70;
+            /* Fallback color */
+            color: #ffb700;
+            /* Texto animado início */
+            padding: 15rem 2rem;
+            /* Aumentei o padding para destacar mais as imagens */
+            text-align: center;
+            overflow: hidden;
+            /* Importante para o slider não vazar */
+        }
+
+        /* SLIDER CSS */
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: slideShow 15s infinite ease-in-out;
+        }
+
+        /* Delays para cada slide */
+        .hero-slide:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .hero-slide:nth-child(2) {
+            animation-delay: 5s;
+        }
+
+        .hero-slide:nth-child(3) {
+            animation-delay: 10s;
+        }
+
+        @keyframes slideShow {
+            0% {
+                opacity: 0;
+                transform: scale(1);
+            }
+
+            5% {
+                opacity: 1;
+            }
+
+            33% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+
+            /* Zoom suave */
+            38% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            /* Escurece as imagens para ler o texto */
+            z-index: 1;
+        }
+
+        /* Classe que garante que o container do texto seja branco por padrão */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #ffffff;
+            /* Define a cor base como branca */
+        }
+
+        /* Mantém o título principal (efeito digitando) em amarelo */
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #ffb700;
+            /* Amarelo da ANE */
+        }
+
+        /* Define explicitamente o branco para o subtítulo */
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+            color: #ffffff;
+            /* Branco */
+        }
+
+        /* Define o branco para a frase de democratização */
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 1;
+            color: #ffffff;
+        }
+
+        .typing-container {
+            display: inline-block;
+            border-right: 3px solid white;
+            padding-right: 5px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                border-color: white;
+            }
+
+            51%,
+            100% {
+                border-color: transparent;
+            }
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* BOTÕES HERO */
+        .btn-hero {
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            /* Borda arredondada leve */
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        /*COR BOTÃO MATRICULE-SE INÍCIO*/
+        .btn-hero-primary {
+            background-color: #f24c7c;
+            color: white;
+            border-color: #f24c7c;
+        }
+
+        .btn-hero-primary:hover {
+            background-color: #0083c3;
+            border-color: #0083c3;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-hero-secondary {
+            background-color: transparent;
+            color: white;
+            border-color: #ffb700;
+        }
+
+        .btn-hero-secondary:hover {
+            background-color: #ffb700;
+            color: #0a3a70;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* CARDS GRID SYSTEM (3 Colunas Fixas para Alinhamento Perfeito) */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* 3 colunas exatas */
+            gap: 1.5rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            /* Largura controlada */
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #0a3a70, #1a5a9f);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            background: #f0f7ff;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #0a3a70;
+            transition: transform 0.3s;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: #0a3a70;
+            color: white;
+        }
+
+        .card h3 {
+            color: #0a3a70;
+            margin-bottom: 0.4rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+            line-height: 1.3;
+        }
+
+        .card-link {
+            color: #0a3a70;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            transition: gap 0.2s;
+        }
+
+        .card-link:hover {
+            gap: 8px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1a3a52;
+            color: #ffffff;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: #ffb700;
+        }
+
+        .footer-col p,
+        .footer-col li,
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin: 0.4rem 0;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+            margin-left: 4px;
+        }
+
+        .footer-brand {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand img {
+            width: 120px;
+            height: 100;
+            object-fit: contain;
+        }
+
+        .socials {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 0.75rem;
+        }
+
+        .socials a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .socials a:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* COURSES SECTION BG */
+        .courses-section {
+            background-color: #0083c3;
+            /* Aero Blue */
+            padding: 4rem 0;
+            width: 100%;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 colunas em tablet */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cards {
+                grid-template-columns: 1fr;
+                /* 1 coluna em mobile */
+            }
+
+            nav {
+                width: 100%;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* SPONSORS SECTION CSS */
+        .sponsors-section {
+            padding: 4rem 0;
+            background-color: #f9f9f9;
+            text-align: center;
+            overflow: hidden;
+            /* Esconde a barra de rolagem horizontal */
+        }
+
+        .sponsors-title {
+            font-size: 2.5rem;
+            color: #0a3a70;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .sponsors-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            padding: 1rem 0;
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            gap: 2rem;
+            /* Espaço entre os boxes */
+            animation: scroll 20s linear infinite;
+        }
+
+        .sponsor-box {
+            width: 200px;
+            height: 120px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #ccc;
+            /* Cor do placeholder */
+            font-size: 1.2rem;
+            border: 1px solid #eee;
+            flex-shrink: 0;
+            /* Impede que os boxes encolham */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .sponsor-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            color: #0a3a70;
+            border-color: #0a3a70;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* PARTNERS SECTION CSS */
+        .partners-section {
+            padding: 4rem 2rem;
+            background-color: #f24c7c;
+            /* Fundo Rosa Vibrante */
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .partners-title {
+            font-size: 2.5rem;
+            color: #ffffff;
+            /* Texto Branco */
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .partners-subtitle {
+            font-size: 1.2rem;
+            color: #ffffff;
+            /* Texto Branco */
+            font-weight: 400;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .partner-box {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+            padding: 1rem;
+        }
+
+        .partner-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .partner-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        @media (max-width: 900px) {
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* WHATSAPP SECTION */
+        .whatsapp-section {
+            padding: 4rem 1rem;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+                url('https://i.pinimg.com/736x/e8/d9/4e/e8d94e1e8b6b530ad315e9385290141b.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .whatsapp-section h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .whatsapp-section h2 {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: #fff;
+            padding: 0.9rem 2rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(18, 140, 126, 0.35);
+        }
+
+        /* NEWS SECTION */
+        .news-section {
+            padding: 4rem 0;
+            background: #ffb700;
+        }
+
+        .news-title {
+            text-align: center;
+            color: #0a3a70;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .news-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .news-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        .news-thumb {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .news-content {
+            padding: 1rem;
+        }
+
+        .news-meta {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 0.4rem;
+        }
+
+        .news-content h3 {
+            font-size: 1.05rem;
+            color: #0a3a70;
+            margin-bottom: 0.4rem;
+        }
+
+        .news-content p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        @media (max-width: 900px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+        }
+
+        /* Spacing between Novidades and footer */
+        .news-section {
+            padding-bottom: 2.5rem;
+        }
+
+        .news-section+footer {
+            margin-top: 0;
+        }
+
+        /* Remove gap between Instagram and footer */
+        .instagram-section+footer {
+            margin-top: 0;
+        }
+
+        /* INSTAGRAM SECTION */
+        .instagram-section {
+            background: #00ace8;
+            padding: 3rem 0;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .instagram-section h1 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .instagram-section h2 {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        /* Instagram feed container */
+        .instagram-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: #0083c3;
+        }
+
+        .instagram-section h1 {
+            color: #ffffff;
+            /* O azul que você já usa */
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Cor do @ Instagram Feed */
+        .instagram-section h2 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .instagram-section h2:hover {
+            transform: scale(1.05);
+        }
+
+        .instagram-feed-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /*fim INSTAGRAM SECTION CSS */
+    </style>
+</head>
+
+<body>
+    <!--Header com Menu-->
+    <script src="menu.js"></script>
+    <!-- HERO -->
+    <section class="hero">
+        <!-- SLIDER BACKGROUND -->
+        <div class="hero-slider">
+            <!-- Slide 1: Piano -->
+            <div class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=2070&auto=format&fit=crop');">
+            </div>
+            <!-- Slide 2: Violino -->
+            <div class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1460036521480-ff49c08c2781?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+            </div>
+            <!-- Slide 3: Teatro -->
+            <div class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1503095396549-807759245b35?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+            </div>
+        </div>
+
+        <!-- DARK OVERLAY -->
+        <div class="hero-overlay"></div>
+
+        <!-- CONTENT -->
+        <div class="hero-content">
+            <h1><span id="typing" class="typing-container"></span></h1>
+            <h2>PROJETO SOCIOCULTURAL</h2>
+            <p>A DEMOCRATIZAÇÃO DA ARTE</p>
+
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="matricule-se.html" class="btn-hero btn-hero-primary">Matricule-se</a>
+                <a href="quem-somos.html" class="btn-hero btn-hero-secondary">Conheça o Projeto</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Efeito de digitar e apagar
+        const texto = "Arte nas Escolas";
+        const typingElement = document.getElementById('typing');
+        let index = 0;
+        let isDeleting = false;
+        let speed = 150;
+
+        function type() {
+            if (!isDeleting) {
+                // Digitando
+                typingElement.textContent = texto.substring(0, index + 1);
+                index++;
+
+                if (index === texto.length) {
+                    // Pausa antes de apagar
+                    isDeleting = true;
+                    speed = 2000;
+                } else {
+                    speed = 150;
+                }
+            } else {
+                // Apagando
+                typingElement.textContent = texto.substring(0, index - 1);
+                index--;
+
+                if (index === 0) {
+                    // Pausa antes de digitar novamente
+                    isDeleting = false;
+                    speed = 500;
+                } else {
+                    speed = 80;
+                }
+            }
+
+            setTimeout(type, speed);
+        }
+
+        // Iniciar animação
+        type();
+    </script>
+
+    <!-- CONTEÚDO -->
+    <section class="courses-section">
+        <div class="container">
+            <h2
+                style="text-align: center; color: white; margin-bottom: 2rem; font-size: 2rem; position: relative; display: inline-block; left: 50%; transform: translateX(-50%);">
+                Nossos Cursos
+                <span
+                    style="display: block; width: 40px; height: 3px; background: white; margin: 8px auto 0; border-radius: 2px;"></span>
+            </h2>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">🎹</div>
+                    <h3>Piano</h3>
+                    <p>Desenvolva sua musicalidade e coordenação aprendendo a tocar piano.</p>
+                    <a href="matricule-se.html" class="card-link">Saiba mais <span>→</span></a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎸</div>
+                    <h3>Violão</h3>
+                    <p>Domine o violão desde os primeiros acordes até técnicas avançadas.</p>
+                    <a href="matricule-se.html" class="card-link">Saiba mais <span>→</span></a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎭</div>
+                    <h3>Teatro</h3>
+                    <p>Explore sua expressividade corporal e vocal através de técnicas teatrais.</p>
+                    <a href="matricule-se.html" class="card-link">Saiba mais <span>→</span></a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎤</div>
+                    <h3>Coral</h3>
+                    <p>Experimente a alegria de cantar em grupo, desenvolvendo afinação.</p>
+                    <a href="matricule-se.html" class="card-link">Saiba mais <span>→</span></a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎵</div>
+                    <h3>Teoria</h3>
+                    <p>Compreenda a linguagem da música e leitura de partituras.</p>
+                    <a href="matricule-se.html" class="card-link">Saiba mais <span>→</span></a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Desenho</h3>
+                    <p>Solte sua criatividade e aprenda técnicas de desenho artístico.</p>
+                    <a href="matricule-se.html" class="card-link">Saiba mais <span>→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PATROCINADORES -->
+    <section class="sponsors-section">
+        <h1 class="sponsors-title">Nossos Patrocinadores</h1>
+        <h2 class="sponsors-subtitle">Empresas que acreditam no poder transformador da arte.</h2>
+
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <!-- 6 Patrocinadores Originais -->
+                <div class="sponsor-box">
+                    <img src="https://placehold.co/150x60/png?text=LOGO+1" alt="Patrocinador 1"
+                        style="max-width: 90%; height: auto;">
+                </div>
+                <div class="sponsor-box">
+                    <img src="https://placehold.co/150x60/png?text=LOGO+2" alt="Patrocinador 2"
+                        style="max-width: 90%; height: auto;">
+                </div>
+                <div class="sponsor-box">
+                    <img src="https://placehold.co/150x60/png?text=LOGO+3" alt="Patrocinador 3"
+                        style="max-width: 90%; height: auto;">
+                </div>
+                <div class="sponsor-box">
+                    <img src="https://placehold.co/150x60/png?text=LOGO+4" alt="Patrocinador 4"
+                        style="max-width: 90%; height: auto;">
+                </div>
+                <div class="sponsor-box">
+                    <img src="https://placehold.co/150x60/png?text=LOGO+5" alt="Patrocinador 5"
+                        style="max-width: 90%; height: auto;">
+                </div>
+                <div class="sponsor-box">
+                    <img src="https://placehold.co/150x60/png?text=LOGO+6" alt="Patrocinador 6"
+                        style="max-width: 90%; height: auto;">
+                </div>
+
+                <!-- Duplicata para Loop Infinito (Seamless) -->
+                <div class="sponsor-box">
+                    <img src="https://placehold.co/150x60/png?text=LOGO+1" alt="Patrocinador 1"
+                        style="max-width: 90%; height: auto;">
+                </div>
+                <div class="sponsor-box">
+                    <img src="https://placehold.co/150x60/png?text=LOGO+2" alt="Patrocinador 2"
+                        style="max-width: 90%; height: auto;">
+                </div>
+                <div class="sponsor-box">
+                    <img src="https://placehold.co/150x60/png?text=LOGO+3" alt="Patrocinador 3"
+                        style="max-width: 90%; height: auto;">
+                </div>
+                <div class="sponsor-box">
+                    <img src="https://placehold.co/150x60/png?text=LOGO+4" alt="Patrocinador 4"
+                        style="max-width: 90%; height: auto;">
+                </div>
+                <div class="sponsor-box">
+                    <img src="https://placehold.co/150x60/png?text=LOGO+5" alt="Patrocinador 5"
+                        style="max-width: 90%; height: auto;">
+                </div>
+                <div class="sponsor-box">
+                    <img src="https://placehold.co/150x60/png?text=LOGO+6" alt="Patrocinador 6"
+                        style="max-width: 90%; height: auto;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARCEIROS E REALIZAÇÃO -->
+    <section class="partners-section">
+        <h1 class="partners-title">Parceiros e Realização</h1>
+        <h2 class="partners-subtitle">Instituições que tornam este projeto possível.</h2>
+
+        <div class="partners-grid">
+            <div class="partner-box">
+                <img src="https://placehold.co/300x200/png?text=LOGO+1" alt="Parceiro 1">
+            </div>
+            <div class="partner-box">
+                <img src="https://placehold.co/300x200/png?text=LOGO+2" alt="Parceiro 2">
+            </div>
+            <div class="partner-box">
+                <img src="https://placehold.co/300x200/png?text=LOGO+3" alt="Parceiro 3">
+            </div>
+            <div class="partner-box">
+                <img src="https://placehold.co/300x200/png?text=LOGO+4" alt="Parceiro 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- WHATSAPP CTA -->
+    <section class="whatsapp-section">
+        <div class="container">
+            <h1>Fale com Nossa Equipe</h1>
+            <h2>Tire suas dúvidas e saiba mais sobre o projeto</h2>
+            <a class="whatsapp-btn" href="https://wa.me/554891468442" target="_blank" rel="noopener noreferrer">Chamar
+                no WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- NOVIDADES -->
+    <section class="news-section">
+        <h2 class="news-title">Novidades</h2>
+        <p class="news-subtitle">Últimas notícias, eventos e comunicados da ANE</p>
+        <div class="news-grid">
+            <article class="news-card">
+                <img class="news-thumb"
+                    src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=1600&auto=format&fit=crop"
+                    alt="Recital de Piano">
+                <div class="news-content">
+                    <div class="news-meta">10 Jan 2026 • Eventos</div>
+                    <h3>Recital de Piano dos Alunos</h3>
+                    <p>Alunos das turmas de Piano se apresentam no auditório municipal neste sábado.</p>
+                </div>
+            </article>
+            <article class="news-card">
+                <img class="news-thumb"
+                    src="https://images.unsplash.com/photo-1454922915609-78549ad709bb?q=80&w=1600&auto=format&fit=crop"
+                    alt="Oficina de Teatro">
+                <div class="news-content">
+                    <div class="news-meta">05 Jan 2026 • Oficina</div>
+                    <h3>Oficina de Teatro Aberta</h3>
+                    <p>Participe da oficina introdutória de teatro com exercícios de expressão corporal.</p>
+                </div>
+            </article>
+            <article class="news-card">
+                <img class="news-thumb"
+                    src="https://images.unsplash.com/photo-1533157950006-c38844053d98?q=80&w=1600&auto=format&fit=crop"
+                    alt="Coral Comunitário">
+                <div class="news-content">
+                    <div class="news-meta">28 Dez 2025 • Comunidade</div>
+                    <h3>Coral Comunitário de Verão</h3>
+                    <p>Encontros semanais com repertório popular. Inscrições abertas e gratuitas.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- INSTAGRAM CTA -->
+    <section class="instagram-section">
+        <h1>Siga nosso Instagram</h1>
+        <p>Fique por dentro das novidades e acompanhe nosso dia a dia!</p><br><br>
+        <a href="https://www.instagram.com/artenasescolas/" target="_blank">
+        </a>
+
+        <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+        <script src="https://elfsightcdn.com/platform.js" async></script>
+        <div class="elfsight-app-63907683-cc9a-4a34-90ba-ffcfed56a537" data-elfsight-app-lazy></div>
+    </section>
+    <!--FIM INSTAGRAM CTA-->
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <img src="./img/logo-ane.png" alt="ANE Logo">
+                    <div>
+                        <!--<h4>Arte nas Escolas</h4>-->
+                    </div>
+                </div>
+                <p>Projeto sociocultural que democratiza o acesso à música e às artes, transformando vidas e
+                    comunidades.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Início</a></li>
+                    <!--<li><a href="nucleos.html">Núcleos</a></li>-->
+                    <li><a href="quem-somos.html">Quem Somos</a></li>
+                    <!--<li><a href="galeria.html">Galeria</a></li>-->
+                    <!--<li><a href="contribua.html">Contribua</a></li>-->
+                    <li><a href="contato.html">Contato</a></li>
+                    <!--<li><a href="acesso-interno.html">Reservas</a></li>-->
+                    <li><a href="matricule-se.html">Matricule-se</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul class="footer-links">
+                    <li>Email: contato@contato.com.br</li>
+                    <li>Telefone: (48) 99146-8442</li>
+                    <li>Florianópolis/SC</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Redes Sociais</h4>
+                <p>Siga nossas redes socais:</p>
+                <a href="https://instagram.com/artenasescolas" target="_blank"
+                    style="color:#fff; text-decoration:none;">@artenasescolas</a>
+                <div class="socials">
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="YouTube">YT</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; Arte Nas Escolas 2026 - Todos os direitos reservados</div>
+    </footer>
+</body>
+
+</html>

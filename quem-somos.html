@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos - ANE 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+       body {
+            font-family: 'Tahoma', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        /* HEADER */
+        header {
+            background: #ffb700;
+            color: #0a3a70;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            position: relative;
+        }
+
+        /* ONDAS ANIMADAS */
+        .waves {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            margin-top: -1px;
+            transform: scaleY(-1);
+            z-index: 101;
+            pointer-events: none;
+        }
+
+        .parallax>use {
+            animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+        }
+
+        .parallax>use:nth-child(1) {
+            animation-delay: -2s;
+            animation-duration: 7s;
+            fill: #0088ffcc;
+        }
+
+        .parallax>use:nth-child(2) {
+            animation-delay: -3s;
+            animation-duration: 10s;
+            fill: #ff005599;
+        }
+
+        .parallax>use:nth-child(3) {
+            animation-delay: -4s;
+            animation-duration: 13s;
+            fill: #ffb700;
+        }
+
+        @keyframes move-forever {
+            0% { transform: translate3d(-90px,0,0); }
+            100% { transform: translate3d(85px,0,0); }
+        }
+
+        .brand { 
+            display: flex; 
+            align-items: center;
+        }
+        
+        .logo { 
+            width: 150px; 
+            height: 100px; 
+            object-fit: contain;
+        }
+        
+        nav {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        nav a { 
+            color: #0a3a70; 
+            text-decoration: none; 
+            padding: 0.5rem 0.8rem; 
+            position: relative; 
+            transition: color 0.3s; 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+        }
+        
+        nav a:not(.btn-matricula)::after {
+            content: ''; 
+            position: absolute; 
+            width: 0; 
+            height: 2px; 
+            bottom: 0; 
+            left: 0;
+            background-color: #000; 
+            transition: width 0.3s ease;
+        }
+        
+        nav a:not(.btn-matricula):hover::after { width: 100%; }
+        
+        nav a:not(.btn-matricula):nth-child(1):hover::after { background-color: #d90429; }
+        nav a:not(.btn-matricula):nth-child(2):hover::after { background-color: #3a86ff; }
+        nav a:not(.btn-matricula):nth-child(3):hover::after { background-color: #8338ec; }
+        nav a:not(.btn-matricula):nth-child(4):hover::after { background-color: #ff006e; }
+        nav a:not(.btn-matricula):nth-child(5):hover::after { background-color: #fb5607; }
+        nav a:not(.btn-matricula):nth-child(6):hover::after { background-color: #007f5f; }
+        nav a:not(.btn-matricula):nth-child(7):hover::after { background-color: #000000; }
+        
+        nav a:not(.btn-matricula):hover { color: #000; background: transparent; }
+        
+        .btn-matricula { 
+            background: #0a3a70; 
+            color: white !important; 
+            padding: 0.5rem 1.2rem; 
+            border-radius: 4px; 
+            font-weight: bold; 
+            transition: transform 0.2s, background 0.3s; 
+        }
+        
+        .btn-matricula:hover { 
+            background: #1a5a9f; 
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        h2 { color: #2c5aa0; margin: 2rem 0; }
+        h3 { color: #2c5aa0; margin: 1rem 0; }
+        .secao { background: white; padding: 2rem; margin: 1rem 0; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        footer { background: #1a3a52; color: white; padding: 2rem; text-align: center; }
+        
+        /* Responsivo */
+        @media (max-width: 968px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            nav {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header com menu -->
+    <script src="menu.js"></script>
+    
+    <div class="container">
+        <h2>👥 Quem Somos</h2>
+        
+        <div class="secao">
+            <h3>🎯 Nossa Missão</h3>
+            <p>Proporcionar acesso à educação musical e artística de qualidade, desenvolvendo talentos e contribuindo para o crescimento cultural e social da comunidade.</p>
+        </div>
+        
+        <div class="secao">
+            <h3>👁️ Nossa Visão</h3>
+            <p>Ser uma instituição referência em educação musical e artes, reconhecida pela excelência no ensino, inovação e compromisso com o desenvolvimento integral dos alunos.</p>
+        </div>
+        
+        <div class="secao">
+            <h3>💎 Nossos Valores</h3>
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li>Excelência - Comprometimento com a qualidade</li>
+                <li>Inclusão - Acesso para todos</li>
+                <li>Inovação - Busca por novas metodologias</li>
+                <li>Respeito - Valorização da diversidade</li>
+                <li>Transparência - Integridade em nossas ações</li>
+            </ul>
+        </div>
+        
+        <div class="secao">
+            <h3>👨‍💼 Liderança</h3>
+            <p><strong>Diretor Geral:</strong> Anderson Silva</p>
+            <p><strong>Coordenador Pedagógico:</strong> Maria Santos</p>
+            <p><strong>Coordenador Administrativo:</strong> João Pereira</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 ANE 2026 - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>

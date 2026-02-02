@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribua - ANE 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Tahoma', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        /* Estilo das cartas de contribuição */
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        h2 { color: #2c5aa0; margin: 2rem 0; text-align: center; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .card { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 2rem; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .card h3 { color: #2c5aa0; margin-bottom: 1rem; }
+        .card p { margin-bottom: 1rem; }
+        .valor { font-size: 1.5rem; font-weight: bold; color: #4caf50; margin: 1rem 0; }
+        button { background: #4caf50; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+        button:hover { background: #45a049; }
+        footer { background: #1a3a52; color: white; padding: 2rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <!-- Header com menu -->
+    <script src="menu.js"></script>
+    
+    <div class="container" style="padding-top: 120px;"> <!-- Espaço entre o menu e a div -->
+        <h2>💝 Contribua com o Projeto</h2>
+        <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
+            Sua contribuição ajuda a manter nossos programas educacionais e oferecer bolsas para alunos que precisam.
+        </p>
+        
+        <div class="cards">
+            <div class="card">
+                <h3>🎁 Doação Única</h3>
+                <p>Contribua com o valor que desejar</p>
+                <div class="valor">R$ 50 a R$ 1.000+</div>
+                <button onclick="alert('Redirecionando para pagamento...')">Doar Agora</button>
+            </div>
+            
+            <div class="card">
+                <h3>🔁 Doação Mensal</h3>
+                <p>Apoie continuamente nossos programas</p>
+                <div class="valor">R$ 30/mês</div>
+                <button onclick="alert('Redirecionando para pagamento...')">Apoiar Mensalmente</button>
+            </div>
+            
+            <div class="card">
+                <h3>🎓 Bolsa Integral</h3>
+                <p>Patroci de uma bolsa de estudos completa</p>
+                <div class="valor">R$ 500/mês</div>
+                <button onclick="alert('Redirecionando para pagamento...')">Patrocinar Bolsa</button>
+            </div>
+            
+            <div class="card">
+                <h3>🛠️ Voluntariado</h3>
+                <p>Contribua com seu tempo e conhecimento</p>
+                <div class="valor">Sem custo</div>
+                <button onclick="alert('Entre em contato conosco!')">Saiba Mais</button>
+            </div>
+            
+            <div class="card">
+                <h3>🏢 Patrocínio Empresarial</h3>
+                <p>Associe sua marca ao nosso trabalho</p>
+                <div class="valor">Valores variáveis</div>
+                <button onclick="alert('Entre em contato conosco!')">Conversar</button>
+            </div>
+            
+            <div class="card">
+                <h3>📚 Doação Material</h3>
+                <p>Instrumentos, livros e outros materiais</p>
+                <div class="valor">Diversos</div>
+                <button onclick="alert('Entre em contato conosco!')">Informar</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 ANE 2026 - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>

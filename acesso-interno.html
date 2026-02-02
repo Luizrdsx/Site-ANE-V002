@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas - ANE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1B4D3E 0%, #2d7f70 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .login-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .acesso-titulo {
+            color: #666;
+            text-align: center;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .login-container h2 {
+            color: #1B4D3E;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input {
+            width: 100%;
+            padding: 0.85rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #1B4D3E;
+        }
+        
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: #1B4D3E;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #2d7f70;
+        }
+        
+        .error {
+            background: #f44336;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+            text-align: center;
+        }
+
+        .voltar {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #1B4D3E;
+            text-decoration: none;
+        }
+
+        .voltar:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div style="text-align: center; margin-bottom: 1rem;">
+            <img src="assets/logo.png" alt="ANE Logo" style="height: 60px;">
+        </div>
+        <p class="acesso-titulo">Acesso dos professores</p>
+        <h2>🔐 Reservas</h2>
+        
+        <div id="error" class="error">Email ou senha incorretos!</div>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="seu@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" required placeholder="Sua senha">
+            </div>
+            
+            <button type="submit">Entrar</button>
+        </form>
+        
+        <a href="index.html" class="voltar">← Voltar para o site</a>
+    </div>
+    
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Login específico
+            if (email === 'professor@ane.com' && password === 'ane2026') {
+                localStorage.setItem('logado', 'true');
+                localStorage.setItem('userEmail', email);
+                window.location.href = 'agendamento.html';
+            } else {
+                document.getElementById('error').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

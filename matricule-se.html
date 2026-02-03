@@ -123,7 +123,7 @@
             width: 100%;
             transition: background 0.3s;
             margin-top: 1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         button:hover {
@@ -205,8 +205,15 @@
         }
 
         @keyframes popupSpring {
-            0% { transform: scale(0.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .popup-icon-container {
@@ -247,8 +254,14 @@
             margin-top: 10px;
         }
 
-        .popup-message-scroll::-webkit-scrollbar { width: 6px; }
-        .popup-message-scroll::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+        .popup-message-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .popup-message-scroll::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
 
         .popup-buttons {
             display: flex;
@@ -283,9 +296,18 @@
         }
 
         @media (max-width: 768px) {
-            .container { margin: 1rem; padding: 1rem; }
-            .checkbox-group { grid-template-columns: 1fr; }
-            .popup-buttons { flex-direction: column; }
+            .container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .popup-buttons {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -294,16 +316,27 @@
     <div id="noticePopup" class="popup-overlay">
         <div class="popup-content popup-aero popup-notice">
             <div class="popup-icon-container icon-notice">
-                <img src="https://cdn-icons-png.flaticon.com/512/179/179386.png" alt="Aviso Importante" style="width: 100%; height: 100%; object-fit: contain;">
+                <img src="https://cdn-icons-png.flaticon.com/512/179/179386.png" alt="Aviso Importante"
+                    style="width: 100%; height: 100%; object-fit: contain;">
             </div>
             <h3 class="popup-title">Aviso Importante</h3>
             <div class="popup-message-scroll">
                 <p></p>
-                <p><strong>Esta ficha é uma pré-matrícula e não garante a vaga imediata nos cursos selecionados. A formalização da matrícula se dá via disponibilidade de vagas e a partir da assinatura do contrato, que será encaminhado aos pais pela equipe do projeto, e envio da foto para confecção da carteirinha própria do projeto para acesso a escola no contraturno.</strong></p><br>
-                <p> OBS 1: As vagas para as atividades do projeto são limitadas. Caso algum dos cursos de interesse não tenha disponibilidade no momento da pré-matrícula, o aluno será automaticamente inserido em uma lista de espera para aquele curso em específico.<br><br>
-                    É fundamental que seja inserido na ficha um número de contato válido. Para o caso de alunos em lista de espera, será através deste que o projeto ira informar eventuais vagas abertas.<br><br>
-                    OBS 2: Para as aulas de instrumentos musicais, onde o atendimento é individual ou em dupla, o aluno deverá escolher uma das opções disponíveis no momento da matrícula. Para os demais cursos, o aluno poderá selecionar todas as opções que forem de interesse.<br><br>
-                    OBS3: É fundamental que seja inserido na ficha um número de contato válido. Para o caso de alunos em lista de espera, será através do contato informado nesta ficha que o projeto irá informar eventuais vagas abertas.
+                <p><strong>Esta ficha é uma pré-matrícula e não garante a vaga imediata nos cursos selecionados. A
+                        formalização da matrícula se dá via disponibilidade de vagas e a partir da assinatura do
+                        contrato, que será encaminhado aos pais pela equipe do projeto, além do envio de foto para
+                        confecção da carteirinha própria do projeto.</strong></p><br>
+                <p> OBS 1: As vagas para as atividades do projeto são limitadas. Caso algum dos cursos de interesse não
+                    tenha disponibilidade no momento da pré-matrícula, o aluno será automaticamente inserido em uma
+                    lista de espera para aquele curso em específico.<br><br>
+
+                    OBS 2: Para as aulas de instrumentos musicais, onde o atendimento é individual ou em dupla, o aluno
+                    deverá escolher uma das opções disponíveis no momento da matrícula. Para os demais cursos, o aluno
+                    poderá selecionar todas as opções que forem de interesse.<br><br>
+
+                    OBS3: É fundamental que seja inserido na ficha um número de contato válido. Para o caso de alunos em
+                    lista de espera, será através do contato informado nesta ficha que o projeto irá informar eventuais
+                    vagas abertas.
                 </p>
             </div>
             <div class="popup-buttons">
@@ -389,15 +422,18 @@
                         <input type="checkbox" id="curso-piano-grp" name="cursos" value="Piano">
                         <label for="curso-piano-grp">🎹 Piano</label>
                     </div>
-                    <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC,Chapecó/SC,Irecê/BA" style="display: none;">
+                    <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC,Chapecó/SC,Irecê/BA"
+                        style="display: none;">
                         <input type="checkbox" id="curso-teatro" name="cursos" value="Teatro">
                         <label for="curso-teatro">🎭 Teatro</label>
                     </div>
-                    <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC,Chapecó/SC" style="display: none;">
+                    <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC,Chapecó/SC"
+                        style="display: none;">
                         <input type="checkbox" id="curso-coral" name="cursos" value="Coral">
                         <label for="curso-coral">🎤 Coral</label>
                     </div>
-                    <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC,Chapecó/SC" style="display: none;">
+                    <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC,Chapecó/SC"
+                        style="display: none;">
                         <input type="checkbox" id="curso-desenho" name="cursos" value="Desenho">
                         <label for="curso-desenho">🎨 Desenho</label>
                     </div>
@@ -482,7 +518,7 @@
     </div>
 
     <script>
-        window.onload = function() {
+        window.onload = function () {
             document.getElementById('noticePopup').classList.add('show');
             document.body.style.overflow = 'hidden';
         };
@@ -502,7 +538,7 @@
             document.body.style.overflow = 'auto';
         }
 
-        document.getElementById('successPopup').addEventListener('click', function(e) {
+        document.getElementById('successPopup').addEventListener('click', function (e) {
             if (e.target === this) fecharPopup();
         });
 
@@ -542,7 +578,7 @@
             finally { document.getElementById('loadingCep').style.display = 'none'; }
         }
 
-        document.getElementById('cep').addEventListener('input', function(e) {
+        document.getElementById('cep').addEventListener('input', function (e) {
             let valor = e.target.value.replace(/\D/g, '');
             if (valor.length > 5) valor = valor.slice(0, 5) + '-' + valor.slice(5, 8);
             e.target.value = valor;

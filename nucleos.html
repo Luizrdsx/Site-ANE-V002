@@ -1,216 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <link rel="stylesheet" href="footer.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Núcleos - ANE 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="footer.css">
+    
     <style>
         :root {
-            --bg-dark: #006185;
-            --glass: #006185;
-            --glass-border: #ffb700;
-            --accent-gold: #f24c7c;
-            --text-light: #e0e6ed;
+            --azul-viva: #0088ff;
+            --amarelo-viva: #ffc800;
+            --rosa-viva: #ff4d88;
+            --texto: #2d3436;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'tahoma', sans-serif;
+            background-color: #e1f1ff;
+            color: var(--texto);
+            line-height: 1.6;
         }
 
-body {
-    font-family: 'tahoma';
-    color: var(--text-light);
-    min-height: 100vh;
-    margin: 0;
-
-    /* Camada de cor transparente + Imagem do Unsplash */
-    background: linear-gradient(
-        rgba(0, 60, 82, 0.801), /* O seu #002837 com 85% de opacidade */
-        rgba(0, 60, 82, 0.801)
-    ), 
-    url('./img/bg-nucleos.jpg'); /* Imagem de exemplo (escritório/cultura) */
-
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* A imagem fica fixa ao rolar */
-}
-
-        header {
-            background: rgba(0, 40, 55, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 1.2rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .section-header {
+        /* HERO - AJUSTADO PARA IGUALAR AO QUEM SOMOS */
+        .hero {
+            /* padding-top: 140px para alinhar com a outra página */
+            padding: 140px 20px 100px; 
+            background: linear-gradient(rgba(0, 44, 80, 0.699), rgba(0, 44, 80, 0.699)), 
+                        url('https://steptodown.com/istock-downloader/images/steptodown.com342969.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             text-align: center;
-            margin-bottom: 5rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        /*Cor - Núcleos de Atuação*/
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.8rem;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: #ffb700;
-            margin-bottom: 0.5rem;
+        /* Efeito de brilho igual ao Quem Somos */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--amarelo-viva);
+            filter: blur(100px);
+            opacity: 0.15;
+            top: -100px;
+            left: -100px;
         }
 
-        .section-header p {
-            font-weight: 300;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.85rem;
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 4.2rem); /* Tamanho igual ao Quem Somos */
+            font-weight: 800;
+            color: #ffc800;
+            margin-bottom: 20px;
+            line-height: 1.1;
         }
 
-        /* GRID DE CARDS */
-        .cards {
+        .hero p {
+            font-size: 1.3rem;
+            color: #ffffff;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 600;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Grid de Núcleos */
+        .grid-nucleos {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            gap: 30px;
+            margin: 60px 0; /* Espaçamento igual ao grid-info da outra página */
         }
 
-        .card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 25px;
-            overflow: hidden; /* Importante para a imagem não sair do card */
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        .card-nucleo {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
         }
 
-        /* CONTAINER DA IMAGEM */
-        .card-image-wrapper {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-            position: relative;
-        }
+        .card-nucleo:hover { transform: translateY(-10px); }
 
-        .card-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
+        .azul { border-color: var(--azul-viva); }
+        .amarelo { border-color: var(--amarelo-viva); }
+        .rosa { border-color: var(--rosa-viva); }
 
-        /* Overlay gradiente sobre a imagem para dar elegância */
-        .card-image-wrapper::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(to top, rgba(0, 97, 133, 0.8), transparent);
-        }
+        .img-wrapper { width: 100%; height: 200px; overflow: hidden; }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .card-nucleo:hover .img-wrapper img { transform: scale(1.1); }
 
-        .card:hover {
-            transform: translateY(-15px);
-            border-color: var(--accent-gold);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-        }
-
-        .card:hover img {
-            transform: scale(1.15);
-        }
-
-        /* CONTEÚDO DO CARD */
-        .card-content {
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .card p {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: #d1e1f0;
-            font-weight: 300;
-        }
-
+        .card-content { padding: 30px; text-align: center; }
+        .card-content i { font-size: 2.2rem; margin-bottom: 15px; display: block; }
         
+        .azul i { color: var(--azul-viva); }
+        .amarelo i { color: var(--amarelo-viva); }
+        .rosa i { color: var(--rosa-viva); }
+
+        .card-content h3 { font-size: 1.5rem; margin-bottom: 10px; color: #0a3a70; }
+        .card-content p { font-size: 0.95rem; color: #636e72; }
+
+        @media (max-width: 768px) {
+            .hero { padding-top: 140px; }
+            .hero h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
-
 <body>
 
     <script src="menu.js"></script>
 
-    <div class="container">
-        <div class="section-header">
-            <br><br><p>Nossas Sedes</p>
-            <h2>Núcleos de Atuação</h2>
+    <section class="hero">
+        <div class="container">
+            <p>Nossas Sedes</p>
+            <h1>Núcleos de Atuação</h1>
         </div>
-        
-        <div class="cards">
-            <div class="card">
-                <div class="card-image-wrapper">
+    </section>
+
+    <div class="container">
+        <div class="grid-nucleos">
+            
+            <div class="card-nucleo azul">
+                <div class="img-wrapper">
                     <img src="https://images.adsttc.com/media/images/67f9/6a47/5de4/7f00/017f/880d/slideshow/_MG_1738-HDR_copiar.jpg?1744398943" alt="Florianópolis">
                 </div>
                 <div class="card-content">
+                    <i class="fa-solid fa-school"></i>
                     <h3>Florianópolis/SC</h3>
                     <p>Cultura e inovação integradas na capital catarinense, promovendo artes visuais e música.</p>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-image-wrapper">
+            <div class="card-nucleo amarelo">
+                <div class="img-wrapper">
                     <img src="https://images.adsttc.com/media/images/621c/e469/5b1d/9001/64c0/3699/slideshow/06-columbia-business-school-iwan-baan.jpg?1646060678" alt="São José">
                 </div>
                 <div class="card-content">
+                    <i class="fa-solid fa-school"></i>
                     <h3>São José/SC</h3>
                     <p>Desenvolvimento artístico comunitário focado na expressão teatral e inclusão social.</p>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-image-wrapper">
+            <div class="card-nucleo rosa">
+                <div class="img-wrapper">
                     <img src="https://images.adsttc.com/media/images/5aba/69be/f197/cc34/1e00/0060/slideshow/feature_image.jpg?1522166197" alt="Chapecó">
                 </div>
                 <div class="card-content">
-                    <h3>Chapecó/SC</h3>
+                    <i class="fa-solid fa-school"></i>
+                    <h3>Oeste Catarinense</h3>
                     <p>Nossa força no Oeste, expandindo os horizontes através de oficinas de música clássica.</p>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-image-wrapper">
+            <div class="card-nucleo azul">
+                <div class="img-wrapper">
                     <img src="https://images.adsttc.com/media/images/5c9d/1a8c/284d/d109/7500/0052/slideshow/5MG_8835_38.jpg?1553799787" alt="Irecê">
                 </div>
                 <div class="card-content">
+                    <i class="fa-solid fa-school"></i>
                     <h3>Irecê/BA</h3>
                     <p>Talento e criatividade sob o sol da Bahia, unindo ritmos e educação artística transformadora.</p>
                 </div>
             </div>
+
         </div>
     </div>
 
     <script src="footer.js"></script>
-
 </body>
 </html>

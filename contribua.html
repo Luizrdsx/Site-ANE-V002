@@ -8,126 +8,153 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="footer.css">
     <style>
+        :root {
+            --azul-viva: #0088ff;
+            --amarelo-viva: #ffc800;
+            --rosa-viva: #ff4d88;
+            --verde-viva: #4CAF50;
+            --texto: #2d3436;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'tahoma', sans-serif;
-            background-color: #F8FAFC;
-            color: #1E293B;
+            background-color: #e1f1ff;
+            color: var(--texto);
             line-height: 1.6;
+        }
+
+        /* HERO PADRONIZADO COM FOTO DE FUNDO */
+        .hero {
+            padding: 140px 20px 100px;
+            background: linear-gradient(rgba(0, 44, 80, 0.699), rgba(0, 44, 80, 0.699)), 
+                        url('https://steptodown.com/istock-downloader/images/steptodown.com290999.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--amarelo-viva);
+            filter: blur(100px);
+            opacity: 0.15;
+            top: -100px;
+            left: -100px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 7vw, 3.5rem);
+            font-weight: 800;
+            color: var(--amarelo-viva);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: white;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .container { 
             max-width: 1200px; 
             margin: 0 auto; 
-            padding: 20px; 
+            padding: 60px 20px; 
         }
-
-        /* CABEÇALHO FIXO: 12px padding e 12px radius */
-        .page-header {
-            position: flex;
-            top: 90px; /* Ajuste conforme a altura do seu menu */
-            z-index: 10; /* Mantém abaixo do menu.js */
-            background-color: #FFFFFF;
-            border: 1px solid #E2E8F0;
-            border-radius: 12px; 
-            padding: 12px 20px; 
-            text-align: center;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .page-header h1 { color: #0056B3; font-size: 1.8rem; font-weight: 800; }
-        .page-header p { color: #64748B; font-size: 0.95rem; }
 
         /* Banner de Impacto */
         .impact-banner {
-            background: linear-gradient(135deg, #0056B3 0%, #00A8E8 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 50px;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 8px solid var(--azul-viva);
         }
+
+        .impact-banner i { color: var(--azul-viva); }
+        .impact-banner h3 { color: #0a3a70; margin-bottom: 5px; }
 
         /* GRID DE CARDS */
         .cards { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
             gap: 25px; 
-            margin-bottom: 50px;
         }
 
         .card { 
             background: white; 
-            border-radius: 16px; 
-            padding: 30px; 
-            border: 1px solid #E2E8F0;
-            position: relative;
-            transition: transform 0.3s ease;
-            
-            /* MÁGICA PARA ALINHAR OS BOTÕES */
+            border-radius: 25px; 
+            padding: 35px; 
             display: flex;
             flex-direction: column;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
         }
 
-        .card:hover { transform: translateY(-5px); }
+        .card:hover { transform: translateY(-10px); }
 
-        /* Barras coloridas HEX */
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 6px;
-            border-radius: 16px 16px 0 0;
-        }
-        .c-unica::before { background-color: #00B0FF; }
-        .c-mensal::before { background-color: #FBC02D; }
-        .c-bolsa::before { background-color: #F06292; }
-        .c-volunt::before { background-color: #4CAF50; }
+        .c-unica h3 { color: var(--azul-viva); }
+        .c-mensal h3 { color: #d4a000; }
+        .c-bolsa h3 { color: var(--rosa-viva); }
+        .c-volunt h3 { color: var(--verde-viva); }
 
-        .card h3 { margin-top: 10px; font-size: 1.4rem; color: #0F172A; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; font-weight: 800; }
 
-        /* Este item cresce para empurrar o que está abaixo */
         .card p { 
             color: #64748B; 
             font-size: 0.95rem; 
-            margin-bottom: 20px; 
+            margin-bottom: 25px; 
             flex-grow: 1; 
         }
 
         .valor-box {
-            background-color: #F1F5F9;
+            background-color: #f8fafc;
             padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
             text-align: center;
             font-weight: 800;
             font-size: 1.2rem;
             color: #1E293B;
+            border: 1px dashed #cbd5e1;
         }
 
-        /* Botão estilizado */
         .btn-contato { 
             display: block;
             text-align: center;
             text-decoration: none;
-            background: #0056B3; 
+            background: var(--azul-viva); 
             color: white; 
-            padding: 14px; 
-            border-radius: 8px; 
+            padding: 16px; 
+            border-radius: 12px; 
             font-weight: 700; 
             text-transform: uppercase;
             font-size: 0.85rem;
             transition: 0.3s;
         }
 
-        .btn-contato:hover { background: #003D80; box-shadow: 0 4px 12px rgba(0, 86, 179, 0.2); }
+        .c-mensal .btn-contato { background: var(--amarelo-viva); color: #000; }
+        .c-bolsa .btn-contato { background: var(--rosa-viva); }
+        .c-volunt .btn-contato { background: var(--verde-viva); }
+
+        .btn-contato:hover { filter: brightness(0.9); }
 
         @media (max-width: 768px) {
-            .container { padding-top: 100px; }
-            .page-header { top: 70px; }
+            .hero { padding-top: 140px; }
+            .impact-banner { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -135,17 +162,19 @@
 
     <script src="menu.js"></script>
     
-    <div class="container" style="padding-top: 110px;">
-        
-        <div class="page-header">
+    <section class="hero">
+        <div class="container-hero">
             <h1>💝 Apoie nosso projeto</h1>
             <p>Sua contribuição sustenta a educação através da música e das artes.</p>
         </div>
+    </section>
 
+    <div class="container">
+        
         <div class="impact-banner">
             <i class="fa-solid fa-hand-holding-heart fa-3x"></i>
             <div>
-                <h3 style="margin-bottom: 5px;">Sua ajuda é fundamental</h3>
+                <h3>Sua ajuda é fundamental</h3>
                 <p>O Projeto Arte nas Escolas utiliza 100% das doações para compra de materiais e bolsas de estudo.</p>
             </div>
         </div>
@@ -153,28 +182,28 @@
         <div class="cards">
             <div class="card c-unica">
                 <h3>Doação Única</h3>
-                <p>Contribua com qualquer valor para manutenções urgentes e aquisição de novos materiais para as oficinas.</p>
+                <p>Contribua com qualquer valor para manutenções urgentes e novos materiais.</p>
                 <div class="valor-box">R$ 50 - R$ 1.000+</div>
                 <a href="contato.html" class="btn-contato">Doar Agora</a>
             </div>
             
             <div class="card c-mensal">
                 <h3>Doação Mensal</h3>
-                <p>Ajude a manter nossos professores e a estrutura fixa do projeto todos os meses.</p>
+                <p>Ajude a manter nossos professores e a estrutura fixa todos os meses.</p>
                 <div class="valor-box">R$ 30 / mês</div>
                 <a href="contato.html" class="btn-contato">Apoiar</a>
             </div>
 
             <div class="card c-bolsa">
                 <h3>Bolsa Integral</h3>
-                <p>Mude o destino de um aluno talentoso patrocinando seus estudos artísticos completos durante um ano.</p>
+                <p>Patrocine os estudos artísticos de um aluno durante um ano inteiro.</p>
                 <div class="valor-box">R$ 500 / mês</div>
                 <a href="contato.html" class="btn-contato">Patrocinar</a>
             </div>
 
             <div class="card c-volunt">
                 <h3>Voluntariado</h3>
-                <p>Aplique seus conhecimentos artísticos, técnicos ou administrativos para ajudar o projeto a crescer.</p>
+                <p>Doe seu tempo e conhecimento para ajudar o projeto a crescer.</p>
                 <div class="valor-box">Seu Tempo</div>
                 <a href="contato.html" class="btn-contato">Saiba Mais</a>
             </div>

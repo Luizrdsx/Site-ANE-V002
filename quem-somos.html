@@ -27,10 +27,15 @@
             line-height: 1.6;
         }
 
-        /* Hero com Gradiente Suave e "Vida" */
+        /* Hero com Imagem de Fundo Adicionada */
         .hero {
             padding: 140px 20px 100px;
-            background-color:#0083c3; 
+            /* Adicionado imagem com gradiente para manter o padrão da outra página */
+            background: linear-gradient(rgba(0, 44, 80, 0.699), rgba(0, 44, 80, 0.699)), 
+                        url('https://steptodown.com/istock-downloader/images/steptodown.com868502.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             text-align: center;
             position: relative;
             overflow: hidden;

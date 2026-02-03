@@ -1,107 +1,151 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato - ANE 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="footer.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --azul-viva: #0088ff;
+            --amarelo-viva: #ffc800;
+            --texto: #2d3436;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'tahoma', sans-serif;
-            background-color: #F8FAFC;
-            color: #1E293B;
+            background-color: #e1f1ff;
+            color: var(--texto);
             line-height: 1.6;
         }
 
-        .container { 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            padding: 20px; 
-        }
-
-        .page-header {
-            position: sticky;
-            top: 90px;
-            z-index: 10;
-            background-color: #FFFFFF;
-            border: 1px solid #E2E8F0;
-            border-radius: 12px; 
-            padding: 12px 20px; 
+        /* HERO PADRONIZADO (140px) */
+        .hero {
+            padding: 140px 20px 100px;
+            background: linear-gradient(rgba(0, 44, 80, 0.699), rgba(0, 44, 80, 0.699)),
+                url('https://steptodown.com/istock-downloader/images/steptodown.com931946.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             text-align: center;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
         }
 
-        .page-header h1 { color: #0056B3; font-size: 1.8rem; font-weight: 800; }
-
-        .content { 
-            display: grid; 
-            grid-template-columns: 1fr 1.2fr; 
-            gap: 30px; 
-            margin-bottom: 50px;
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 3.8rem);
+            font-weight: 800;
+            color: var(--amarelo-viva);
+            margin-bottom: 10px;
         }
 
-        .info-box { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 16px; 
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        .hero p {
+            color: white;
+            font-size: 1.2rem;
         }
 
-        .info-box h3 { 
-            color: #0F172A; 
-            margin-bottom: 25px; 
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .contato-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Estilos do seu formulário e infos */
+        .info-box h3 {
+            color: #0F172A;
+            margin-bottom: 25px;
             font-size: 1.4rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .info-item { 
-            margin-bottom: 20px; 
+        .info-item {
+            margin-bottom: 20px;
             padding-bottom: 15px;
             border-bottom: 1px dashed #E2E8F0;
         }
-        .info-item:last-child { border: none; }
-        .info-item strong { color: #0056B3; display: block; margin-bottom: 5px; font-size: 1.1rem; }
-        .info-item p { font-size: 0.95rem; color: #475569; display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
 
-        .form-group { margin-bottom: 1.5rem; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: #334155; }
+        .info-item:last-child {
+            border: none;
+        }
 
-        input, textarea { 
-            width: 100%; 
-            padding: 12px 15px; 
-            border: 1px solid #CBD5E1; 
-            border-radius: 8px; 
-            font-family: inherit; 
+        .info-item strong {
+            color: #0056B3;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .info-item p {
+            font-size: 0.95rem;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #334155;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #CBD5E1;
+            border-radius: 8px;
+            font-family: inherit;
             font-size: 1rem;
-            transition: all 0.3s;
+            transition: 0.3s;
             background: #F8FAFC;
         }
 
-        input:focus, textarea:focus { 
-            outline: none; 
-            border-color: #0056B3; 
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #0056B3;
             background: #FFFFFF;
-            box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.1); 
+            box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.1);
         }
 
-        button { 
-            background: #0056B3; 
-            color: white; 
-            padding: 15px; 
-            border: none; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            font-weight: 700; 
-            width: 100%; 
+        button {
+            background: #0056B3;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: 0.3s;
@@ -111,8 +155,8 @@
             gap: 10px;
         }
 
-        button:hover:not(:disabled) { 
-            background: #003D80; 
+        button:hover:not(:disabled) {
+            background: #003D80;
             box-shadow: 0 10px 15px -3px rgba(0, 86, 179, 0.3);
         }
 
@@ -132,26 +176,36 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
-        @media (max-width: 850px) { 
-            .content { grid-template-columns: 1fr; } 
-            .container { padding-top: 100px; }
-            .page-header { top: 70px; }
+        @media (max-width: 850px) {
+            .contato-wrapper {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <script src="menu.js"></script>
-    
-    <div class="container" style="padding-top: 110px;">
-        <header class="page-header">
-            <h1>📞 Entre em Contato</h1>
-        </header>
-        
-        <div class="content">
+
+    <section class="hero">
+        <div class="container-hero">
+            <h1>
+                <i class="fa-solid fa-phone" style="color: #ffc800;"></i>
+                Fale Conosco
+            </h1>
+            <p>Dúvidas, parcerias ou doações? Nossa equipe está pronta para te ouvir.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="contato-wrapper">
+
             <div class="info-box">
                 <h3><i class="fa-solid fa-location-dot" style="color: #0056B3;"></i> Nossas Sedes</h3>
                 <div class="info-item">
@@ -173,33 +227,34 @@
                     <p><i class="fa-solid fa-envelope"></i> chapeco@ane2026.com.br</p>
                 </div>
             </div>
-            
+
             <div class="info-box">
                 <h3><i class="fa-solid fa-paper-plane" style="color: #0056B3;"></i> Envie uma Mensagem</h3>
-                
+
                 <form id="contatoForm">
                     <div class="form-group">
                         <label for="nome">Nome Completo</label>
                         <input type="text" name="nome" id="nome" placeholder="Ex: João Silva" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email">Seu E-mail</label>
                         <input type="email" name="_replyto" id="email" placeholder="email@exemplo.com" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="assunto">Assunto</label>
                         <input type="text" name="assunto" id="assunto" placeholder="Dúvida ou Sugestão" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="mensagem">Mensagem</label>
-                        <textarea name="mensagem" id="mensagem" rows="5" placeholder="Como podemos ajudar?" required></textarea>
+                        <textarea name="mensagem" id="mensagem" rows="5" placeholder="Como podemos ajudar?"
+                            required></textarea>
                     </div>
 
                     <input type="hidden" name="_subject" value="Novo Contato - Site ANE">
-                    
+
                     <button type="submit" id="btnEnviar">
                         <span id="btnText">Enviar Mensagem</span>
                         <div class="spinner" id="spinner"></div>
@@ -208,22 +263,19 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         const form = document.getElementById('contatoForm');
         const btn = document.getElementById('btnEnviar');
         const spinner = document.getElementById('spinner');
         const btnText = document.getElementById('btnText');
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Impede o redirecionamento da página
-
-            // 1. Bloqueia o botão e inicia animação
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
             btn.disabled = true;
             spinner.style.display = 'block';
             btnText.innerText = 'Enviando...';
 
-            // 2. Envia os dados via Fetch (AJAX)
             const formData = new FormData(form);
 
             fetch('https://formspree.io/f/mlglavzj', {
@@ -233,39 +285,36 @@
                     'Accept': 'application/json'
                 }
             })
-            .then(response => {
-                if (response.ok) {
-                    // 3. Mostra o Popup de Sucesso
+                .then(response => {
+                    if (response.ok) {
+                        Swal.fire({
+                            title: 'Mensagem Enviada!',
+                            text: 'Obrigado por entrar em contato. Responderemos em breve!',
+                            icon: 'success',
+                            confirmButtonColor: '#0056B3'
+                        });
+                        form.reset();
+                    } else {
+                        throw new Error('Erro no servidor');
+                    }
+                })
+                .catch(error => {
                     Swal.fire({
-                        title: 'Mensagem Enviada!',
-                        text: 'Obrigado por entrar em contato. Responderemos em breve!',
-                        icon: 'success',
-                        confirmButtonColor: '#0056B3',
-                        borderRadius: '12px'
+                        title: 'Ops!',
+                        text: 'Ocorreu um erro ao enviar. Tente novamente mais tarde.',
+                        icon: 'error',
+                        confirmButtonColor: '#0056B3'
                     });
-                    form.reset(); // Limpa o formulário
-                } else {
-                    throw new Error('Erro no servidor');
-                }
-            })
-            .catch(error => {
-                // 4. Mostra Popup de Erro se algo falhar
-                Swal.fire({
-                    title: 'Ops!',
-                    text: 'Ocorreu um erro ao enviar. Tente novamente mais tarde.',
-                    icon: 'error',
-                    confirmButtonColor: '#0056B3'
+                })
+                .finally(() => {
+                    btn.disabled = false;
+                    spinner.style.display = 'none';
+                    btnText.innerText = 'Enviar Mensagem';
                 });
-            })
-            .finally(() => {
-                // 5. Restaura o botão
-                btn.disabled = false;
-                spinner.style.display = 'none';
-                btnText.innerText = 'Enviar Mensagem';
-            });
         });
     </script>
 
     <script src="footer.js"></script>
 </body>
+
 </html>

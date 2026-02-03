@@ -6,13 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Núcleos - ANE 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #006185;
-            --glass: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.15);
-            --accent-gold: #ffb700;
+            --glass: #006185;
+            --glass-border: #ffb700;
+            --accent-gold: #f24c7c;
             --text-light: #e0e6ed;
         }
 
@@ -22,13 +21,23 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: radial-gradient(circle at top right, #007ba8, #006185 70%);
-            background-attachment: fixed;
-            color: var(--text-light);
-            min-height: 100vh;
-        }
+body {
+    font-family: 'tahoma';
+    color: var(--text-light);
+    min-height: 100vh;
+    margin: 0;
+
+    /* Camada de cor transparente + Imagem do Unsplash */
+    background: linear-gradient(
+        rgba(0, 60, 82, 0.801), /* O seu #002837 com 85% de opacidade */
+        rgba(0, 60, 82, 0.801)
+    ), 
+    url('./img/bg-nucleos.jpg'); /* Imagem de exemplo (escritório/cultura) */
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* A imagem fica fixa ao rolar */
+}
 
         header {
             background: rgba(0, 40, 55, 0.85);
@@ -154,14 +163,14 @@
 
     <div class="container">
         <div class="section-header">
-            <p>Nossas Sedes</p>
+            <br><br><p>Nossas Sedes</p>
             <h2>Núcleos de Atuação</h2>
         </div>
         
         <div class="cards">
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?auto=format&fit=crop&w=800&q=80" alt="Florianópolis">
+                    <img src="https://images.adsttc.com/media/images/67f9/6a47/5de4/7f00/017f/880d/slideshow/_MG_1738-HDR_copiar.jpg?1744398943" alt="Florianópolis">
                 </div>
                 <div class="card-content">
                     <h3>Florianópolis/SC</h3>
@@ -171,7 +180,7 @@
 
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1523050335382-47595ae6b010?auto=format&fit=crop&w=800&q=80" alt="São José">
+                    <img src="https://images.adsttc.com/media/images/621c/e469/5b1d/9001/64c0/3699/slideshow/06-columbia-business-school-iwan-baan.jpg?1646060678" alt="São José">
                 </div>
                 <div class="card-content">
                     <h3>São José/SC</h3>
@@ -181,7 +190,7 @@
 
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&w=800&q=80" alt="Chapecó">
+                    <img src="https://images.adsttc.com/media/images/5aba/69be/f197/cc34/1e00/0060/slideshow/feature_image.jpg?1522166197" alt="Chapecó">
                 </div>
                 <div class="card-content">
                     <h3>Chapecó/SC</h3>
@@ -191,7 +200,7 @@
 
             <div class="card">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Irecê">
+                    <img src="https://images.adsttc.com/media/images/5c9d/1a8c/284d/d109/7500/0052/slideshow/5MG_8835_38.jpg?1553799787" alt="Irecê">
                 </div>
                 <div class="card-content">
                     <h3>Irecê/BA</h3>

@@ -1,96 +1,274 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <link rel="stylesheet" href="footer.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeria - ANE 2026</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --accent: #ffb700;
+            --text-light: #f8fafc;
+            --overlay-color: rgba(0, 40, 55, 0.788);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Tahoma', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
+            font-family: 'Tahoma', sans-serif;
+            color: var(--text-light);
+            min-height: 100vh;
+            background: linear-gradient(var(--overlay-color), var(--overlay-color)),
+            url('https://images.unsplash.com/photo-1551619276-f77b2c749711?q=80&w=1085&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
-        
-        nav a { color: #0a3a70; text-decoration: none; padding: 0.5rem 0.8rem; position: relative; transition: color 0.3s; font-size: 0.9rem; font-weight: 600; }
-        nav a:not(.btn-matricula)::after {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
-            background-color: #000; transition: width 0.3s ease;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
         }
-        nav a:not(.btn-matricula):hover::after { width: 100%; }
-        /* Cores ÚNICAS e DIFERENTES para cada item no hover */
-        nav a:not(.btn-matricula):nth-child(1):hover::after { background-color: #d90429; }
-        nav a:not(.btn-matricula):nth-child(2):hover::after { background-color: #3a86ff; }
-        nav a:not(.btn-matricula):nth-child(3):hover::after { background-color: #8338ec; }
-        nav a:not(.btn-matricula):nth-child(4):hover::after { background-color: #ff006e; }
-        nav a:not(.btn-matricula):nth-child(5):hover::after { background-color: #fb5607; }
-        nav a:not(.btn-matricula):nth-child(6):hover::after { background-color: #007f5f; }
-        nav a:not(.btn-matricula):nth-child(7):hover::after { background-color: #000000; }
-        nav a:not(.btn-matricula):hover { color: #000; background: transparent; }
-        .btn-matricula { background: #0a3a70; color: white !important; padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: bold; transition: transform 0.2s, background 0.3s; }
-        .btn-matricula:hover { background: #1a5a9f; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        h2 { color: #2c5aa0; margin: 2rem 0; text-align: center; }
-        .galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-        .foto { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
-        .foto:hover { transform: translateY(-5px); }
-        .foto-img { width: 100%; height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
-        .foto-desc { padding: 1rem; }
-        .foto-desc h4 { color: #2c5aa0; margin-bottom: 0.5rem; }
+
+        /* REINTEGRANDO O CABEÇALHO DA PÁGINA */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            margin-top: 60px;
+            /* Espaço para o menu */
+        }
+
+        .section-header p {
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            color: #fff;
+        }
+
+        /* GRID MOSAICO */
+        .galeria-mosaic {
+            column-count: 3;
+            column-gap: 20px;
+        }
+
+        .item-foto {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .item-foto img {
+            width: 100%;
+            display: block;
+            transition: 0.5s;
+        }
+
+        /* LEGENDA NO HOVER (Sutil) */
+        .foto-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .item-foto:hover .foto-info {
+            opacity: 1;
+        }
+
+        .item-foto:hover img {
+            transform: scale(1.08);
+        }
+
+        .foto-info h4 {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        /* LIGHTBOX NAVEGÁVEL */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.96);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+        }
+
+        #lightbox.active {
+            display: flex;
+        }
+
+        #img-full {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+        }
+
+        .nav-btn {
+            position: absolute;
+            color: #fff;
+            font-size: 50px;
+            cursor: pointer;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            color: var(--accent);
+        }
+
+        .btn-prev {
+            left: 20px;
+        }
+
+        .btn-next {
+            right: 20px;
+        }
+
+        .btn-close {
+            top: 20px;
+            right: 30px;
+            font-size: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .galeria-mosaic {
+                column-count: 1;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-    <!-- Header com menu -->
     <script src="menu.js"></script>
-    
+
     <div class="container">
-        <h2>🖼️ Galeria de Fotos</h2>
-        <div class="galeria">
-            <div class="foto">
-                <div class="foto-img">🎹</div>
-                <div class="foto-desc">
-                    <h4>Apresentação de Piano</h4>
-                    <p>Momento especial de nossos alunos de piano</p>
+        <div class="section-header">
+            <p>Nossos Momentos</p>
+            <h2>Galeria de Artes</h2>
+        </div>
+
+        <div class="galeria-mosaic">
+            <div class="item-foto">
+                <img
+                    src="https://images.unsplash.com/photo-1745328597533-3df3e5db2dec?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                <div class="foto-info">
+                    <h4>Recital de Piano</h4>
                 </div>
             </div>
-            <div class="foto">
-                <div class="foto-img">🎸</div>
-                <div class="foto-desc">
-                    <h4>Aula de Violão</h4>
-                    <p>Aprendizado em harmonia com os melhores professores</p>
+            <div class="item-foto">
+                <img
+                    src="https://images.unsplash.com/photo-1767979212109-5b69bda18026?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                <div class="foto-info">
+                    <h4>Prática de Violão</h4>
                 </div>
             </div>
-            <div class="foto">
-                <div class="foto-img">🎤</div>
-                <div class="foto-desc">
-                    <h4>Apresentação Coral</h4>
-                    <p>Apresentação do coral em evento comunitário</p>
+            <div class="item-foto">
+                <img
+                    src="https://images.unsplash.com/photo-1746155885870-ba90e7fcdcbc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                <div class="foto-info">
+                    <h4>Coral Comunitário</h4>
                 </div>
             </div>
-            <div class="foto">
-                <div class="foto-img">🎭</div>
-                <div class="foto-desc">
-                    <h4>Apresentação Teatro</h4>
-                    <p>Nossos talentos em cena no teatro</p>
+            <div class="item-foto">
+                <img
+                    src="https://images.unsplash.com/photo-1723416657878-33c00e09b570?q=80&w=821&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                <div class="foto-info">
+                    <h4>Teatro e Expressão</h4>
                 </div>
             </div>
-            <div class="foto">
-                <div class="foto-img">🎨</div>
-                <div class="foto-desc">
-                    <h4>Aula de Desenho</h4>
-                    <p>Criatividade e técnica no desenvolvimento artístico</p>
+            <div class="item-foto">
+                <img
+                    src="https://images.unsplash.com/photo-1679589159358-5a1f21a3f3db?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                <div class="foto-info">
+                    <h4>Oficina de Pintura</h4>
                 </div>
             </div>
-            <div class="foto">
-                <div class="foto-img">🎵</div>
-                <div class="foto-desc">
-                    <h4>Apresentação Geral</h4>
-                    <p>Evento com apresentação de todos os cursos</p>
+            <div class="item-foto">
+                <img
+                    src="https://media.istockphoto.com/id/872697992/pt/foto/little-girl-receives-instruction-during-violin-class.jpg?s=612x612&w=0&k=20&c=1l3b1WM-Wc2B1TNm_AGJX-gwixz5hEs28jAlJVKiJ3I=">
+                <div class="foto-info">
+                    <h4>Produção Sonora</h4>
                 </div>
             </div>
         </div>
     </div>
-<script src="footer.js"></script>
+
+    <div id="lightbox">
+        <span class="nav-btn btn-close" onclick="fecharFoto()">&times;</span>
+        <span class="nav-btn btn-prev" onclick="mudarFoto(-1)">&#10094;</span>
+        <span class="nav-btn btn-next" onclick="mudarFoto(1)">&#10095;</span>
+        <img id="img-full" src="">
+    </div>
+
+    <script>
+        let indexFoto = 0;
+        const listaFotos = Array.from(document.querySelectorAll('.item-foto img'));
+        const lightbox = document.getElementById('lightbox');
+        const imgFull = document.getElementById('img-full');
+
+        listaFotos.forEach((img, i) => {
+            img.parentElement.onclick = () => {
+                indexFoto = i;
+                imgFull.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        function fecharFoto() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function mudarFoto(dir) {
+            indexFoto = (indexFoto + dir + listaFotos.length) % listaFotos.length;
+            imgFull.src = listaFotos[indexFoto].src;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === "ArrowRight") mudarFoto(1);
+            if (e.key === "ArrowLeft") mudarFoto(-1);
+            if (e.key === "Escape") fecharFoto();
+        });
+    </script>
+
+    <script src="footer.js"></script>
 </body>
+
 </html>

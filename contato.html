@@ -203,116 +203,123 @@
         </div>
     </section>
 
+    <!--CONTATO-->
     <div class="container">
-        <div class="contato-wrapper">
+    <div class="contato-wrapper">
 
-            <div class="info-box">
-                <h3><i class="fa-solid fa-location-dot" style="color: #0056B3;"></i> Nossas Sedes</h3>
-                <div class="info-item">
-                    <strong>📍 Florianópolis - SC</strong>
-                    <p><i class="fa-solid fa-map"></i> Rua da Música, 100</p>
-                    <p><i class="fa-solid fa-phone"></i> (48) 3333-3333</p>
-                    <p><i class="fa-solid fa-envelope"></i> florianopolis@ane2026.com.br</p>
-                </div>
-                <div class="info-item">
-                    <strong>📍 São José - SC</strong>
-                    <p><i class="fa-solid fa-map"></i> Av. Central, 200</p>
-                    <p><i class="fa-solid fa-phone"></i> (48) 3434-3434</p>
-                    <p><i class="fa-solid fa-envelope"></i> saojose@ane2026.com.br</p>
-                </div>
-                <div class="info-item">
-                    <strong>📍 Chapecó - SC</strong>
-                    <p><i class="fa-solid fa-map"></i> Rua da Arte, 300</p>
-                    <p><i class="fa-solid fa-phone"></i> (49) 3535-3535</p>
-                    <p><i class="fa-solid fa-envelope"></i> chapeco@ane2026.com.br</p>
-                </div>
+        <div class="info-box">
+            <h3><i class="fa-solid fa-rocket" style="color: #0056B3;"></i> Vamos construir o futuro?</h3>
+            
+            <div class="info-item">
+                <strong>🤝 Parcerias Estratégicas</strong>
+                <p>Tem um projeto em mente? Adoramos colaborar com novas ideias e iniciativas que transformam o cenário nacional.</p>
             </div>
 
-            <div class="info-box">
-                <h3><i class="fa-solid fa-paper-plane" style="color: #0056B3;"></i> Envie uma Mensagem</h3>
+            <div class="info-item">
+                <strong>💡 Suporte e Dúvidas</strong>
+                <p>Nossa equipe técnica e pedagógica está de prontidão para garantir que sua experiência com a ANE seja impecável.</p>
+            </div>
 
-                <form id="contatoForm">
-                    <div class="form-group">
-                        <label for="nome">Nome Completo</label>
-                        <input type="text" name="nome" id="nome" placeholder="Ex: João Silva" required>
-                    </div>
+            <div class="info-item">
+                <strong>🌍 Onde estamos?</strong>
+                <p>Embora tenhamos sedes físicas, nossa operação é 100% conectada. Respondemos mensagens de qualquer lugar do Brasil!</p>
+            </div>
 
-                    <div class="form-group">
-                        <label for="email">Seu E-mail</label>
-                        <input type="email" name="_replyto" id="email" placeholder="email@exemplo.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="assunto">Assunto</label>
-                        <input type="text" name="assunto" id="assunto" placeholder="Dúvida ou Sugestão" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="mensagem">Mensagem</label>
-                        <textarea name="mensagem" id="mensagem" rows="5" placeholder="Como podemos ajudar?"
-                            required></textarea>
-                    </div>
-
-                    <input type="hidden" name="_subject" value="Novo Contato - Site ANE">
-
-                    <button type="submit" id="btnEnviar">
-                        <span id="btnText">Enviar Mensagem</span>
-                        <div class="spinner" id="spinner"></div>
-                    </button>
-                </form>
+            <div style="margin-top: 30px; padding: 20px; background: #f0f7ff; border-radius: 15px;">
+                <p style="font-size: 0.85rem; color: #0056B3; font-weight: 600;">
+                    <i class="fa-solid fa-clock"></i> Tempo médio de resposta: 24h úteis.
+                </p>
             </div>
         </div>
+
+        <div class="info-box">
+            <h3><i class="fa-solid fa-paper-plane" style="color: #0056B3;"></i> Envie uma Mensagem</h3>
+
+            <form id="contatoForm">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" name="nome" id="nome" placeholder="Ex: João Silva" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Seu E-mail</label>
+                    <input type="email" name="_replyto" id="email" placeholder="email@exemplo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="assunto">Assunto</label>
+                    <input type="text" name="assunto" id="assunto" placeholder="Dúvida ou Sugestão" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea name="mensagem" id="mensagem" rows="5" placeholder="Como podemos ajudar?" required></textarea>
+                </div>
+
+                <input type="hidden" name="_subject" value="Novo Contato - Site ANE">
+
+                <button type="submit" id="btnEnviar">
+                    <span id="btnText">Enviar Mensagem</span>
+                    <div class="spinner" id="spinner"></div>
+                </button>
+            </form>
+        </div>
+
     </div>
+</div>
 
-    <script>
-        const form = document.getElementById('contatoForm');
-        const btn = document.getElementById('btnEnviar');
-        const spinner = document.getElementById('spinner');
-        const btnText = document.getElementById('btnText');
+<script>
+    const form = document.getElementById('contatoForm');
+    const btn = document.getElementById('btnEnviar');
+    const spinner = document.getElementById('spinner');
+    const btnText = document.getElementById('btnText');
 
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            btn.disabled = true;
-            spinner.style.display = 'block';
-            btnText.innerText = 'Enviando...';
+    // COLE SEU LINK AQUI EMBAIXO
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyK8EuW7N8uXyopJ_Z4qwcA5jAsjmUYC_VFOBsnWFL6uXD4drk51ssbKMgalE8ThoThJA/exec';
 
-            const formData = new FormData(form);
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        
+        btn.disabled = true;
+        spinner.style.display = 'block';
+        btnText.innerText = 'Enviando...';
 
-            fetch('https://formspree.io/f/mlglavzj', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-                .then(response => {
-                    if (response.ok) {
-                        Swal.fire({
-                            title: 'Mensagem Enviada!',
-                            text: 'Obrigado por entrar em contato. Responderemos em breve!',
-                            icon: 'success',
-                            confirmButtonColor: '#0056B3'
-                        });
-                        form.reset();
-                    } else {
-                        throw new Error('Erro no servidor');
-                    }
-                })
-                .catch(error => {
-                    Swal.fire({
-                        title: 'Ops!',
-                        text: 'Ocorreu um erro ao enviar. Tente novamente mais tarde.',
-                        icon: 'error',
-                        confirmButtonColor: '#0056B3'
-                    });
-                })
-                .finally(() => {
-                    btn.disabled = false;
-                    spinner.style.display = 'none';
-                    btnText.innerText = 'Enviar Mensagem';
-                });
+        // Captura o que foi digitado nos campos
+        const dados = {
+            nome: document.getElementById('nome').value,
+            email: document.getElementById('email').value,
+            assunto: document.getElementById('assunto').value,
+            mensagem: document.getElementById('mensagem').value
+        };
+
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors', 
+            body: JSON.stringify(dados)
+        })
+        .then(() => {
+            Swal.fire({
+                title: 'Mensagem Enviada!',
+                text: 'Obrigado por entrar em contato!',
+                icon: 'success',
+                confirmButtonColor: '#0056B3'
+            });
+            form.reset();
+        })
+        .catch(error => {
+            Swal.fire({
+                title: 'Ops!',
+                text: 'Erro ao enviar. Tente novamente.',
+                icon: 'error'
+            });
+        })
+        .finally(() => {
+            btn.disabled = false;
+            spinner.style.display = 'none';
+            btnText.innerText = 'Enviar Mensagem';
         });
-    </script>
+    });
+</script>
 
     <script src="footer.js"></script>
 </body>

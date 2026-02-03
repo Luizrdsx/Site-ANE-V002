@@ -123,7 +123,6 @@
             width: 100%;
             transition: background 0.3s;
             margin-top: 1rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         button:hover {
@@ -152,6 +151,7 @@
             display: none;
         }
 
+        /* POPUPS */
         .popup-overlay {
             position: fixed;
             top: 0;
@@ -163,7 +163,7 @@
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
+            z-index: 10002;
             padding: 20px;
         }
 
@@ -205,15 +205,8 @@
         }
 
         @keyframes popupSpring {
-            0% {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         .popup-icon-container {
@@ -254,19 +247,10 @@
             margin-top: 10px;
         }
 
-        .popup-message-scroll::-webkit-scrollbar {
-            width: 6px;
-        }
+        .popup-message-scroll::-webkit-scrollbar { width: 6px; }
+        .popup-message-scroll::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
 
-        .popup-message-scroll::-webkit-scrollbar-thumb {
-            background: #ccc;
-            border-radius: 10px;
-        }
-
-        .popup-buttons {
-            display: flex;
-            gap: 1rem;
-        }
+        .popup-buttons { display: flex; gap: 1rem; }
 
         .popup-btn {
             flex: 1;
@@ -279,26 +263,19 @@
             transition: all 0.3s;
         }
 
-        .popup-btn-home {
-            background: #0a3a70;
-            color: white;
-        }
-
+        .popup-btn-home { background: #0a3a70; color: white; }
         .popup-btn-home:hover {
             background: #ffb700;
             color: #0a3a70;
             transform: translateY(-3px);
         }
 
-        .popup-btn-stay {
-            background: #f0f0f0;
-            color: #666;
-        }
+        .popup-btn-stay { background: #f0f0f0; color: #666; }
 
         @media (max-width: 768px) {
             .container {
-                margin: 1rem;
-                padding: 1rem;
+                margin: 160px 1rem 3rem 1rem;
+                padding: 1.5rem 1rem;
             }
 
             .checkbox-group {
@@ -308,11 +285,15 @@
             .popup-buttons {
                 flex-direction: column;
             }
+
+            h2 { font-size: 1.5rem; }
         }
     </style>
 </head>
 
 <body>
+    <script src="menu.js"></script>
+
     <div id="noticePopup" class="popup-overlay">
         <div class="popup-content popup-aero popup-notice">
             <div class="popup-icon-container icon-notice">
@@ -321,7 +302,6 @@
             </div>
             <h3 class="popup-title">Aviso Importante</h3>
             <div class="popup-message-scroll">
-                <p></p>
                 <p><strong>Esta ficha é uma pré-matrícula e não garante a vaga imediata nos cursos selecionados. A
                         formalização da matrícula se dá via disponibilidade de vagas e a partir da assinatura do
                         contrato, que será encaminhado aos pais pela equipe do projeto, além do envio de foto para
@@ -368,8 +348,6 @@
         </div>
     </div>
 
-    <script src="menu.js"></script>
-
     <div class="container">
         <h2>📋 Formulário de Matrícula</h2>
 
@@ -410,7 +388,6 @@
                     <option value="">Selecione a sede</option>
                     <option value="Florianópolis/SC">Florianópolis/SC</option>
                     <option value="São José/SC">São José/SC</option>
-                    <!--<option value="Chapecó/SC">Chapecó/SC</option>-->
                     <option value="Irecê/BA">Irecê/BA</option>
                 </select>
             </div>
@@ -418,58 +395,33 @@
             <div class="form-group">
                 <label>Cursos em Grupo (Selecione quantos quiser) *</label>
                 <div class="checkbox-group" id="cursosGroup">
-                    <div class="checkbox-item" data-sede="" style="display: none;">
-                        <input type="checkbox" id="curso-piano-grp" name="cursos" value="Piano">
-                        <label for="curso-piano-grp">🎹 Piano</label>
-                    </div>
-                    <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC,Chapecó/SC,Irecê/BA"
-                        style="display: none;">
+                    <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC,Chapecó/SC,Irecê/BA" style="display: none;">
                         <input type="checkbox" id="curso-teatro" name="cursos" value="Teatro">
                         <label for="curso-teatro">🎭 Teatro</label>
                     </div>
-                    <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC,Chapecó/SC"
-                        style="display: none;">
+                    <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC,Chapecó/SC" style="display: none;">
                         <input type="checkbox" id="curso-coral" name="cursos" value="Coral">
                         <label for="curso-coral">🎤 Coral</label>
                     </div>
-                    <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC,Chapecó/SC"
-                        style="display: none;">
+                    <div class="checkbox-item" data-sede="Florianópolis/SC,São José/SC,Chapecó/SC" style="display: none;">
                         <input type="checkbox" id="curso-desenho" name="cursos" value="Desenho">
                         <label for="curso-desenho">🎨 Desenho</label>
                     </div>
-                    <div class="checkbox-item" data-sede="" style="display: none;">
-                        <input type="checkbox" id="curso-teoria" name="cursos" value="Teoria Musical">
-                        <label for="curso-teoria">🎵 Teoria Musical</label>
                     </div>
-                    <div class="checkbox-item" data-sede="Irecê/BA" style="display: none;">
-                        <input type="checkbox" id="curso-violao" name="cursos" value="Violão">
-                        <label for="curso-violao">🎸 Violão</label>
-                    </div>
-                    <div class="checkbox-item" data-sede="Irecê/BA" style="display: none;">
-                        <input type="checkbox" id="curso-violino" name="cursos" value="Violino">
-                        <label for="curso-violino">🎻 Violino</label>
-                    </div>
-                </div>
             </div>
 
             <div class="form-group">
                 <label>Curso Individual (Selecione apenas um) *</label>
-                <div class="checkbox-group">
-                    <label>
-                        <input type="radio" name="cursoAdicional" value="Violão" required> 🎸 Violão
-                    </label>
-                    <label>
-                        <input type="radio" name="cursoAdicional" value="Piano"> 🎹 Piano
-                    </label>
-                    <label>
-                        <input type="radio" name="cursoAdicional" value="Nenhum"> ❌ Nenhum
-                    </label>
+                <div class="checkbox-group" id="cursoIndividualGroup">
+                    <label id="radio-violao-default"><input type="radio" name="cursoAdicional" value="Violão" required> 🎸 Violão</label>
+                    <label id="radio-piano-default"><input type="radio" name="cursoAdicional" value="Piano"> 🎹 Piano</label>
+                    <label id="radio-nenhum-option"><input type="radio" name="cursoAdicional" value="Nenhum"> ❌ Nenhum</label>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="contatoAluno">Contato do Aluno (Opcional)</label>
-                <input type="tel" id="contatoAluno" name="contatoAluno" placeholder="(47) 99999-9999">
+                <input type="tel" id="contatoAluno" name="contatoAluno" placeholder="(48) 99999-9999">
             </div>
 
             <h3>👨‍👩‍👧 Responsável</h3>
@@ -479,7 +431,7 @@
             </div>
             <div class="form-group">
                 <label for="contatoResp">Contato do Responsável *</label>
-                <input type="tel" id="contatoResp" name="contatoResp" placeholder="(47) 99999-9999" required>
+                <input type="tel" id="contatoResp" name="contatoResp" placeholder="(48) 99999-9999" required>
             </div>
 
             <h3>🏠 Endereço Residencial</h3>
@@ -538,18 +490,18 @@
             document.body.style.overflow = 'auto';
         }
 
-        document.getElementById('successPopup').addEventListener('click', function (e) {
-            if (e.target === this) fecharPopup();
-        });
-
         document.getElementById('sede').addEventListener('change', function () {
             const sedeSelecionada = this.value;
             const cursos = document.querySelectorAll('.checkbox-item');
+            const individualGroup = document.getElementById('cursoIndividualGroup');
+            
+            // 1. Reset e exibição de cursos em grupo
             cursos.forEach(curso => {
                 curso.style.display = 'none';
                 const checkbox = curso.querySelector('input[type="checkbox"]');
                 if (checkbox) checkbox.checked = false;
             });
+
             if (sedeSelecionada) {
                 cursos.forEach(curso => {
                     const sedesPermitidas = curso.dataset.sede;
@@ -557,6 +509,18 @@
                         curso.style.display = 'block';
                     }
                 });
+            }
+
+            // 2. Gerenciamento dinâmico de Violino Individual
+            const violinoExistente = document.getElementById('radio-violino-container');
+            if (violinoExistente) violinoExistente.remove();
+
+            if (sedeSelecionada === "Irecê/BA") {
+                const labelViolino = document.createElement('label');
+                labelViolino.id = 'radio-violino-container';
+                labelViolino.innerHTML = '<input type="radio" name="cursoAdicional" value="Violino"> 🎻 Violino';
+                // Insere antes da opção "Nenhum"
+                individualGroup.insertBefore(labelViolino, document.getElementById('radio-nenhum-option'));
             }
         });
 
@@ -605,8 +569,9 @@
             const errorMsg = document.getElementById('errorMessage');
             errorMsg.style.display = 'none';
 
-            if (cursosSelecionados.length === 0) {
+            if (cursosSelecionados.length === 0 && (!cursoIndividual || cursoIndividual.value === "Nenhum")) {
                 errorMsg.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
                 setTimeout(() => { errorMsg.style.display = 'none'; }, 3000);
                 return;
             }
@@ -622,7 +587,7 @@
                 turno: document.getElementById('turno').value,
                 sede: document.getElementById('sede').value,
                 cursos: Array.from(cursosSelecionados).map(c => c.value).join(', '),
-                cursoAdicional: cursoIndividual ? cursoIndividual.value : 'Nenhum',
+                cursoAdicional: cursoIndividual ? cursoIndividual.value : "Nenhum",
                 contatoAluno: document.getElementById('contatoAluno').value,
                 nomeResp: document.getElementById('nomeResp').value,
                 contatoResp: document.getElementById('contatoResp').value,
@@ -645,12 +610,10 @@
                     body: JSON.stringify(dados)
                 });
                 this.reset();
-                document.querySelectorAll('.checkbox-item').forEach(c => c.style.display = 'none');
                 btn.disabled = false;
                 btn.innerText = "Enviar Inscrição";
                 abrirPopup();
             } catch (error) {
-                console.error('Erro:', error);
                 btn.disabled = false;
                 btn.innerText = "Enviar Inscrição";
                 alert("Erro ao enviar. Tente novamente.");
@@ -659,5 +622,4 @@
     </script>
     <script src="footer.js"></script>
 </body>
-
 </html>

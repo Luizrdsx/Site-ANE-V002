@@ -14,7 +14,7 @@
         }
 
         body {
-            font-family: 'Tahoma', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Tahoma', Tahoma;
             color: #333;
         }
 
@@ -222,7 +222,7 @@
         /* CARDS GRID SYSTEM (3 Colunas Fixas para Alinhamento Perfeito) */
         .cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             /* 3 colunas exatas */
             gap: 1.5rem;
             margin: 2rem auto;
@@ -247,14 +247,47 @@
             overflow: hidden;
         }
 
+        /* Estilo base para todos os card::before (tamanho e posição) */
         .card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #0a3a70, #1a5a9f);
+            height: 4px;
+            /* Aumentei 1px para destacar mais a cor */
+            border-radius: 30px 10px 0 0;
+            /* Acompanha o formato do card aero */
+        }
+
+        /* 1. Piano - Azul Escuro (Original) */
+        .card:nth-child(1)::before {
+            background-color: #00c2b2;
+        }
+
+        /* 2. Violão - Marrom/Ouro */
+        .card:nth-child(2)::before {
+            background-color: #0083c3;
+        }
+
+        /* 3. Teatro - Roxo/Drama */
+        .card:nth-child(3)::before {
+            background-color: #25D366;
+        }
+
+        /* 4. Coral - Rosa/Voz */
+        .card:nth-child(4)::before {
+            background-color: #ffc800;
+        }
+
+        /* 5. Teoria - Verde/Estudo */
+        .card:nth-child(5)::before {
+            background-color: #ff0048;
+        }
+
+        /* 6. Desenho - Laranja/Arte */
+        .card:nth-child(6)::before {
+            background-color: #ffffff;
         }
 
         .card:hover {
@@ -311,99 +344,334 @@
             gap: 8px;
         }
 
-        /* COURSES SECTION BG */
-        .courses-section {
-            background-color: #0083c3;
-            /* Aero Blue */
-            padding: 4rem 0;
+        /*INICIO POPUP BOTÃO NOSSOS CURSOS*/
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* CONTEÚDO DO MODAL */
+        .modal-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 40px;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+            animation: modalShow 0.4s ease;
+        }
+
+        @keyframes modalShow {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 300px;
+        }
+
+        .modal-text {
+            padding: 40px;
+            color: white;
+        }
+
+        .modal-text h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #ffc800;
+        }
+
+        .modal-text p {
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .modal-btn {
+            background: #25D366;
+            /* Verde para destacar matrícula */
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-text {
+                padding: 25px;
+            }
+        }
+
+        /*FIM DO POPUP BOTÃO NOSSOS CURSOS*/
+
+        /* NOSSOS CURSOS BG */
+        /* SEÇÃO CURSOS - ESTILO AERO REFINADO */
+        .courses-section {
+            background: #0083c3;
+            background: radial-gradient(circle at top left, #ffb700, #f24c7c, #005a87);
+            padding: 80px 0;
+            width: 100%;
+            font-family: tahoma;
+        }
+
+        .courses-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Ajuste do Título que estava com estilo inline */
+        .courses-section h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            position: relative;
+            display: block;
+            font-weight: 800;
+        }
+
+        .courses-section h2 span {
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #ffc800;
+            /* Amarelo para destaque */
+            margin: 12px auto 0;
+            border-radius: 10px;
+        }
+
+        /* GRID DE CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* CARD ESTILO AERO GLASS */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px 10px 30px 10px;
+            /* Aero Assimétrico */
+            padding: 40px 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ÍCONES PROPORCIONAIS */
+        .card-icon {
+            font-size: 2.5rem;
+            /* Tamanho médio e elegante */
+            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .card h3 {
+            color: white;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        /* LINK ESTILO BOTÃO */
+        .card-link {
+            text-decoration: none;
+            color: #004a6f;
+            background: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+            margin-top: auto;
+        }
+
+        .card-link:hover {
+            background: #ffc800;
+            transform: scale(1.05);
         }
 
         /* RESPONSIVO */
         @media (max-width: 900px) {
             .cards {
                 grid-template-columns: repeat(2, 1fr);
-                /* 2 colunas em tablet */
             }
         }
 
         @media (max-width: 600px) {
             .cards {
                 grid-template-columns: 1fr;
-                /* 1 coluna em mobile */
             }
 
-            nav {
-                width: 100%;
-            }
-
-            .hero h2 {
-                font-size: 1.8rem;
+            .courses-section h2 {
+                font-size: 2rem;
             }
         }
 
-        /* SPONSORS SECTION CSS */
+        /* PATROCINADOR */
         .sponsors-section {
-            padding: 4rem 0;
-            background-color: #f9f9f9;
+            padding: 100px 0;
+            background: #003149;
+            /* Fundo Black Piano */
             text-align: center;
             overflow: hidden;
-            /* Esconde a barra de rolagem horizontal */
         }
 
         .sponsors-title {
-            font-size: 2.5rem;
-            color: #0a3a70;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            background-color:#ffc800; /*COR DO TEXTO Nossos Patrocinadores*/
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            margin-bottom: 10px;
         }
 
         .sponsors-subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            font-weight: 400;
-            margin-bottom: 3rem;
+            color: #f0f7ff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 60px;
         }
 
         .marquee-container {
             width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
             position: relative;
-            padding: 1rem 0;
+            padding: 20px 0;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
 
         .marquee-track {
-            display: inline-flex;
-            gap: 2rem;
-            /* Espaço entre os boxes */
-            animation: scroll 20s linear infinite;
+            display: flex;
+            gap: 30px;
+            /* Espaço entre os quadrados */
+            width: max-content;
+            animation: scroll 35s linear infinite;
         }
 
+        /* O BOX QUADRADO PREMIUM */
         .sponsor-box {
-            width: 200px;
-            height: 120px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #ccc;
-            /* Cor do placeholder */
-            font-size: 1.2rem;
-            border: 1px solid #eee;
+            width: 250px;
+            /* Tamanho no site */
+            height: 250px;
+            /* Mantém 1:1 para fotos 1080p */
+            background: #111;
+            border-radius: 20px;
+            overflow: hidden;
             flex-shrink: 0;
-            /* Impede que os boxes encolham */
-            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* AJUSTE DA IMAGEM 1080p */
+        .sponsor-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Faz a imagem 1080x1080 preencher o box perfeitamente */
+            filter: grayscale(100%) brightness(0.7);
+            /* Efeito sóbrio */
+            transition: all 0.5s ease;
+        }
+
+        /* EFEITO DE LUZ AO PASSAR O MOUSE */
+        .sponsor-box::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
+            opacity: 0.5;
+            transition: 0.5s;
         }
 
         .sponsor-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            color: #0a3a70;
-            border-color: #0a3a70;
+            transform: scale(1.05);
+            border-color: #ffc800;
+            box-shadow: 0 0 30px rgba(255, 200, 0, 0.15);
+        }
+
+        .sponsor-box:hover img {
+            filter: grayscale(0%) brightness(1);
+            /* A imagem volta a ter cor e brilho original */
+        }
+
+        .sponsor-box:hover::after {
+            opacity: 0.2;
         }
 
         @keyframes scroll {
@@ -412,72 +680,192 @@
             }
 
             100% {
-                transform: translateX(-50%);
+                transform: translateX(calc(-50% - 15px));
             }
         }
 
-        /* PARTNERS SECTION CSS */
+        /* Mobile */
+        @media (max-width: 768px) {
+            .sponsor-box {
+                width: 180px;
+                height: 180px;
+            }
+
+            .sponsors-title {
+                font-size: 2.2rem;
+            }
+        }
+
+
+        /*Parceiros e Realização*/
+
+        /* SEÇÃO PARCEIROS - GERAL */
         .partners-section {
-            padding: 4rem 2rem;
+            padding: 80px 20px;
             background-color: #f24c7c;
-            /* Fundo Rosa Vibrante */
-            text-align: center;
-            border-top: 1px solid #eee;
+            font-family: 'tahoma';
+            color: white;
         }
 
-        .partners-title {
-            font-size: 2.5rem;
-            color: #ffffff;
-            /* Texto Branco */
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .partners-subtitle {
-            font-size: 1.2rem;
-            color: #ffffff;
-            /* Texto Branco */
-            font-weight: 400;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-        }
-
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+        .container-inner {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .partner-box {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #eee;
-            transition: transform 0.3s;
-            padding: 1rem;
+        /* INTRODUÇÃO */
+        .partners-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
         }
 
-        .partner-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .partners-title {
+            font-size: 2.8rem;
+            color: #ffc800;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .partners-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        /* BARRA DE ESTATÍSTICAS (AERO GLASS) */
+        .partners-stats {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffc800;
+        }
+
+        .stat-txt {
+            font-size: 0.9rem;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .stat-sep {
+            width: 1px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* GRID E CARDS */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .partner-box {
+            position: relative;
+            height: 320px;
+            border-radius: 40px;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            background: #eeeeee00;
         }
 
         .partner-box img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            clip-path: polygon(0 0, 65% 0, 75% 15%, 100% 15%, 100% 100%, 0 100%);
         }
 
-        @media (max-width: 900px) {
+        /* RECORTE DO BOTÃO (Sincronizado com fundo rosa) */
+        .button-cutout {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 60px;
+            background: #fa7298;
+            border-bottom-left-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .read-more-btn {
+            background: #ffc800;
+            color: #000;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* RODAPÉ AERO GLASS (CENTRALIZADO E JUSTO) */
+        .partners-footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn-partner-join {
+            background: #ffc800;
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 15px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-partner-join:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 200, 0, 0.4);
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 992px) {
             .partners-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .partners-stats {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .stat-sep {
+                display: none;
             }
         }
 
@@ -485,18 +873,116 @@
             .partners-grid {
                 grid-template-columns: 1fr;
             }
+
+            .partners-footer {
+                max-width: 90%;
+            }
         }
 
-        /* WHATSAPP SECTION */
+        /*Fim parceiros e realizações*/
+
+
+        /* WHATSAPP SECTION - DESIGN ELABORADO */
         .whatsapp-section {
-            padding: 4rem 1rem;
+            position: relative;
+            padding: 120px 20px;
             text-align: center;
+            color: #ffffff;
+
+            /* BACKGROUND PARALLAX COM CAMADA DE COR */
             background:
-                linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-                url('https://i.pinimg.com/736x/e8/d9/4e/e8d94e1e8b6b530ad315e9385290141b.jpg');
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://personalmarketingdigital.com.br/wp-content/uploads/2018/05/background-whatsapp-7.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed;
+            /* O efeito Parallax */
+
+            overflow: hidden;
+        }
+
+        /* CONTAINER PARA DAR FOCO AO CONTEÚDO */
+        .whatsapp-section .container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            /* Efeito de vidro sutil */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        /* TÍTULOS ESTILIZADOS */
+        .whatsapp-section h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            color: #25D366;
+            /* Verde WhatsApp */
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .whatsapp-section h2 {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+        }
+
+        /* BOTÃO WHATSAPP ELABORADO */
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            border: 2px solid transparent;
+        }
+
+        /* EFEITOS NO HOVER DO BOTÃO */
+        .whatsapp-btn:hover {
+            transform: scale(1.05) translateY(-5px);
+            background-color: transparent;
+            border-color: #25D366;
+            color: #25D366;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        /* RESPONSIVIDADE PARA O PARALLAX NO MOBILE */
+        @media (max-width: 1024px) {
+            .whatsapp-section {
+                background-attachment: scroll;
+                /* Melhora performance no mobile */
+                padding: 80px 20px;
+            }
+
+            .whatsapp-section .container {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Ajuste para dispositivos móveis onde o fixed costuma dar erro de zoom */
+        @media (max-width: 1024px) {
+            .whatsapp-section {
+                background-attachment: scroll;
+            }
         }
 
         .whatsapp-section h1 {
@@ -769,9 +1255,45 @@
 
         // Iniciar animação
         type();
+
+        //JS DO BOTÃO NOSSOS CURSOS
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('course-modal');
+            const closeBtn = document.querySelector('.close-modal');
+            const links = document.querySelectorAll('.card-link');
+
+            // Dados fictícios para as fotos (Substitua pelos seus links reais)
+            const courseImages = {
+                "Piano": "https://images.unsplash.com/photo-1520527053377-4710dbf6c0eb?q=80&w=500",
+                "Violão": "https://images.unsplash.com/photo-1510915363646-e92036128665?q=80&w=500",
+                "Teatro": "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=500",
+                "Coral": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=500",
+                "Violino": "https://images.unsplash.com/photo-1573871666457-7c7329415cf0?q=80&w=500",
+                "Desenho": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=500"
+            };
+
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const card = link.parentElement;
+                    const title = card.querySelector('h3').innerText;
+                    const desc = card.querySelector('p').innerText;
+
+                    document.getElementById('modal-title').innerText = title;
+                    document.getElementById('modal-description').innerText = desc + " Este é um curso completo focado em resultados práticos e teóricos para sua evolução artística.";
+                    document.getElementById('modal-img').src = courseImages[title] || "https://via.placeholder.com/500";
+
+                    modal.style.display = 'flex';
+                });
+            });
+
+            closeBtn.onclick = () => modal.style.display = 'none';
+            window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; }
+        });
+        //FIM DO JS BOTÃO NOSSOS CURSOS
     </script>
 
-    <!-- CONTEÚDO -->
+    <!-- NOSSOS CURSOS -->
     <section class="courses-section">
         <div class="container">
             <h2
@@ -807,9 +1329,9 @@
                     <a href="matricule-se.html" class="card-link">Saiba mais <span>→</span></a>
                 </div>
                 <div class="card">
-                    <div class="card-icon">🎵</div>
-                    <h3>Teoria</h3>
-                    <p>Compreenda a linguagem da música e leitura de partituras.</p>
+                    <div class="card-icon">🎻</div>
+                    <h3>Violino</h3>
+                    <p>Aprenda a técnica clássica e a sensibilidade sonora deste instrumento magnífico.</p>
                     <a href="matricule-se.html" class="card-link">Saiba mais <span>→</span></a>
                 </div>
                 <div class="card">
@@ -820,98 +1342,195 @@
                 </div>
             </div>
         </div>
+
+        <!--POPUP SAIBA MAIS NOSSOS CURSOS-->
+        <div id="course-modal" class="modal-overlay">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-body">
+                    <div class="modal-image">
+                        <img id="modal-img" src="" alt="Curso">
+                    </div>
+                    <div class="modal-text">
+                        <h3 id="modal-title">Título do Curso</h3>
+                        <p id="modal-description">Descrição detalhada aparece aqui.</p>
+                        <a href="matricule-se.html" class="modal-btn">Fazer Matrícula</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--FIM DO SAIBA MAIS NOSSOS CURSOS-->
     </section>
 
     <!-- PATROCINADORES -->
     <section class="sponsors-section">
         <h1 class="sponsors-title">Nossos Patrocinadores</h1>
-        <h2 class="sponsors-subtitle">Empresas que acreditam no poder transformador da arte.</h2>
+        <h2 class="sponsors-subtitle">Excelência e Parceria</h2>
 
         <div class="marquee-container">
             <div class="marquee-track">
-                <!-- 6 Patrocinadores Originais -->
                 <div class="sponsor-box">
-                    <img src="https://placehold.co/150x60/png?text=LOGO+1" alt="Patrocinador 1"
-                        style="max-width: 90%; height: auto;">
+                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com644859.jpg"
+                        alt="Patrocinador 1">
                 </div>
                 <div class="sponsor-box">
-                    <img src="https://placehold.co/150x60/png?text=LOGO+2" alt="Patrocinador 2"
-                        style="max-width: 90%; height: auto;">
+                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com775410.jpg"
+                        alt="Patrocinador 2">
                 </div>
                 <div class="sponsor-box">
-                    <img src="https://placehold.co/150x60/png?text=LOGO+3" alt="Patrocinador 3"
-                        style="max-width: 90%; height: auto;">
+                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com769819.jpg"
+                        alt="Patrocinador 3">
                 </div>
                 <div class="sponsor-box">
-                    <img src="https://placehold.co/150x60/png?text=LOGO+4" alt="Patrocinador 4"
-                        style="max-width: 90%; height: auto;">
+                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com264356.jpg"
+                        alt="Patrocinador 4">
                 </div>
                 <div class="sponsor-box">
-                    <img src="https://placehold.co/150x60/png?text=LOGO+5" alt="Patrocinador 5"
-                        style="max-width: 90%; height: auto;">
+                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com773436.jpg"
+                        alt="Patrocinador 5">
                 </div>
                 <div class="sponsor-box">
-                    <img src="https://placehold.co/150x60/png?text=LOGO+6" alt="Patrocinador 6"
-                        style="max-width: 90%; height: auto;">
+                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com958979.jpg"
+                        alt="Patrocinador 6">
                 </div>
+                <div class="sponsor-box"><img
+                        src="https://steptodown.com/istock-downloader/images/steptodown.com899092.jpg" alt="1"></div>
+                <div class="sponsor-box"><img
 
-                <!-- Duplicata para Loop Infinito (Seamless) -->
-                <div class="sponsor-box">
-                    <img src="https://placehold.co/150x60/png?text=LOGO+1" alt="Patrocinador 1"
-                        style="max-width: 90%; height: auto;">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://placehold.co/150x60/png?text=LOGO+2" alt="Patrocinador 2"
-                        style="max-width: 90%; height: auto;">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://placehold.co/150x60/png?text=LOGO+3" alt="Patrocinador 3"
-                        style="max-width: 90%; height: auto;">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://placehold.co/150x60/png?text=LOGO+4" alt="Patrocinador 4"
-                        style="max-width: 90%; height: auto;">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://placehold.co/150x60/png?text=LOGO+5" alt="Patrocinador 5"
-                        style="max-width: 90%; height: auto;">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://placehold.co/150x60/png?text=LOGO+6" alt="Patrocinador 6"
-                        style="max-width: 90%; height: auto;">
-                </div>
+                        src="https://steptodown.com/istock-downloader/images/steptodown.com244263.jpg" alt="2"></div>
+                <div class="sponsor-box"><img
+
+                        src="https://steptodown.com/istock-downloader/images/steptodown.com720404.jpg" alt="3"></div>
+                <div class="sponsor-box"><img
+
+                        src="https://steptodown.com/istock-downloader/images/steptodown.com517012.jpg" alt="4"></div>
+                <div class="sponsor-box"><img
+
+                        src="https://steptodown.com/istock-downloader/images/steptodown.com836873.jpg" alt="5"></div>
+                <div class="sponsor-box"><img
+
+                        src="Shttps://steptodown.com/istock-downloader/images/steptodown.com314439.jpg" alt="6"></div>
             </div>
         </div>
     </section>
 
-    <!-- PARCEIROS E REALIZAÇÃO -->
+    <!--PERCEIROS-->
     <section class="partners-section">
-        <h1 class="partners-title">Parceiros e Realização</h1>
-        <h2 class="partners-subtitle">Instituições que tornam este projeto possível.</h2>
+        <div class="container-inner">
+            <div class="partners-intro">
+                <h1 class="partners-title">Parceiros e Realização</h1>
+                <p class="partners-subtitle">
+                    Trabalhamos em conjunto com instituições que acreditam na arte como ferramenta de transformação
+                    social.
+                    Conheça quem faz o Projeto ANE acontecer diariamente.
+                </p>
+            </div>
 
-        <div class="partners-grid">
-            <div class="partner-box">
-                <img src="https://placehold.co/300x200/png?text=LOGO+1" alt="Parceiro 1">
+            <div class="partners-stats">
+                <div class="stat-item">
+                    <span class="stat-num">15+</span>
+                    <span class="stat-txt">Empresas Parceiras</span>
+                </div>
+                <div class="stat-sep"></div>
+                <div class="stat-item">
+                    <span class="stat-num">5k+</span>
+                    <span class="stat-txt">Vidas Impactadas</span>
+                </div>
+                <div class="stat-sep"></div>
+                <div class="stat-item">
+                    <span class="stat-num">10</span>
+                    <span class="stat-txt">Anos de Projetos</span>
+                </div>
             </div>
-            <div class="partner-box">
-                <img src="https://placehold.co/300x200/png?text=LOGO+2" alt="Parceiro 2">
+
+            <div class="partners-grid">
+                <div class="partner-box">
+                    <div class="button-cutout">
+                        <a href="#" class="read-more-btn">Saber mais <i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com776541.jpg"
+                        alt="Parceiro 1">
+                </div>
+
+                <div class="partner-box">
+                    <div class="button-cutout">
+                        <a href="#" class="read-more-btn">Saber mais <i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com374693.jpg"
+                        alt="Parceiro 2">
+                </div>
+
+                <div class="partner-box">
+                    <div class="button-cutout">
+                        <a href="#" class="read-more-btn">Saber mais <i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com554064.jpg"
+                        alt="Parceiro 3">
+                </div>
+
+                <div class="partner-box">
+                    <div class="button-cutout">
+                        <a href="#" class="read-more-btn">Saber mais <i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=500" alt="Parceiro 4">
+                </div>
+
+                <div class="partner-box">
+                    <div class="button-cutout">
+                        <a href="#" class="read-more-btn">Saber mais <i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=500" alt="Parceiro 5">
+                </div>
+
+                <div class="partner-box">
+                    <div class="button-cutout">
+                        <a href="#" class="read-more-btn">Saber mais <i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1459749411177-042180ce673c?q=80&w=500" alt="Parceiro 6">
+                </div>
             </div>
-            <div class="partner-box">
-                <img src="https://placehold.co/300x200/png?text=LOGO+3" alt="Parceiro 3">
-            </div>
-            <div class="partner-box">
-                <img src="https://placehold.co/300x200/png?text=LOGO+4" alt="Parceiro 4">
+
+            <div class="partners-footer">
+                <p>Sua empresa quer apoiar a cultura?</p>
+                <a href="contato.html" class="btn-partner-join">Seja um Parceiro Oficial</a>
             </div>
         </div>
+    </section>
+    <!--FIM DOS PARCEIROS-->
+
     </section>
 
     <!-- WHATSAPP CTA -->
     <section class="whatsapp-section">
         <div class="container">
             <h1>Fale com Nossa Equipe</h1>
-            <h2>Tire suas dúvidas e saiba mais sobre o projeto</h2>
-            <a class="whatsapp-btn" href="https://wa.me/554891468442" target="_blank" rel="noopener noreferrer">Chamar
-                no WhatsApp</a>
+            <h2>Tire suas dúvidas e saiba mais sobre o projeto ANE 2026</h2>
+
+            <div class="whatsapp-info-grid"
+                style="display: flexbox; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; color: white;">
+                <div class="info-item">
+                    <p><strong><i class="fa-solid fa-clock"></i> Horário de Atendimento</strong></p>
+                    <p>Segunda a Sexta: 08h às 18h</p><br>
+                </div>
+                <div class="info-item">
+                    <p><strong><i class="fa-solid fa-comments"></i> Assuntos</strong></p>
+                    <p>Dúvidas, Parcerias e Doações</p>
+                </div>
+            </div>
+
+            <a class="whatsapp-btn" href="https://wa.me/554891468442" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp
+            </a>
+
+            <p style="margin-top: 20px; color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+                Ou envie um e-mail para: <strong>contato@ane2026.com.br</strong>
+            </p>
         </div>
     </section>
 

@@ -696,189 +696,200 @@
             }
         }
 
+        /* COLE ABAIXO DO SEU CSS EXISTENTE */
+
+.sponsor-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #ffc800;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 10;
+}
+
+/*FIM DO PATROCINADOR/
+
+/* APARECER APENAS NO HOVER */
+.sponsor-box:hover .sponsor-btn {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* PAUSAR O MARQUEE PARA PERMITIR O CLIQUE */
+.marquee-container:hover .marquee-track {
+    animation-play-state: paused;
+}
+
 
         /*Parceiros e Realização*/
 
-        /* SEÇÃO PARCEIROS - GERAL */
-        .partners-section {
-            padding: 80px 20px;
-            background-color: #f24c7c;
-            font-family: 'tahoma';
-            color: white;
-        }
+       /* --- SEÇÃO PARCEIROS CORPORATE AERO --- */
+.partners-section {
+    padding: 100px 20px;
+    background-color: #f24c7c; /* Rosa Base ANE */
+    font-family: 'Tahoma', sans-serif;
+}
 
-        .container-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.container-inner {
+    max-width: 1400px; /* Largura maior para acomodar 4 cards */
+    margin: 0 auto;
+}
 
-        /* INTRODUÇÃO */
-        .partners-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 50px;
-        }
+.partners-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
 
-        .partners-title {
-            font-size: 2.8rem;
-            color: #ffc800;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
+.partners-title {
+    font-size: 3.5rem;
+    color: #ffc800;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
 
-        .partners-subtitle {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-        }
+.partners-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+}
 
-        /* BARRA DE ESTATÍSTICAS (AERO GLASS) */
-        .partners-stats {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 40px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            margin-bottom: 60px;
-        }
+/* GRID COM 4 COLUNAS */
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards um ao lado do outro */
+    gap: 25px;
+}
 
-        .stat-item {
-            text-align: center;
-        }
+/* CARD CORPORATIVO AERO */
+.partner-card-corporate {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 35px;
+    padding: 15px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+}
 
-        .stat-num {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #ffc800;
-        }
+.partner-card-corporate:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
 
-        .stat-txt {
-            font-size: 0.9rem;
-            color: white;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
+/* BOX DA FOTO */
+.photo-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    border-radius: 25px;
+    overflow: hidden;
+}
 
-        .stat-sep {
-            width: 1px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.3);
-        }
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        /* GRID E CARDS */
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
-        }
+/* LABELS COM FUNDO (MASTER, REALIZAÇÃO, PLATINUM) */
+.category-label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 8px 15px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 
-        .partner-box {
-            position: relative;
-            height: 320px;
-            border-radius: 40px;
-            overflow: hidden;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            background: #eeeeee00;
-        }
+.label-master { background: #ffc800; color: #000; }
+.label-realizacao { background: #fff; color: #f24c7c; }
+.label-platinum { background: #1e293b; color: #ffc800; }
+.label-apoio { background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); color: #fff; }
 
-        .partner-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            clip-path: polygon(0 0, 65% 0, 75% 15%, 100% 15%, 100% 100%, 0 100%);
-        }
+/* CORPO DO CARD */
+.card-body {
+    padding: 20px 10px 10px;
+    text-align: center;
+}
 
-        /* RECORTE DO BOTÃO (Sincronizado com fundo rosa) */
-        .button-cutout {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 150px;
-            height: 60px;
-            background: #fa7298;
-            border-bottom-left-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-        }
+.partner-name {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
 
-        .read-more-btn {
-            background: #ffc800;
-            color: #000;
-            padding: 10px 18px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+.partner-loc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
 
-        /* RODAPÉ AERO GLASS (CENTRALIZADO E JUSTO) */
-        .partners-footer {
-            text-align: center;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            max-width: 600px;
-            margin: 0 auto;
-        }
+/* BOTÃO DE ACESSO AO SITE */
+.partner-link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 18px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+}
 
-        .btn-partner-join {
-            background: #ffc800;
-            color: #000;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            margin-top: 15px;
-            display: inline-block;
-            transition: 0.3s;
-        }
+.partner-link-btn:hover {
+    background: #ffc800;
+    color: #000;
+    border-color: #ffc800;
+}
 
-        .btn-partner-join:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 200, 0, 0.4);
-        }
+/* RESPONSIVO */
+@media (max-width: 1200px) {
+    .partners-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 650px) {
+    .partners-grid { grid-template-columns: 1fr; }
+}
+/* 1. Esconde o botão e remove o espaço que ele ocupa */
+.partner-link-btn {
+    display: none;
+    transition: all 0.3s ease;
+}
 
-        /* RESPONSIVO */
-        @media (max-width: 992px) {
-            .partners-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .partners-stats {
-                flex-wrap: wrap;
-                gap: 20px;
-            }
-
-            .stat-sep {
-                display: none;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .partners-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .partners-footer {
-                max-width: 90%;
-            }
-        }
-
+/* 2. Faz o botão aparecer e o card crescer apenas no hover */
+.partner-card-corporate:hover .partner-link-btn {
+    display: block;
+    margin-top: 15px; /* Adiciona um respiro entre o texto e o botão */
+}
         /*Fim parceiros e realizações*/
 
 
@@ -1262,14 +1273,14 @@
             const closeBtn = document.querySelector('.close-modal');
             const links = document.querySelectorAll('.card-link');
 
-            // Dados fictícios para as fotos (Substitua pelos seus links reais)
+            // FOTOS DO POPUP CURSOS
             const courseImages = {
-                "Piano": "https://images.unsplash.com/photo-1520527053377-4710dbf6c0eb?q=80&w=500",
-                "Violão": "https://images.unsplash.com/photo-1510915363646-e92036128665?q=80&w=500",
-                "Teatro": "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=500",
-                "Coral": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=500",
-                "Violino": "https://images.unsplash.com/photo-1573871666457-7c7329415cf0?q=80&w=500",
-                "Desenho": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=500"
+                "Piano": "https://steptodown.com/istock-downloader/images/steptodown.com738701.jpg",
+                "Violão": "https://steptodown.com/istock-downloader/images/steptodown.com859803.jpg",
+                "Teatro": "https://steptodown.com/istock-downloader/images/steptodown.com388167.jpg",
+                "Coral": "https://steptodown.com/istock-downloader/images/steptodown.com987838.jpg",
+                "Violino": "https://steptodown.com/istock-downloader/images/steptodown.com289293.jpg",
+                "Desenho": "https://steptodown.com/istock-downloader/images/steptodown.com321548.jpg"
             };
 
             links.forEach(link => {
@@ -1364,156 +1375,132 @@
 
     <!-- PATROCINADORES -->
     <section class="sponsors-section">
-        <h1 class="sponsors-title">Nossos Patrocinadores</h1>
-        <h2 class="sponsors-subtitle">Excelência e Parceria</h2>
+    <h1 class="sponsors-title">Nossos Patrocinadores</h1>
+    <h2 class="sponsors-subtitle">Excelência e Parceria</h2>
 
-        <div class="marquee-container">
-            <div class="marquee-track">
-                <div class="sponsor-box">
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com644859.jpg"
-                        alt="Patrocinador 1">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com775410.jpg"
-                        alt="Patrocinador 2">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com769819.jpg"
-                        alt="Patrocinador 3">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com264356.jpg"
-                        alt="Patrocinador 4">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com773436.jpg"
-                        alt="Patrocinador 5">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com958979.jpg"
-                        alt="Patrocinador 6">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com941333.jpg"
-                        alt="Patrocinador 7">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com501265.jpg"
-                        alt="Patrocinador 8">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com314722.jpg"
-                        alt="Patrocinador 9">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com169996.jpg"
-                        alt="Patrocinador 10">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com779740.jpg"
-                        alt="Patrocinador 11">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com821965.jpg"
-                        alt="Patrocinador 12">
-                </div>
-                <div class="sponsor-box">
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com725078.jpg"
-                        alt="Patrocinador 12">
-                </div>
-
+    <div class="marquee-container">
+        <div class="marquee-track">
+            <div class="sponsor-box">
+                <img src="https://steptodown.com/istock-downloader/images/steptodown.com644859.jpg" alt="Patrocinador 1">
+                <a href="https://www.google.com.br/" class="sponsor-btn" target="_blank">Visite o Site</a>
+            </div>
+            <div class="sponsor-box">
+                <img src="https://steptodown.com/istock-downloader/images/steptodown.com775410.jpg" alt="Patrocinador 2">
+                <a href="https://www.google.com.br/" class="sponsor-btn" target="_blank">Visite o Site</a>
+            </div>
+            <div class="sponsor-box">
+                <img src="https://steptodown.com/istock-downloader/images/steptodown.com769819.jpg" alt="Patrocinador 3">
+                <a href="https://www.google.com.br/" class="sponsor-btn" target="_blank">Visite o Site</a>
+            </div>
+            <div class="sponsor-box">
+                <img src="https://steptodown.com/istock-downloader/images/steptodown.com264356.jpg" alt="Patrocinador 4">
+                <a href="https://www.google.com.br/" class="sponsor-btn" target="_blank">Visite o Site</a>
+            </div>
+            <div class="sponsor-box">
+                <img src="https://steptodown.com/istock-downloader/images/steptodown.com773436.jpg" alt="Patrocinador 5">
+                <a href="https://www.google.com.br/" class="sponsor-btn" target="_blank">Visite o Site</a>
+            </div>
+            <div class="sponsor-box">
+                <img src="https://steptodown.com/istock-downloader/images/steptodown.com958979.jpg" alt="Patrocinador 6">
+                <a href="https://www.google.com.br/" class="sponsor-btn" target="_blank">Visite o Site</a>
+            </div>
+            <div class="sponsor-box">
+                <img src="https://steptodown.com/istock-downloader/images/steptodown.com941333.jpg" alt="Patrocinador 7">
+                <a href="https://www.google.com.br/" class="sponsor-btn" target="_blank">Visite o Site</a>
+            </div>
+            <div class="sponsor-box">
+                <img src="https://steptodown.com/istock-downloader/images/steptodown.com501265.jpg" alt="Patrocinador 8">
+                <a href="https://www.google.com.br/" class="sponsor-btn" target="_blank">Visite o Site</a>
+            </div>
+            <div class="sponsor-box">
+                <img src="https://steptodown.com/istock-downloader/images/steptodown.com314722.jpg" alt="Patrocinador 9">
+                <a href="https://www.google.com.br/" class="sponsor-btn" target="_blank">Visite o Site</a>
+            </div>
+            <div class="sponsor-box">
+                <img src="https://steptodown.com/istock-downloader/images/steptodown.com169996.jpg" alt="Patrocinador 10">
+                <a href="https://www.google.com.br/" class="sponsor-btn" target="_blank">Visite o Site</a>
+            </div>
+            <div class="sponsor-box">
+                <img src="https://steptodown.com/istock-downloader/images/steptodown.com779740.jpg" alt="Patrocinador 11">
+                <a href="https://www.google.com.br/" class="sponsor-btn" target="_blank">Visite o Site</a>
+            </div>
+            <div class="sponsor-box">
+                <img src="https://steptodown.com/istock-downloader/images/steptodown.com821965.jpg" alt="Patrocinador 12">
+                <a href="https://www.google.com.br/" class="sponsor-btn" target="_blank">Visite o Site</a>
+            </div>
+            <div class="sponsor-box">
+                <img src="https://steptodown.com/istock-downloader/images/steptodown.com725078.jpg" alt="Patrocinador 13">
+                <a href="https://www.google.com.br/" class="sponsor-btn" target="_blank">Visite o Site</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+<!--FIM PATROCINADORES-->
 
-    <!--PERCEIROS-->
+    <!--parceiros e Realização-->
     <section class="partners-section">
-        <div class="container-inner">
-            <div class="partners-intro">
-                <h1 class="partners-title">Parceiros e Realização</h1>
-                <p class="partners-subtitle">
-                    Trabalhamos em conjunto com instituições que acreditam na arte como ferramenta de transformação
-                    social.
-                    Conheça quem faz o Projeto ANE acontecer diariamente.
-                </p>
-            </div>
+    <div class="container-inner">
+        
+        <header class="partners-header">
+            <h1 class="partners-title">Realização e Apoio</h1>
+            <p class="partners-subtitle">
+                O Projeto Arte nas Escolas é mantido por organizações de vanguarda que investem no potencial transformador da cultura e da educação em nossa sociedade.
+            </p>
+        </header>
 
-            <div class="partners-stats">
-                <div class="stat-item">
-                    <span class="stat-num">15+</span>
-                    <span class="stat-txt">Empresas Parceiras</span>
+        <div class="partners-grid">
+            
+            <div class="partner-card-corporate">
+                <div class="photo-container">
+                    <img src="https://img.freepik.com/vetores-gratis/logotipo-ilustrado-de-personagem-de-banana-engracado_23-2148721720.jpg" alt="Parceiro">
+                    <!--<span class="category-label label-master">Patrocínio Master</span>-->
                 </div>
-                <div class="stat-sep"></div>
-                <div class="stat-item">
-                    <span class="stat-num">5k+</span>
-                    <span class="stat-txt">Vidas Impactadas</span>
-                </div>
-                <div class="stat-sep"></div>
-                <div class="stat-item">
-                    <span class="stat-num">10</span>
-                    <span class="stat-txt">Anos de Projetos</span>
+                <div class="card-body">
+                    <h3 class="partner-name">Instituto Harmonia</h3>
+                    <p class="partner-loc"><i class="fa-solid fa-location-dot"></i> Florianópolis, SC</p>
+                    <a href="https://www.google.com.br/" target="_blank" class="partner-link-btn">Visitar Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
             </div>
 
-            <div class="partners-grid">
-                <div class="partner-box">
-                    <div class="button-cutout">
-                        <a href="#" class="read-more-btn">Saber mais <i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com776541.jpg"
-                        alt="Parceiro 1">
+            <div class="partner-card-corporate">
+                <div class="photo-container">
+                    <img src="https://img.freepik.com/vetores-gratis/design-de-logotipo-de-hub-gradiente_23-2149872176.jpg" alt="Parceiro">
+                    <!--<span class="category-label label-realizacao">Realização</span>-->
                 </div>
-
-                <div class="partner-box">
-                    <div class="button-cutout">
-                        <a href="#" class="read-more-btn">Saber mais <i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com374693.jpg"
-                        alt="Parceiro 2">
-                </div>
-
-                <div class="partner-box">
-                    <div class="button-cutout">
-                        <a href="#" class="read-more-btn">Saber mais <i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                    <img src="https://steptodown.com/istock-downloader/images/steptodown.com554064.jpg"
-                        alt="Parceiro 3">
-                </div>
-
-                <div class="partner-box">
-                    <div class="button-cutout">
-                        <a href="#" class="read-more-btn">Saber mais <i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=500" alt="Parceiro 4">
-                </div>
-
-                <div class="partner-box">
-                    <div class="button-cutout">
-                        <a href="#" class="read-more-btn">Saber mais <i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=500" alt="Parceiro 5">
-                </div>
-
-                <div class="partner-box">
-                    <div class="button-cutout">
-                        <a href="#" class="read-more-btn">Saber mais <i
-                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1459749411177-042180ce673c?q=80&w=500" alt="Parceiro 6">
+                <div class="card-body">
+                    <h3 class="partner-name">Artes do Amanhã</h3>
+                    <p class="partner-loc"><i class="fa-solid fa-location-dot"></i> São José, SC</p>
+                    <a href="https://www.google.com.br/" target="_blank" class="partner-link-btn">Visitar Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
             </div>
 
-            <div class="partners-footer">
-                <p>Sua empresa quer apoiar a cultura?</p>
-                <a href="contato.html" class="btn-partner-join">Seja um Parceiro Oficial</a>
+            <div class="partner-card-corporate">
+                <div class="photo-container">
+                    <img src="https://img.freepik.com/vetores-gratis/design-plano-design-de-logotipo-ac_23-2149482027.jpg" alt="Parceiro">
+                    <!--<span class="category-label label-platinum">Apoio Platinum</span>-->
+                </div>
+                <div class="card-body">
+                    <h3 class="partner-name">Cultura Viva</h3>
+                    <p class="partner-loc"><i class="fa-solid fa-location-dot"></i> Chapecó, SC</p>
+                    <a href="https://www.google.com.br/" target="_blank" class="partner-link-btn">Visitar Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
             </div>
+
+            <div class="partner-card-corporate">
+                <div class="photo-container">
+                    <img src="https://img.freepik.com/vetores-gratis/logotipo-do-monstro-do-cafe_197582-190.jpg" alt="Parceiro">
+                    <!--<span class="category-label label-apoio">Apoio Institucional</span>-->
+                </div>
+                <div class="card-body">
+                    <h3 class="partner-name">Fundo Artístico</h3>
+                    <p class="partner-loc"><i class="fa-solid fa-location-dot"></i> Joinville, SC</p>
+                    <a href="https://www.google.com.br/" target="_blank" class="partner-link-btn">Visitar Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
     <!--FIM DOS PARCEIROS-->
 
     </section>

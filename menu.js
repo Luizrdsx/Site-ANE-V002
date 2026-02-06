@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <a href="galeria.html">Galeria</a>
                 <a href="contribua.html">Contribua</a>
                 <a href="contato.html">Contato</a>
+                <!--<a href="assinatura.html">Assinatura Eletrônica</a>-->
                 <a href="acesso-interno.html">Reservas</a>
             </nav>
 

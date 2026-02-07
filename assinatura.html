@@ -481,44 +481,24 @@
 
         // LÓGICA DE FOTO: 1080x1080 (Corte centralizado)
         let fotoData = "";
-        document.getElementById('foto_aluno').onchange = function(e) {
-            const file = e.target.files[0];
-            const statusLabel = document.getElementById('photo-status');
+document.getElementById('foto_aluno').onchange = function(e) {
+    const file = e.target.files[0];
+    const statusLabel = document.getElementById('photo-status');
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            // event.target.result contém a imagem original em Base64
+            fotoData = event.target.result;
             
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const img = new Image();
-                    img.onload = function() {
-                        const canvasFoto = document.createElement('canvas');
-                        const size = 1080; 
-                        canvasFoto.width = size;
-                        canvasFoto.height = size;
-                        const ctxFoto = canvasFoto.getContext('2d');
-
-                        // Lógica de corte para manter o aspecto 1:1 (quadrado)
-                        let sourceX, sourceY, sourceSize;
-                        if (img.width > img.height) {
-                            sourceSize = img.height;
-                            sourceX = (img.width - img.height) / 2;
-                            sourceY = 0;
-                        } else {
-                            sourceSize = img.width;
-                            sourceY = (img.height - img.width) / 2;
-                            sourceX = 0;
-                        }
-
-                        ctxFoto.drawImage(img, sourceX, sourceY, sourceSize, sourceSize, 0, 0, size, size);
-                        
-                        // Converte para JPG com 90% de qualidade
-                        fotoData = canvasFoto.toDataURL("image/jpeg", 0.9);
-                        statusLabel.style.display = 'block';
-                    };
-                    img.src = event.target.result;
-                };
-                reader.readAsDataURL(file);
+            if (statusLabel) {
+                statusLabel.style.display = 'block';
+                statusLabel.innerText = "Foto carregada com sucesso!";
             }
         };
+        reader.readAsDataURL(file);
+    }
+};
 
         // ENVIO FINAL
         document.getElementById('final-form').onsubmit = async (e) => {

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <a href="contribua.html">Contribua</a>
                 <a href="contato.html">Contato</a>
                 <!--<a href="assinatura.html">Assinatura Eletrônica</a>-->
-                <a href="acesso-interno.html">Reservas</a>
+                <!--<a href="acesso-interno.html">Reservas</a>-->
             </nav>
 
             <div class="action-area desktop-only">
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <a href="galeria.html">Galeria</a>
                 <a href="contribua.html">Contribua</a>
                 <a href="contato.html">Contato</a>
-                <a href="acesso-interno.html">Reservas</a>
+                <!--<a href="acesso-interno.html">Reservas</a>-->
                 <a href="matricule-se.html" class="btn-matricula-mobile">Matricule-se</a>
             </div>
         </nav>

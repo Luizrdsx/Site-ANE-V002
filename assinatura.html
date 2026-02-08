@@ -40,8 +40,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .contract-box {
@@ -57,7 +64,9 @@
             text-align: left;
         }
 
-        .contract-box strong { color: var(--primary); }
+        .contract-box strong {
+            color: var(--primary);
+        }
 
         .terms-container {
             display: flex;
@@ -86,7 +95,10 @@
 
         .modal-overlay {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.9);
             display: none;
             align-items: center;
@@ -118,13 +130,42 @@
             text-align: center;
         }
 
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .full { grid-column: span 2; }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
 
-        label { font-size: 0.75rem; font-weight: 700; color: #777; margin-bottom: 4px; display: block; }
-        input, select { padding: 12px; border: 1px solid #ddd; border-radius: 8px; width: 100%; box-sizing: border-box; color: #333; }
+        .full {
+            grid-column: span 2;
+        }
 
-        #signature-pad { border: 2px dashed #ccc; border-radius: 10px; width: 100%; height: 120px; background: #f9f9f9; cursor: crosshair; }
+        label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #777;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        input,
+        select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        #signature-pad {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            width: 100%;
+            height: 120px;
+            background: #f9f9f9;
+            cursor: crosshair;
+        }
 
         .btn-final {
             width: 100%;
@@ -139,22 +180,44 @@
             transition: 0.3s;
         }
 
-        .btn-final:disabled { background: #ccc !important; cursor: not-allowed; }
+        .btn-final:disabled {
+            background: #ccc !important;
+            cursor: not-allowed;
+        }
 
         #success-popup {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.95);
             display: none;
-            align-items: center; justify-content: center; z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
         }
 
-        .popup-content { background: #fff; padding: 30px; border-radius: 20px; text-align: center; width: 85%; max-width: 350px; color: #333; }
-        
-        .step-hidden { display: none !important; }
+        .popup-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            width: 85%;
+            max-width: 350px;
+            color: #333;
+        }
 
-        /* Preview da foto */
-        #photo-status { font-size: 11px; margin-top: 5px; color: var(--success); display: none; }
+        .step-hidden {
+            display: none !important;
+        }
+
+        #photo-status {
+            font-size: 11px;
+            margin-top: 5px;
+            color: var(--success);
+            display: none;
+        }
     </style>
 </head>
 
@@ -307,56 +370,78 @@
     </div>
 
     <div class="modal-overlay" id="modal-overlay">
-    <div class="modal-card">
-        <form id="final-form">
-            
-            <div id="etapa-1" class="form-grid">
-                <div class="section-title">--- DADOS DO BENEFICIÁRIO ---</div>
-                
-                <div class="input-group full">
-                    <label>Nome do Beneficiário</label>
-                    <input type="text" id="nome_ben" required>
-                </div>
+        <div class="modal-card">
+            <form id="final-form">
 
-                <div class="input-group full">
-                    <label style="display: block; margin-bottom: 4px;">Data de Nascimento do Beneficiário</label>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
-                        <select id="dia_nasc" required style="padding: 12px; border: 1px solid #ddd; border-radius: 8px; width: 100%;">
-                            <option value="">Dia</option>
-                            <script>for(let i=1;i<=31;i++) document.write(`<option value="${i<10?'0'+i:i}">${i<10?'0'+i:i}</option>`)</script>
-                        </select>
-                        <select id="mes_nasc" required style="padding: 12px; border: 1px solid #ddd; border-radius: 8px; width: 100%;">
-                            <option value="">Mês</option>
-                            <option value="01">Jan</option><option value="02">Fev</option><option value="03">Mar</option>
-                            <option value="04">Abr</option><option value="05">Mai</option><option value="06">Jun</option>
-                            <option value="07">Jul</option><option value="08">Ago</option><option value="09">Set</option>
-                            <option value="10">Out</option><option value="11">Nov</option><option value="12">Dez</option>
-                        </select>
-                        <select id="ano_nasc" required style="padding: 12px; border: 1px solid #ddd; border-radius: 8px; width: 100%;">
-                            <option value="">Ano</option>
-                            <script>for(let i=2026;i>=1800;i--) document.write(`<option value="${i}">${i}</option>`)</script>
+                <div id="etapa-1" class="form-grid">
+                    <div class="section-title">--- DADOS DO BENEFICIÁRIO ---</div>
+
+                    <div class="input-group full">
+                        <label>Nome do Beneficiário</label>
+                        <input type="text" id="nome_ben" required>
+                    </div>
+
+                    <div class="input-group full">
+                        <label style="display: block; margin-bottom: 4px;">Data de Nascimento do Beneficiário</label>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;">
+                            <select id="dia_nasc" required>
+                                <option value="">Dia</option>
+                                <script>for (let i = 1; i <= 31; i++) document.write(`<option value="${i < 10 ? '0' + i : i}">${i < 10 ? '0' + i : i}</option>`)</script>
+                            </select>
+                            <select id="mes_nasc" required>
+                                <option value="">Mês</option>
+                                <option value="01">Jan</option><option value="02">Fev</option><option value="03">Mar</option>
+                                <option value="04">Abr</option><option value="05">Mai</option><option value="06">Jun</option>
+                                <option value="07">Jul</option><option value="08">Ago</option><option value="09">Set</option>
+                                <option value="10">Out</option><option value="11">Nov</option><option value="12">Dez</option>
+                            </select>
+                            <select id="ano_nasc" required>
+                                <option value="">Ano</option>
+                                <script>for (let i = 2026; i >= 1800; i--) document.write(`<option value="${i}">${i}</option>`)</script>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group full">
+                        <label>Curso(s)</label>
+                        <input type="text" id="curso" placeholder="Ex: Violão, Teatro" required>
+                    </div>
+
+                    <div class="section-title">--- DADOS DO RESPONSÁVEL ---</div>
+                    <div class="input-group full">
+                        <label>Nome do Responsável</label>
+                        <input type="text" id="nome_res" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Telefone de Contato</label>
+                        <input type="tel" id="tel" placeholder="(00) 00000-0000" required>
+                    </div>
+                    <div class="input-group">
+                        <label>CPF</label>
+                        <input type="text" id="cpf" placeholder="000.000.000-00" required>
+                    </div>
+                    <div class="input-group">
+                        <label>CEP</label>
+                        <input type="text" id="cep" placeholder="00000-000" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Selecione o Município</label>
+                        <select id="mun" required>
+                            <option value="" disabled selected>Selecione seu Município</option>
+                            <option value="Florianópolis - SC">Florianópolis - SC</option>
+                            <option value="São José - SC">São José - SC</option>
                         </select>
                     </div>
-                </div>
-
-                <div class="input-group full">
-                    <label>Curso(s)</label>
-                    <input type="text" id="curso" placeholder="Ex: Violão, Teatro" required>
-                </div>
-                    
-                    
-                    <div class="section-title">--- DADOS DO RESPONSÁVEL ---</div>
-                    <div class="input-group full"><label>Nome do Responsável</label><input type="text" id="nome_res" required></div>
-                    <div class="input-group"><label>Telefone de Contato</label><input type="tel" id="tel" placeholder="(00) 00000-0000" required></div>
-                    <div class="input-group"><label>CPF</label><input type="text" id="cpf" placeholder="000.000.000-00" required></div>
-                    <div class="input-group"><label>CEP</label><input type="text" id="cep" placeholder="00000-000" required></div>
-                    <div class="input-group"><label>Município</label><input type="text" id="mun" value="Florianópolis - SC" readonly></div>
-                    <div class="input-group full"><label>Endereço</label><input type="text" id="end" placeholder="Rua, Número, Bairro" required></div>
+                    <div class="input-group full">
+                        <label>Endereço</label>
+                        <input type="text" id="end" placeholder="Rua, Número, Bairro" required>
+                    </div>
                     <div class="input-group full" style="margin-top:10px;">
                         <label>ASSINATURA DO RESPONSÁVEL (Desenhe abaixo)</label>
                         <canvas id="signature-pad"></canvas>
                         <button type="button" id="btn-clear" style="border:none; background:none; color:var(--primary); font-size:10px; cursor:pointer; font-weight:bold; margin-top:5px;">[ LIMPAR ASSINATURA ]</button>
                     </div>
+
                     <button type="button" class="btn-final full" onclick="proximaEtapa()">PRÓXIMA ETAPA</button>
                 </div>
 
@@ -367,12 +452,12 @@
                         <input type="text" id="nome_aluno">
                     </div>
                     <div class="input-group full">
-                        <label>Anexar Foto do Aluno (Será ajustada para 1080x1080)</label>
+                        <label>Anexar Foto do Aluno</label>
                         <input type="file" id="foto_aluno" accept="image/*">
-                        <div id="photo-status"><i class="fas fa-check"></i> Foto processada em alta resolução!</div>
+                        <div id="photo-status"><i class="fas fa-check"></i> Foto processada!</div>
                     </div>
                     <button type="submit" class="btn-final full" id="btn-submit">FINALIZAR MATRÍCULA</button>
-                    <button type="button" onclick="voltarEtapa()" style="width:100%; background:none; border:none; color:#777; cursor:pointer; margin-top:10px; font-size:12px;">Voltar para dados anteriores</button>
+                    <button type="button" onclick="voltarEtapa()" style="width:100%; background:none; border:none; color:#777; cursor:pointer; margin-top:10px; font-size:12px;">Voltar</button>
                 </div>
 
             </form>
@@ -389,12 +474,12 @@
     </div>
 
     <script>
-        // Funções de Navegação entre Etapas
+        // Funções de Navegação
         function proximaEtapa() {
-            const camposEtapa1 = document.querySelectorAll('#etapa-1 input[required]');
+            const camposEtapa1 = document.querySelectorAll('#etapa-1 input[required], #etapa-1 select[required]');
             let valida = true;
             camposEtapa1.forEach(input => {
-                if(!input.value) {
+                if (!input.value) {
                     input.style.borderColor = 'red';
                     valida = false;
                 } else {
@@ -402,14 +487,13 @@
                 }
             });
 
-            if(!valida) {
+            if (!valida) {
                 alert("Por favor, preencha todos os campos obrigatórios.");
                 return;
             }
 
             document.getElementById('etapa-1').classList.add('step-hidden');
             document.getElementById('etapa-2').classList.remove('step-hidden');
-            
             document.getElementById('nome_aluno').required = true;
             document.getElementById('foto_aluno').required = true;
         }
@@ -417,95 +501,85 @@
         function voltarEtapa() {
             document.getElementById('etapa-2').classList.add('step-hidden');
             document.getElementById('etapa-1').classList.remove('step-hidden');
-            document.getElementById('nome_aluno').required = false;
-            document.getElementById('foto_aluno').required = false;
         }
 
-        // Máscaras de Input
-        const mask = (id, fn) => { 
+        // Máscaras
+        const mask = (id, fn) => {
             const el = document.getElementById(id);
-            if(el) el.addEventListener('input', e => { e.target.value = fn(e.target.value); }); 
+            if (el) el.addEventListener('input', e => { e.target.value = fn(e.target.value); });
         };
         mask('cpf', v => v.replace(/\D/g, "").replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d)/, "$1.$2").replace(/(\d{3})(\d{1,2})$/, "$1-$2").substring(0, 14));
         mask('tel', v => v.replace(/\D/g, "").replace(/^(\d{2})(\d)/g, "($1) $2").replace(/(\d{5})(\d)/, "$1-$2").substring(0, 15));
         mask('cep', v => v.replace(/\D/g, "").replace(/(\d{5})(\d)/, "$1-$2").substring(0, 9));
 
-        // Busca CEP
+        // CEP
         document.getElementById('cep').onblur = function () {
             let c = this.value.replace(/\D/g, '');
             if (c.length === 8) {
                 fetch(`https://viacep.com.br/ws/${c}/json/`)
-                .then(r => r.json())
-                .then(d => { 
-                    if (!d.erro) document.getElementById('end').value = `${d.logradouro}, ${d.bairro}`; 
-                });
+                    .then(r => r.json())
+                    .then(d => {
+                        if (!d.erro) document.getElementById('end').value = `${d.logradouro}, ${d.bairro}`;
+                    });
             }
         };
 
-        // Lógica da Assinatura
+        // Assinatura
         const canvas = document.getElementById('signature-pad');
         const ctx = canvas.getContext('2d');
         let drawing = false;
-
         const btnTrigger = document.getElementById('btn-trigger');
         const modal = document.getElementById('modal-overlay');
 
-        document.getElementById('check-terms').onchange = (e) => { 
-            btnTrigger.style.display = e.target.checked ? 'block' : 'none'; 
+        document.getElementById('check-terms').onchange = (e) => {
+            btnTrigger.style.display = e.target.checked ? 'block' : 'none';
         };
 
-        btnTrigger.onclick = () => { 
-            modal.style.display = 'flex'; 
-            setTimeout(() => { 
-                canvas.width = canvas.offsetWidth; 
-                canvas.height = canvas.offsetHeight; 
-                ctx.lineWidth = 2; 
-                ctx.strokeStyle = "#000"; 
-            }, 200); 
+        btnTrigger.onclick = () => {
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = "#000";
+            }, 200);
         };
 
-        const getPos = (e) => { 
-            const r = canvas.getBoundingClientRect(); 
+        const getPos = (e) => {
+            const r = canvas.getBoundingClientRect();
             const clientX = e.touches ? e.touches[0].clientX : e.clientX;
             const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            return { x: clientX - r.left, y: clientY - r.top }; 
+            return { x: clientX - r.left, y: clientY - r.top };
         };
 
         canvas.addEventListener('mousedown', (e) => { drawing = true; ctx.beginPath(); const p = getPos(e); ctx.moveTo(p.x, p.y); });
         canvas.addEventListener('mousemove', (e) => { if (drawing) { const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); } });
         window.addEventListener('mouseup', () => drawing = false);
-        canvas.addEventListener('touchstart', (e) => { drawing = true; ctx.beginPath(); const p = getPos(e); ctx.moveTo(p.x, p.y); if(e.target == canvas) e.preventDefault(); }, { passive: false });
-        canvas.addEventListener('touchmove', (e) => { if (drawing) { const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); } if(e.target == canvas) e.preventDefault(); }, { passive: false });
-
+        canvas.addEventListener('touchstart', (e) => { drawing = true; ctx.beginPath(); const p = getPos(e); ctx.moveTo(p.x, p.y); e.preventDefault(); }, { passive: false });
+        canvas.addEventListener('touchmove', (e) => { if (drawing) { const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); } e.preventDefault(); }, { passive: false });
         document.getElementById('btn-clear').onclick = () => ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // LÓGICA DE FOTO: 1080x1080 (Corte centralizado)
+        // Foto
         let fotoData = "";
-document.getElementById('foto_aluno').onchange = function(e) {
-    const file = e.target.files[0];
-    const statusLabel = document.getElementById('photo-status');
-    
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            // event.target.result contém a imagem original em Base64
-            fotoData = event.target.result;
-            
-            if (statusLabel) {
-                statusLabel.style.display = 'block';
-                statusLabel.innerText = "Foto carregada com sucesso!";
+        document.getElementById('foto_aluno').onchange = function (e) {
+            const file = e.target.files[0];
+            const statusLabel = document.getElementById('photo-status');
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    fotoData = event.target.result;
+                    if (statusLabel) statusLabel.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
             }
         };
-        reader.readAsDataURL(file);
-    }
-};
 
         // ENVIO FINAL
         document.getElementById('final-form').onsubmit = async (e) => {
             e.preventDefault();
-            
-            if(!fotoData) {
-                alert("Por favor, aguarde o processamento da foto.");
+
+            if (!fotoData) {
+                alert("Por favor, anexe a foto do aluno.");
                 return;
             }
 
@@ -513,42 +587,53 @@ document.getElementById('foto_aluno').onchange = function(e) {
             btn.disabled = true;
             btn.innerHTML = "<i class='fas fa-spinner fa-spin'></i> ENVIANDO...";
 
-            // ... dentro do onsubmit ...
-const dia = document.getElementById('dia_nasc').value;
-const mes = document.getElementById('mes_nasc').value;
-const ano = document.getElementById('ano_nasc').value;
+            const dia = document.getElementById('dia_nasc').value;
+            const mes = document.getElementById('mes_nasc').value;
+            const ano = document.getElementById('ano_nasc').value;
+            const municipioSelecionado = document.getElementById('mun').value;
 
-const dados = {
-    nome_ben: document.getElementById('nome_ben').value,
-    nasc_ben: `${ano}-${mes}-${dia}`, // Formata para o Apps Script
-    curso: document.getElementById('curso').value,
-    nome_res: document.getElementById('nome_res').value,
-    tel: document.getElementById('tel').value,
-    cpf: document.getElementById('cpf').value,
-    cep: document.getElementById('cep').value,
-    end: document.getElementById('end').value,
-    mun: document.getElementById('mun').value,
-    nome_aluno: document.getElementById('nome_aluno').value,
-    foto: fotoData,
-    assinatura: canvas.toDataURL("image/png")
-};
+            // DADOS DINÂMICOS
+            const dados = {
+                nome_ben: document.getElementById('nome_ben').value,
+                nasc_ben: `${ano}-${mes}-${dia}`,
+                curso: document.getElementById('curso').value,
+                nome_res: document.getElementById('nome_res').value,
+                tel: document.getElementById('tel').value,
+                cpf: document.getElementById('cpf').value,
+                cep: document.getElementById('cep').value,
+                end: document.getElementById('end').value,
+                mun: municipioSelecionado,
+                nome_aluno: document.getElementById('nome_aluno').value,
+                foto: fotoData,
+                assinatura: canvas.toDataURL("image/png")
+            };
 
-            const webAppUrl = "https://script.google.com/macros/s/AKfycbyUd2j7EkZkDozrznOrye0F2_N69dY4Gv4nhHWpkazECJaH58BpGsE4hNd7Ry4cfVGwCQ/exec";
+            // SELEÇÃO DA URL DE CADA APP SCRIPT
+            const urlsApps = {
+                "Florianópolis - SC": "https://script.google.com/macros/s/AKfycbyUd2j7EkZkDozrznOrye0F2_N69dY4Gv4nhHWpkazECJaH58BpGsE4hNd7Ry4cfVGwCQ/exec",
+                "São José - SC": "https://script.google.com/macros/s/AKfycbxn5Lm1j9zIFuhFmFVnSp73TBISsbpFofRuvVUR9gmQUxD22sZVhDUleWlxo7TalLE88Q/exec"
+            };
+
+            const webAppUrl = urlsApps[municipioSelecionado];
 
             try {
-                await fetch(webAppUrl, { 
-                    method: 'POST', 
-                    mode: 'no-cors', 
-                    body: JSON.stringify(dados) 
+                if (!webAppUrl) throw new Error("URL não encontrada");
+
+                await fetch(webAppUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(dados)
                 });
+                
                 modal.style.display = 'none';
                 document.getElementById('success-popup').style.display = 'flex';
             } catch (err) {
-                alert("Erro no envio. Tente novamente.");
+                alert("Erro no envio. Verifique sua conexão e tente novamente.");
                 btn.disabled = false;
                 btn.innerHTML = "FINALIZAR MATRÍCULA";
             }
         };
     </script>
 </body>
+
 </html>

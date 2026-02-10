@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodologia Suzuki Detalhada | ANE 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-viva: #0088ff;
+            --amarelo-viva: #ffc800;
+            --rosa-viva: #ff4d88;
+            --dark: #1a1a1a;
+            --light-gray: #f4f7fa;
+            --text-gray: #4a4a4a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tahoma', sans-serif;
+        }
+
+        body {
+            color: var(--dark);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        /* CONTAINER PADRÃO PARA CONTEÚDO CENTRALIZADO */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        /* --- ESTILIZAÇÃO DAS SEÇÕES COM CORES INDEPENDENTES --- */
+        
+        /* 1. HERO (Fundo Imagem) */
+        .suzuki-hero {
+            padding: 140px 20px 100px;
+            background: linear-gradient(rgba(0, 44, 80, 0.7), rgba(0, 44, 80, 0.7)), url('img/dr-suzuki.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+        }
+
+        /* 2. O QUE É O MÉTODO (Fundo Branco Gelo) */
+        .section-oque-e { background-color: #fdfdfd; }
+
+        /* 3. FILOSOFIA (Fundo Branco Puro) */
+        .section-filosofia { background-color: #ffffff; }
+
+        /* 4. COMPARATIVO (Fundo Cinza Azulado Bem Leve) */
+        .section-comparativo { background-color: #f4f7fa; }
+
+        /* 5. PILARES (Fundo Azul Suave) */
+        .section-pilares-estruturais { background-color: #d6ecff; }
+
+        /* 6. JORNADA (Fundo Imagem Fixa) */
+        .area-jornada-fundo {
+            background: linear-gradient(rgba(0, 44, 80, 0.7), rgba(0, 44, 80, 0.7)), url('img/dr-suzuki2.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+        }
+
+        /* 7. FINAL/CTA (Fundo Branco) */
+        .section-final { background-color: #ffc800; }
+
+        /* --- COMPONENTES VISUAIS --- */
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--amarelo-viva);
+            margin-bottom: 10px;
+        }
+
+        .hero-content p { color: #f4f7fa; font-size: 1.2rem; }
+
+        .title-tag {
+            color: var(--rosa-viva);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .editorial-text h2 {
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: var(--azul-viva);
+        }
+
+        .text-columns {
+            column-count: 2;
+            column-gap: 40px;
+            text-align: justify;
+            color: var(--text-gray);
+        }
+
+        .editorial-image img {
+            width: 100%;
+            border-radius: 40px;
+            box-shadow: 20px 20px 0 var(--azul-viva);
+        }
+
+        /* CARDS E GRIDS */
+        .comparison-table {
+            background: var(--amarelo-viva);
+            padding: 60px;
+            border-radius: 50px;
+        }
+
+        .comp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .comp-card {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .repertorio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .pilar-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border-top: 5px solid var(--azul-viva);
+        }
+
+        .repertorio-section {
+            background-color: rgba(26, 26, 26, 0.9);
+            color: white;
+            padding: 80px 40px;
+            border-radius: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .final-cta {
+            text-align: center;
+            padding: 80px 40px;
+            background: var(--azul-viva);
+            border-radius: 50px;
+            color: white;
+        }
+
+        .btn-premium {
+            background: white;
+            color: var(--rosa-viva);
+            padding: 18px 45px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.3rem;
+            display: inline-block;
+            transition: 0.3s;
+            margin-top: 30px;
+        }
+
+        .btn-premium:hover { transform: scale(1.05); background: var(--amarelo-viva); color: var(--dark); }
+
+        @media (max-width: 992px) {
+            .text-columns { column-count: 1; }
+            .comp-grid { grid-template-columns: 1fr; }
+            .editorial-text h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="suzuki-hero">
+        <div class="hero-content">
+            <span class="title-tag" style="color: white;">A Arte de Educar</span>
+            <h1>Método Suzuki</h1>
+            <p>Transformando potencial em habilidade desde o berço.</p>
+        </div>
+    </section>
+
+    <section class="section-oque-e">
+        <div class="container">
+            <span class="title-tag">Introdução</span>
+            <h2 style="font-size: 2.8rem; color: var(--azul-viva); margin-bottom: 30px;">O que é o Método Suzuki?</h2>
+            <div class="text-columns">
+                <p style="margin-bottom: 20px;">
+                    O Método Suzuki, ou <strong>Educação do Talento</strong>, baseia-se na premissa de que a habilidade musical não é um dom herdado, mas uma capacidade que pode ser plenamente desenvolvida. Dr. Shinichi Suzuki observou que todas as crianças aprendem a falar sua língua materna com naturalidade, independente da dificuldade do idioma. Ele aplicou esses mesmos princípios — audição, imitação e repetição — ao ensino da música.
+                </p>
+                <p style="margin-bottom: 20px;">
+                    Um pilar fascinante do método é a <strong>educação pré-natal</strong>. A ciência aplicada ao método Suzuki reconhece que o feto já possui percepção auditiva no útero. A exposição musical precoce estabelece uma base de sensibilidade e comunicação afetiva que facilita o desenvolvimento intelectual e emocional. A música torna-se, então, uma segunda natureza para a criança.
+                </p>
+                <p style="margin-bottom: 20px;">
+                    Diferente de métodos competitivos, aqui o erro é visto como parte do processo de crescimento. O aprendizado ocorre em um ambiente lúdico, onde a <strong>escuta diária</strong> das gravações do repertório garante que a criança já conheça a melodia antes mesmo de tentar tocá-la, eliminando a frustração e promovendo a autoconfiança.
+                </p>
+                <p>
+                    O objetivo final do Dr. Suzuki não era apenas criar músicos profissionais, mas seres humanos nobres com "corações maravilhosos". Através da disciplina amorosa e do refinamento constante, o aluno desenvolve paciência, foco e uma profunda apreciação pela beleza, qualidades que levará para todas as áreas de sua vida.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-filosofia">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div class="editorial-image">
+                    <img src="https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&w=800&q=80" alt="Prática de Violino">
+                </div>
+                <div class="editorial-text">
+                    <span class="title-tag">Filosofia</span>
+                    <h2>Talento não nasce, <br>se cultiva.</h2>
+                    <p style="color: var(--text-gray);">No Projeto Arte nas Escolas, aplicamos a visão de que cada criança pode atingir a excelência se lhe for oferecido o ambiente correto, estímulo constante e apoio familiar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-comparativo">
+        <div class="container">
+            <div class="comparison-table">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <span class="title-tag" style="color: var(--dark);">Diferenciais</span>
+                    <h2 style="color: var(--azul-viva);">Suzuki <i>VS</i> Tradicional</h2>
+                </div>
+                <div class="comp-grid">
+                    <div class="comp-card">
+                        <h4 style="color: #e74c3c;"><i class="fas fa-times-circle"></i> Tradicional</h4>
+                        <p>Foco excessivo em teoria abstrata logo no início, o que pode desmotivar a criança e tornar o estudo um peso solitário.</p>
+                    </div>
+                    <div class="comp-card">
+                        <h4 style="color: var(--azul-viva);"><i class="fas fa-check-circle"></i> Suzuki</h4>
+                        <p>Aprendizado por "Língua Materna": o aluno toca primeiro e lê depois, com participação ativa dos pais no processo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-pilares-estruturais">
+        <div class="container">
+            <div style="text-align: center;">
+                <span class="title-tag">Fundamentos do Método</span>
+                <h2 style="color: var(--azul-viva); font-size: 2.5rem;">Os três pilares da Metodologia:</h2>
+            </div>
+            <div class="repertorio-grid">
+                <div class="pilar-card">
+                    <h5>1. Filosofia de Ensino</h5>
+                    <p style="color: var(--text-gray); font-size: 0.95rem;">A crença absoluta no potencial de cada ser humano e a formação do caráter através da beleza musical.</p>
+                </div>
+                <div class="pilar-card" style="border-top-color: var(--rosa-viva);">
+                    <h5>2. Currículo Sistematizado</h5>
+                    <p style="color: var(--text-gray); font-size: 0.95rem;">Um repertório organizado de forma lógica, onde cada música nova ensina uma técnica específica de forma cumulativa.</p>
+                </div>
+                <div class="pilar-card" style="border-top-color: var(--amarelo-viva);">
+                    <h5>3. Técnicas por Professores Capacitados</h5>
+                    <p style="color: var(--text-gray); font-size: 0.95rem;">Aplicação de estratégias pedagógicas específicas para crianças, ministradas por docentes em constante treinamento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="area-jornada-fundo">
+        <div class="repertorio-section">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2 style="font-size: 2.5rem; color: var(--amarelo-viva);">A Jornada do Aluno</h2>
+                <p>O progresso é dividido em volumes cuidadosamente planejados.</p>
+            </div>
+            <div class="repertorio-grid">
+                <div class="pilar-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;">
+                    <h5 style="color: var(--amarelo-viva);">Volume 1</h5>
+                    <p>Postura e produção de som através de variações rítmicas fundamentais.</p>
+                </div>
+                <div class="pilar-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;">
+                    <h5 style="color: var(--amarelo-viva);">Volume 2</h5>
+                    <p>Desenvolvimento da expressão musical e novos padrões de dedilhado.</p>
+                </div>
+                <div class="pilar-card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;">
+                    <h5 style="color: var(--amarelo-viva);">Volume 3</h5>
+                    <p>Domínio técnico de peças barrocas e clássicas de grandes mestres.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-final">
+        <div class="container">
+            <div class="final-cta">
+                <h2 style="font-size: 2.5rem;">Pronto para transformar o futuro?</h2>
+                <p style="margin-top: 15px; opacity: 0.9;">Matrículas abertas para o ciclo 2026. Vagas limitadas por polo.</p>
+                <a href="matriculas.html" class="btn-premium">MATRICULE-SE</a>
+            </div>
+        </div>
+    </section>
+
+</body>

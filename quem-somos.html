@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quem Somos - ANE 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="footer.css">
     <style>
@@ -18,23 +20,30 @@
             --texto: #2d3436;
 
             /* CORES DE FUNDO DAS SEÇÕES - Mude aqui quando quiser */
-            --bg-secao-missao: #ff4d88;      /* Cor de fundo para Missão/Visão/Valores */
-            --bg-secao-professores: #e1f1ff; /* Cor de fundo para a seção de Professores */
+            --bg-secao-missao: #ff4d88;
+            /* Cor de fundo para Missão/Visão/Valores */
+            --bg-secao-professores: #e1f1ff;
+            /* Cor de fundo para heroa seção de Professores */
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-secao-missao); /* Define a cor base como a da primeira seção */
+            background-color: var(--bg-secao-missao);
+            /* Define a cor base como a da primeira seção */
             color: var(--texto);
             line-height: 1.6;
         }
 
         .hero {
             padding: 140px 20px 100px;
-            background: linear-gradient(rgba(0, 44, 80, 0.699), rgba(0, 44, 80, 0.699)), 
-                        url('https://steptodown.com/istock-downloader/images/steptodown.com868502.jpg');
+            background: linear-gradient(rgba(0, 44, 80, 0.699), rgba(0, 44, 80, 0.699)),
+                url('https://images.unsplash.com/photo-1646150210023-871b7b34e53a?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -58,7 +67,11 @@
             margin: 0 auto;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
         /* --- SEÇÃO MISSÃO, VISÃO E VALORES --- */
         .missao-section {
@@ -77,29 +90,78 @@
             border-radius: 30px;
             transition: transform 0.3s ease;
             border: 2px solid transparent;
-            background: white; /* Mantém os cards brancos para contraste */
+            background: white;
+            /* Mantém os cards brancos para contraste */
         }
 
-        .card-viva:hover { transform: translateY(-10px); }
-        .azul { background: var(--bg-suave-azul); border-color: #e1efff; }
-        .amarelo { background: var(--bg-suave-amarelo); border-color: #fff9db; }
-        .rosa { background: var(--bg-suave-rosa); border-color: #ffeef4; }
+        .card-viva:hover {
+            transform: translateY(-10px);
+        }
 
-        .card-viva i { font-size: 2.5rem; margin-bottom: 20px; display: block; }
-        .azul i { color: var(--azul-viva); }
-        .amarelo i { color: var(--amarelo-viva); }
-        .rosa i { color: var(--rosa-viva); }
+        .azul {
+            background: var(--bg-suave-azul);
+            border-color: #e1efff;
+        }
+
+        .amarelo {
+            background: var(--bg-suave-amarelo);
+            border-color: #fff9db;
+        }
+
+        .rosa {
+            background: var(--bg-suave-rosa);
+            border-color: #ffeef4;
+        }
+
+        .card-viva i {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .azul i {
+            color: var(--azul-viva);
+        }
+
+        .amarelo i {
+            color: var(--amarelo-viva);
+        }
+
+        .rosa i {
+            color: var(--rosa-viva);
+        }
 
         /* --- SEÇÃO NOSSOS PROFESSORES --- */
-        .professores-section { 
+        .professores-section {
             background-color: var(--bg-secao-professores);
             padding: 80px 0 120px 0;
-            text-align: center; 
+            text-align: center;
         }
 
-        .professores-section h2 { margin-bottom: 15px; font-size: 2.8rem; color: #0a3a70; font-weight: 800; }
-        .prof-intro { font-size: 1.2rem; color: #636e72; max-width: 600px; margin: 0 auto 50px; position: relative; }
-        .prof-intro::after { content: ''; display: block; width: 60px; height: 4px; background: var(--rosa-viva); margin: 15px auto 0; border-radius: 10px; }
+        .professores-section h2 {
+            margin-bottom: 15px;
+            font-size: 2.8rem;
+            color: #0a3a70;
+            font-weight: 800;
+        }
+
+        .prof-intro {
+            font-size: 1.2rem;
+            color: #636e72;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            position: relative;
+        }
+
+        .prof-intro::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--rosa-viva);
+            margin: 15px auto 0;
+            border-radius: 10px;
+        }
 
         .sede-titulo {
             background: var(--azul-viva);
@@ -123,45 +185,113 @@
             background: white;
             padding: 30px 20px;
             border-radius: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
             transition: all 0.4s ease;
-            display: flex; flex-direction: column; align-items: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .prof-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+        .prof-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        }
 
-        .prof-foto-wrapper { width: 140px; height: 140px; margin-bottom: 20px; position: relative; z-index: 1; }
+        .prof-foto-wrapper {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
         .prof-foto-wrapper::before {
-            content: ''; position: absolute; inset: -6px;
+            content: '';
+            position: absolute;
+            inset: -6px;
             background: linear-gradient(45deg, var(--azul-viva), var(--rosa-viva), var(--amarelo-viva));
-            border-radius: 50%; z-index: -1; animation: spinAura 6s linear infinite;
+            border-radius: 50%;
+            z-index: -1;
+            animation: spinAura 6s linear infinite;
         }
 
-        @keyframes spinAura { to { transform: rotate(360deg); } }
+        @keyframes spinAura {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-        .prof-foto { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid white; }
-        .prof-card h4 { font-size: 1.3rem; color: #0a3a70; margin-bottom: 8px; }
+        .prof-foto {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+        }
+
+        .prof-card h4 {
+            font-size: 1.3rem;
+            color: #0a3a70;
+            margin-bottom: 8px;
+        }
 
         .btn-saiba-mais {
-            background: var(--azul-viva); color: white; border: none;
-            padding: 10px 25px; border-radius: 50px; font-weight: 700; cursor: pointer; transition: 0.3s;
+            background: var(--azul-viva);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
         /* --- POPUP (MODAL) --- */
         .modal {
-            display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 44, 80, 0.85); backdrop-filter: blur(8px);
-            align-items: center; justify-content: center; padding: 20px;
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 44, 80, 0.85);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
         .modal-content {
-            background-color: white; padding: 40px; border-radius: 30px; max-width: 550px; width: 100%; position: relative; text-align: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 30px;
+            max-width: 550px;
+            width: 100%;
+            position: relative;
+            text-align: center;
         }
 
-        .close-modal { position: absolute; top: 20px; right: 25px; font-size: 30px; cursor: pointer; color: #aaa; }
-        .modal-foto { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 4px solid var(--azul-viva); }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #aaa;
+        }
+
+        .modal-foto {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid var(--azul-viva);
+        }
     </style>
 </head>
+
 <body>
 
     <script src="menu.js"></script>
@@ -179,7 +309,8 @@
                 <div class="card-viva azul">
                     <i class="fa-solid fa-rocket"></i>
                     <h3>Nossa Missão</h3>
-                    <p>Levar a magia das artes para dentro das escolas, desenvolvendo habilidades que vão muito além da técnica.</p>
+                    <p>Levar a magia das artes para dentro das escolas, desenvolvendo habilidades que vão muito além da
+                        técnica.</p>
                 </div>
                 <div class="card-viva amarelo">
                     <i class="fa-solid fa-lightbulb"></i>
@@ -199,74 +330,125 @@
         <div class="container">
             <h2>Nossos Professores</h2>
             <p class="prof-intro">Conheça os mestres e artistas em cada uma de nossas sedes.</p>
-            
+
             <h3 class="sede-titulo">Florianópolis / SC</h3>
             <div class="prof-grid">
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" class="prof-foto"></div>
+                    <div class="prof-foto-wrapper"><img src="img/Julian Tainã.png" class="prof-foto"></div>
                     <h4>Julian Tainã</h4>
                     <button class="btn-saiba-mais" onclick="openModal('julian')">Saiba Mais</button>
                 </div>
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400" class="prof-foto"></div>
+                    <div class="prof-foto-wrapper"><img src="img/Tayná Borges.png" class="prof-foto">
+                    </div>
                     <h4>Tayná Borges</h4>
                     <button class="btn-saiba-mais" onclick="openModal('tayna')">Saiba Mais</button>
                 </div>
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" class="prof-foto"></div>
-                    <h4>Joice Silva</h4>
+                    <div class="prof-foto-wrapper"><img src="img/Joice Dela Rocca.png" class="prof-foto">
+                    </div>
+                    <h4>Joice Dela Rocca</h4>
                     <button class="btn-saiba-mais" onclick="openModal('joice')">Saiba Mais</button>
                 </div>
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400" class="prof-foto"></div>
-                    <h4>Talita</h4>
+                    <div class="prof-foto-wrapper"><img src="img/Talita Guimarães.png" class="prof-foto">
+                    </div>
+                    <h4>Talita Guimarães</h4>
                     <button class="btn-saiba-mais" onclick="openModal('talita')">Saiba Mais</button>
+                </div>
+                <div class="prof-card">
+                    <div class="prof-foto-wrapper"><img src="img/Isadora Farias.png" class="prof-foto">
+                    </div>
+                    <h4>Isadora Farias Lopes</h4>
+                    <button class="btn-saiba-mais" onclick="openModal('isadora')">Saiba Mais</button>
+                </div>
+                <div class="prof-card">
+                    <div class="prof-foto-wrapper"><img src="img/Leticia Loch.png" class="prof-foto">
+                    </div>
+                    <h4>Leticia Loch</h4>
+                    <button class="btn-saiba-mais" onclick="openModal('leticia')">Saiba Mais</button>
+                </div>
+                <div class="prof-card">
+                    <div class="prof-foto-wrapper"><img src="img/Igor Tome.png" class="prof-foto">
+                    </div>
+                    <h4>Igor Leal Tomé</h4>
+                    <button class="btn-saiba-mais" onclick="openModal('igor')">Saiba Mais</button>
+                </div>
+                <div class="prof-card">
+                    <div class="prof-foto-wrapper"><img src="img/Matheus Gonçalves.png" class="prof-foto">
+                    </div>
+                    <h4>Matheus Gonçalves</h4>
+                    <button class="btn-saiba-mais" onclick="openModal('matheus')">Saiba Mais</button>
+                </div>
+                <div class="prof-card">
+                    <div class="prof-foto-wrapper"><img src="img/Leonardo Barbi.png" class="prof-foto">
+                    </div>
+                    <h4>Leonardo Barbi</h4>
+                    <button class="btn-saiba-mais" onclick="openModal('leonardo')">Saiba Mais</button>
+                </div>
+                <div class="prof-card">
+                    <div class="prof-foto-wrapper"><img src="img/Kamilla Kukert.png" class="prof-foto">
+                    </div>
+                    <h4>Kamilla Alves Kukert</h4>
+                    <button class="btn-saiba-mais" onclick="openModal('kamilla')">Saiba Mais</button>
                 </div>
             </div>
 
             <h3 class="sede-titulo">São José / SC</h3>
             <div class="prof-grid">
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400" class="prof-foto"></div>
-                    <h4>Ricardo Alves</h4>
-                    <button class="btn-saiba-mais" onclick="openModal('sj1')">Saiba Mais</button>
+                    <div class="prof-foto-wrapper"><img src="img/Jari Amorim.png" class="prof-foto">
+                    </div>
+                    <h4>Jari Amorim</h4>
+                    <button class="btn-saiba-mais" onclick="openModal('jari')">Saiba Mais</button>
                 </div>
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400" class="prof-foto"></div>
-                    <h4>Beatriz Luna</h4>
-                    <button class="btn-saiba-mais" onclick="openModal('sj2')">Saiba Mais</button>
+                    <div class="prof-foto-wrapper"><img src="img/Maicy Coelho.png" class="prof-foto">
+                    </div>
+                    <h4>Maicy Coelho</h4>
+                    <button class="btn-saiba-mais" onclick="openModal('maicy')">Saiba Mais</button>
                 </div>
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400" class="prof-foto"></div>
-                    <h4>Marcos Lima</h4>
-                    <button class="btn-saiba-mais" onclick="openModal('sj3')">Saiba Mais</button>
+                    <div class="prof-foto-wrapper"><img src="img/Isadora Farias.png" class="prof-foto">
+                    </div>
+                    <h4>Isadora Farias Lopes</h4>
+                    <button class="btn-saiba-mais" onclick="openModal('isadora')">Saiba Mais</button>
                 </div>
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?w=400" class="prof-foto"></div>
-                    <h4>Clara Mendes</h4>
-                    <button class="btn-saiba-mais" onclick="openModal('sj4')">Saiba Mais</button>
+                    <div class="prof-foto-wrapper"><img src="img/Igor Tome.png" class="prof-foto">
+                    </div>
+                    <h4>Igor Leal Tomé</h4>
+                    <button class="btn-saiba-mais" onclick="openModal('igor')">Saiba Mais</button>
                 </div>
             </div>
 
             <h3 class="sede-titulo">Oeste Catarinense</h3>
             <div class="prof-grid">
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400" class="prof-foto"></div>
+                    <div class="prof-foto-wrapper"><img
+                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400" class="prof-foto">
+                    </div>
                     <h4>Henrique Paz</h4>
                     <button class="btn-saiba-mais" onclick="openModal('oe1')">Saiba Mais</button>
                 </div>
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400" class="prof-foto"></div>
+                    <div class="prof-foto-wrapper"><img
+                            src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400" class="prof-foto">
+                    </div>
                     <h4>Sofia Ramos</h4>
                     <button class="btn-saiba-mais" onclick="openModal('oe2')">Saiba Mais</button>
                 </div>
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" class="prof-foto"></div>
+                    <div class="prof-foto-wrapper"><img
+                            src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" class="prof-foto">
+                    </div>
                     <h4>André Costa</h4>
                     <button class="btn-saiba-mais" onclick="openModal('oe3')">Saiba Mais</button>
                 </div>
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400" class="prof-foto"></div>
+                    <div class="prof-foto-wrapper"><img
+                            src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400" class="prof-foto">
+                    </div>
                     <h4>Helena Vaz</h4>
                     <button class="btn-saiba-mais" onclick="openModal('oe4')">Saiba Mais</button>
                 </div>
@@ -275,22 +457,30 @@
             <h3 class="sede-titulo">Irecê / BA</h3>
             <div class="prof-grid">
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400" class="prof-foto"></div>
+                    <div class="prof-foto-wrapper"><img
+                            src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400" class="prof-foto">
+                    </div>
                     <h4>Luana Sales</h4>
                     <button class="btn-saiba-mais" onclick="openModal('ba1')">Saiba Mais</button>
                 </div>
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400" class="prof-foto"></div>
+                    <div class="prof-foto-wrapper"><img
+                            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400" class="prof-foto">
+                    </div>
                     <h4>Fábio Santos</h4>
                     <button class="btn-saiba-mais" onclick="openModal('ba2')">Saiba Mais</button>
                 </div>
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400" class="prof-foto"></div>
+                    <div class="prof-foto-wrapper"><img
+                            src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400" class="prof-foto">
+                    </div>
                     <h4>Mariana Luz</h4>
                     <button class="btn-saiba-mais" onclick="openModal('ba3')">Saiba Mais</button>
                 </div>
                 <div class="prof-card">
-                    <div class="prof-foto-wrapper"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400" class="prof-foto"></div>
+                    <div class="prof-foto-wrapper"><img
+                            src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400" class="prof-foto">
+                    </div>
                     <h4>Gustavo Ferraz</h4>
                     <button class="btn-saiba-mais" onclick="openModal('ba4')">Saiba Mais</button>
                 </div>
@@ -303,22 +493,123 @@
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <img id="modalImg" src="" class="modal-foto">
             <h3 id="modalNome">Nome do Professor</h3>
-            <span id="modalTag" style="color:var(--rosa-viva); font-weight:800; display:block; margin:10px 0;">Especialidade</span>
+            <span id="modalTag"
+                style="color:var(--rosa-viva); font-weight:800; display:block; margin:10px 0;">Especialidade</span>
             <p id="modalBio" style="color:#555; text-align:justify;"></p>
         </div>
     </div>
 
     <script>
         const profData = {
-            'julian': { nome: 'Julian Tainã', tag: 'Piano & Regência', foto: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400', bio: 'Maestro e Diretor Geral com vasta experiência internacional.' },
-            'tayna': { nome: 'Tayná Borges', tag: 'Pedagogia', foto: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400', bio: 'Mestre em educação, focada em metodologias lúdicas.' },
-            'joice': { nome: 'Joice Silva', tag: 'Artes Cênicas', foto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400', bio: 'Especialista em expressão corporal e teatro.' },
-            'talita': { nome: 'Talita', tag: 'Comunicação', foto: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400', bio: 'Responsável pela comunicação artística e eventos.' },
-            
-            'sj1': { nome: 'Ricardo Alves', tag: 'Violino', foto: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400', bio: 'Professor de Violino com foco em técnica clássica.' },
-            'sj2': { nome: 'Beatriz Luna', tag: 'Canto Coral', foto: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400', bio: 'Especialista em preparação vocal e regência de coros.' },
-            'sj3': { nome: 'Marcos Lima', tag: 'Violão', foto: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400', bio: 'Músico e educador focado em violão popular e teoria.' },
-            'sj4': { nome: 'Clara Mendes', tag: 'Dança', foto: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?w=400', bio: 'Bailarina com foco em dança contemporânea e artes.' },
+
+            /*FLORIANÓPOLIS*/
+            'julian': {
+                nome: 'JULIAN TAINÃ',
+                tag: 'PIANISTA SOLISTA  & DIRETOR ARTÍSTICO',
+                foto: 'img/Julian Tainã.png',
+                bio: 'Iniciou sua trajetória musical aos quatro anos e é bacharel em piano. Atua com destaque na área pedagógica e de gestão cultural:\n\n Projetos Sociais:\n Fundador e coordenador do projeto Arte nas Escolas (SC e SP), tendo formado alunos premiados em concursos nacionais e latino-americanos, como o prestigiado Souza Lima.\n\n Produção e Performance:\n Integrou a equipe de produção da Pró-Música de Florianópolis, trabalhando com expoentes como Antonio Meneses e Cristian Budu. Em 2022, atuou como pianista em espetáculos da Cia Ópera de Santa Catarina.\n\n Experiência:\n Acumula vivência como docente em projetos educacionais desde 2013 e participação em masterclasses com nomes como Alberto Heller e Marcelo Thys.'
+            },
+
+            'tayna': {
+                nome: 'TAYNÁ DE OLIVEIRA BORGES',
+                tag: 'DIREÇÃO GERAL & ATRIZ',
+                foto: 'img/Tayná Borges.png',
+                bio: 'Atriz e produtora com mais de 15 anos de trajetória, iniciada no Grupo de Teatro Valdir Dutra. É licenciada em Teatro pela UDESC e possui sólida experiência em grandes montagens operísticas e espetáculos de dança.\n\nProjetos Sociais:\n Atua desde 2016 como Diretora Artística do projeto Arte nas Escolas. Em 2023, fundou a Ciane Cia Teatral, focada em profissionalizar jovens talentos vindos da rede pública.\n\nProdução e Performance:\n Integra a equipe de produção da Cia Ópera e Pró-Música de Florianópolis. Como atriz, destacou-se recentemente nos espetáculos "Tributo aos Inocentes" (2022) e na direção do musical "Os Saltimbancos" (2023).\n\nExperiência:\n Especialista em gestão cultural e formação artística para comunidades de baixa renda, unindo técnica teatral e impacto social.'
+            },
+
+
+            'joice': {
+                nome: 'JOICE DELA ROCCA',
+                tag: 'DIRETORA DE PRODUÇÃO',
+                foto: 'img/Joice Dela Rocca.png',
+                bio: 'Atua na produção cultural desde 2000, com vasta experiência em gestão de espetáculos internacionais e projetos educacionais. Foi coordenadora de negócios da Pró-Música de Florianópolis e é cofundadora da Cia Ópera de Santa Catarina.\n\nProdução e Ópera:\n Responsável pela direção de produção de grandes óperas como "Carmen", "La Traviata" e "A Flauta Mágica", além de balés clássicos como "O Lago dos Cisnes" e "Giselle".\n\nGestão e Projetos:\n Trabalha com grupos de câmara e coordena projetos socioculturais como o Música e Cidadania e o Arte nas Escolas. Já produziu concertos de renome internacional com artistas como Sarah Chang e Pinchas Zukerman.\n\nAtuação Atual:\n Integra a equipe de produção da Cia Ópera de SC, Pró-Música de Florianópolis e Polyphonia Khoros, focando no fomento da música erudita e na formação de público.'
+            },
+
+
+            'talita': {
+                nome: 'TALITA GUIMARÃES',
+                tag: 'PRODUTORA EXECUTIVA',
+                foto: 'img/Talita Guimarães.png',
+                bio: 'Natural de Florianópolis, iniciou seus estudos de piano aos quatro anos. Possui sólida trajetória na produção cultural de música erudita e dança:\n\nProdução e Gestão:\n Atua na Pró-Música de Florianópolis e na Cia Ópera de Santa Catarina, organizando grandes produções como "O Lago dos Cisnes", "Gisele" e óperas renomadas como "Carmen" e "La Traviata".\n\nExperiência Internacional:\n Participou da organização de espetáculos com solistas lendários, incluindo Sarah Chang, Pinchas Zukerman, Antonio Meneses e Cristian Budu.\n\nProjetos e Corais:\n Integra a equipe do Polyphonia Khoros desde 2017 e colabora com o projeto Arte nas Escolas desde 2016. Em 2022, produziu os espetáculos "Tributo aos Inocentes" e "Poppy e as Flores do Mundo".'
+            },
+
+            'maicy': {
+                nome: 'MAICY COELHO',
+                tag: 'PIANISTA',
+                foto: 'img/Maicy Coelho.png',
+                bio: 'Natural de Alvorada (RS), iniciou seus estudos artísticos aos 11 anos no projeto sociocultural Arte nas Escolas. Atualmente, aos 19 anos, é bacharelanda em piano pela UDESC, sob orientação de Luis Claudio Barros.\n\nTrajetória Pianística:\n Conquistou cinco premiações em concursos de piano e participou de masterclasses com nomes renomados como Cristian Budu, Eudóxia de Barros e Arthur Simões.\n\nExperiência Teatral:\n Entre 2016 e 2020, atuou em diversas montagens, incluindo "A Lágrima de Bia", "Alice no País das Maravilhas" e o musical "A Noiva Cadáver". Também atuou como correpetidora no projeto Arte nas Escolas e protagonizou a peça em francês "Les rêves de Lola".'
+            },
+
+            'leticia': {
+                nome: 'LETICIA LOCH',
+                tag: 'TEATRO',
+                foto: 'img/Leticia Loch.png',
+                bio: 'Natural de Florianópolis, é licenciada em Teatro pela UDESC. Iniciou sua trajetória no projeto ANE Arte nas Escolas em 2016, onde hoje atua como arte educadora das turmas infantis e diretora teatral.\n\nExperiência em Direção e Educação:\n Desde 2022, dirigiu e adaptou diversas obras para o público infantil, como "Harry Potter", "Divertidamente" e "O Grúfalo". É uma das fundadoras do Grupo Teatral CIANE, formado por ex-alunos do projeto.\n\nIluminação e Pesquisa:\n Atua como coordenadora e produtora no Luz Laboratório (UDESC), onde assinou a iluminação de espetáculos como "Amortecido" e "História de Pescadora". Também ministra oficinas no curso "Mulheres Produzindo a Cena".\n\nPerformance:\n Integrou o elenco de montagens como "Matemática Curva", sob direção de André Carreira, e participou de musicais como "A Noiva Cadáver".'
+            },
+
+            'isadora': {
+                nome: 'ISADORA FARIAS LOPES',
+                tag: 'PIANISTA',
+                foto: 'img/Isadora Farias.png',
+                bio: 'Iniciou seus estudos em 2016 no projeto Arte nas Escolas e atualmente é bacharelanda em piano pela UDESC, sob orientação do Dr. Luís Claudio Barros. Possui formação na metodologia Suzuki.\n\nExperiência Pedagógica:\n É professora de piano no projeto Arte nas Escolas (núcleos Florianópolis e São José), com experiência no ensino para alunos neurodivergentes (Autismo e TDAH). Também leciona na Escola Allegro Vivace e no Núcleo de Ensino de Piano (NEP) da UDESC.\n\nPerformance e Canto Coral:\n Atuou como mezzo soprano no coral Polyphonia Khoros e como pianista correpetidora na montagem de "Os Saltimbancos". Participou de masterclasses com Simone Leitão e Eudóxia de Barros, além de concursos internacionais como o Rosa Mística.\n\nProdução Cultural:\n Colabora desde 2017 com a Cia Ópera de Santa Catarina e desde 2018 com a Pró-Música de Florianópolis, integrando importantes frentes da cena artística catarinense.'
+            },
+
+            'kamilla': {
+                nome: 'KAMILLA ALVES KUKERT',
+                tag: 'PIANISTA',
+                foto: 'img/Kamilla Kukert.png',
+                bio: 'Natural de Florianópolis, iniciou seus estudos de piano em 2018, aos 13 anos, pelo projeto Arte nas Escolas, utilizando o método Suzuki sob orientação do professor Iago Vieira da Silva Barros até 2023.\n\nFormação Acadêmica:\n Ingressou no curso de Bacharelado em Piano na UDESC em 2023, conquistando a segunda colocação no processo seletivo, e segue seus estudos com o professor doutor Luís Cláudio Barros Pereira da Silva.\n\nExperiência Pedagógica e Coral:\n Possui formação em Didática Suzuki (módulos 1 e 2) e atua como professora e monitora de piano no projeto Arte nas Escolas desde 2023. Também possui experiência em canto coral, desenvolvida com o professor Guilherme Albanaes entre 2019 e 2022.'
+            },
+
+            'igor': {
+                nome: 'IGOR TOMÉ',
+                tag: 'VIOLONISTA',
+                foto: 'img/Igor Tome.png',
+                bio: 'Bacharel em Música com especialidade em Violão pela UDESC. Atua há oito anos como educador musical, com trajetória iniciada em 2016.\n\nExperiência Pedagógica:\n Professor de violão no projeto Arte nas Escolas, onde desenvolve um trabalho especializado com alunos neurodivergentes. Sua atuação com alunos autistas é reconhecida pelos resultados satisfatórios e pelo impacto positivo junto às famílias e à coordenação do projeto.\n\nPerformance Musical:\n Como músico, dedica-se à estética da música de concerto e à música de câmara. Participou do Circuito SESC-Universitário de Música e Teatro em 2019 e, atualmente, integra um duo de violões com repertório focado na música latino-americana.'
+            },
+
+            'matheus': {
+                nome: 'MATHEUS GONÇALVES VIEIRA DA SILVA',
+                tag: 'PIANISTA',
+                foto: 'img/Matheus Gonçalves.png',
+                bio: 'Iniciou seus estudos de piano aos seis anos na Escola de Música Allegro Vivace, sob orientação da professora Inah Celina. Ao longo de sua formação, apresentou-se em importantes palcos como o Teatro Álvaro de Carvalho e o Teatro da Ubro.\n\nFormação e Premiações: Foi orientado pelo professor Julian Tainã no projeto Arte nas Escolas, período em que recebeu menção honrosa no concurso latino-americano Rosa Mística (2019). No mesmo ano, ingressou no curso de Bacharelado em Piano da UDESC, tendo alcançado a nota máxima na prova prática.\n\nAtuação Profissional: Em 2022, retornou ao projeto Arte nas Escolas, desta vez como professor de piano, cargo que ocupa até hoje. Participou como solista nos recitais de professores do Festival Cultural do projeto nas edições de 2023 e 2024.'
+            },
+
+            'leonardo': {
+                nome: 'LEONARDO BARBI',
+                tag: 'PIANISTA',
+                foto: 'img/Leonardo Barbi.png',
+                bio: 'Bacharel em piano pela UDESC e barítono com especialização em canto lírico. Possui uma carreira internacional de destaque, tendo participado da Sienagosto Music Academy na Itália e vencido o prêmio de Melhor Voz Masculina no IX Concurso Estímulo para Cantores Líricos em Campinas.\n\nAtuação em Ópera e Concertos:\n Solista em diversas produções, como "A Flauta Mágica", "Don Giovanni" e "La Traviata". Integrou projetos de prestígio na Sala São Paulo e com a Camerata Antiqua de Curitiba, além de realizar turnês nacionais e internacionais com o Polyphonia Khoros, onde atua desde 2005.\n\nFormação e Festivais:\n Estudou com mestres renomados em festivais como o Internacional de Música do Sesc em Pelotas e a Oficina de Música de Curitiba, com foco em técnica barroca e música antiga.\n\nDocência e Colaboração: Desde 2016, é professor de piano no projeto Arte nas Escolas e atua como pianista colaborador na Prática de Ópera do projeto Educando com Música, da Camerata Florianópolis.'
+            },
+
+            /*FIM FLORIANÓPOLIS*/
+
+            /*SÃO JOSÉ*/
+
+            'jari': {
+                nome: 'Jari Amorim',
+                tag: 'Violonista & Compositor',
+                foto: 'img/Jari Amorim.png',
+                bio: 'Compositor e licenciado em Música pela UDESC. Atua como professor de violão clássico e regente em Florianópolis e Sombrio, desenvolvendo um trabalho que une o repertório autoral à música de concerto.\n\nCultura e Performance:\n É integrante do grupo Açor Sul Catarinense, focado na preservação da cultura açoriana através da música e dança em apresentações por diversos estados. Como solista e arranjador, apresenta seu trabalho autoral em diversas salas de concerto.\n\nFormação e Festivais:\n Participou de eventos importantes como a Oficina de Música de Curitiba e o Festival Internacional de Violão de Balneário Camboriú. Teve aulas com nomes como Gabriel Schebor e Daniel Wolff.\n\nExperiência Acadêmica:\n Em 2018, atuou na UDESC como monitor nas áreas de Harmonia e Teoria Musical sob orientação do Dr. Sérgio Freitas.'
+            },
+
+            'isadora': {
+                nome: 'ISADORA FARIAS LOPES',
+                tag: 'PIANISTA',
+                foto: 'img/Isadora Farias.png',
+                bio: 'Iniciou seus estudos em 2016 no projeto Arte nas Escolas e atualmente é bacharelanda em piano pela UDESC, sob orientação do Dr. Luís Claudio Barros. Possui formação na metodologia Suzuki.\n\nExperiência Pedagógica:\n É professora de piano no projeto Arte nas Escolas (núcleos Florianópolis e São José), com experiência no ensino para alunos neurodivergentes (Autismo e TDAH). Também leciona na Escola Allegro Vivace e no Núcleo de Ensino de Piano (NEP) da UDESC.\n\nPerformance e Canto Coral:\n Atuou como mezzo soprano no coral Polyphonia Khoros e como pianista correpetidora na montagem de "Os Saltimbancos". Participou de masterclasses com Simone Leitão e Eudóxia de Barros, além de concursos internacionais como o Rosa Mística.\n\nProdução Cultural:\n Colabora desde 2017 com a Cia Ópera de Santa Catarina e desde 2018 com a Pró-Música de Florianópolis, integrando importantes frentes da cena artística catarinense.'
+            },
+
+            'igor': {
+                nome: 'IGOR TOMÉ',
+                tag: 'VIOLONISTA',
+                foto: 'img/Igor Tome.png',
+                bio: 'Bacharel em Música com especialidade em Violão pela UDESC. Atua há oito anos como educador musical, com trajetória iniciada em 2016.\n\nExperiência Pedagógica:\n Professor de violão no projeto Arte nas Escolas, onde desenvolve um trabalho especializado com alunos neurodivergentes. Sua atuação com alunos autistas é reconhecida pelos resultados satisfatórios e pelo impacto positivo junto às famílias e à coordenação do projeto.\n\nPerformance Musical:\n Como músico, dedica-se à estética da música de concerto e à música de câmara. Participou do Circuito SESC-Universitário de Música e Teatro em 2019 e, atualmente, integra um duo de violões com repertório focado na música latino-americana.'
+            },
+
+
+
+            /*FIM SÃO JOSÉ*/
 
             'oe1': { nome: 'Henrique Paz', tag: 'Teoria Musical', foto: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400', bio: 'Pesquisador de teoria e história da música.' },
             'oe2': { nome: 'Sofia Ramos', tag: 'Flauta', foto: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400', bio: 'Especialista em sopros e iniciação musical.' },
@@ -333,7 +624,7 @@
 
         function openModal(id) {
             const data = profData[id];
-            if(data) {
+            if (data) {
                 document.getElementById('modalNome').innerText = data.nome;
                 document.getElementById('modalTag').innerText = data.tag;
                 document.getElementById('modalBio').innerText = data.bio;
@@ -343,11 +634,12 @@
         }
 
         function closeModal() { document.getElementById('profModal').style.display = 'none'; }
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == document.getElementById('profModal')) closeModal();
         }
     </script>
 
     <script src="footer.js"></script>
 </body>
+
 </html>

@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <a href="nucleos.html">Núcleos</a>
                 <a href="quem-somos.html">Quem Somos</a>
                 <a href="galeria.html">Galeria</a>
+                <a href="metodo-suzuki.html">Metodo Suzuki</a>
                 <a href="contribua.html">Contribua</a>
                 <a href="contato.html">Contato</a>
                 <!--<a href="assinatura.html">Assinatura Eletrônica</a>-->
@@ -39,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <a href="nucleos.html">Núcleos</a>
                 <a href="quem-somos.html">Quem Somos</a>
                 <a href="galeria.html">Galeria</a>
+                <a href="metodo-suzuki.html">Metodo Suzuki</a>
                 <a href="contribua.html">Contribua</a>
                 <a href="contato.html">Contato</a>
                 <!--<a href="acesso-interno.html">Reservas</a>-->

@@ -5,11 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quem Somos - ANE 2026</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="https://artenasescolas.com.br/img/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="footer.css">
     <style>
+    /* Estilo das notas e máscaras que vão cair */
+.magic-item {
+    position: absolute;
+    pointer-events: none; /* Para o ícone não atrapalhar os cliques no site */
+    font-size: 24px;
+    z-index: 999999;
+    user-select: none;
+    animation: fallAndFade 1.5s linear forwards;
+}
+
+@keyframes fallAndFade {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(20px, 100px) rotate(360deg);
+    }
+}
+
         :root {
             --azul-viva: #0088ff;
             --amarelo-viva: #ffc800;
@@ -33,7 +56,7 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Tahoma', sans-serif;
             background-color: var(--bg-secao-missao);
             /* Define a cor base como a da primeira seção */
             color: var(--texto);
@@ -640,6 +663,40 @@
     </script>
 
     <script src="footer.js"></script>
+    
+    <script>
+    let lastPos = { x: 0, y: 0 };
+    const distanceThreshold = 25; // Só solta um ícone a cada 25 pixels movidos
+
+    document.addEventListener('mousemove', function(e) {
+        // Calcula a distância entre a posição atual e a última vez que soltou um ícone
+        const dist = Math.hypot(e.pageX - lastPos.x, e.pageY - lastPos.y);
+
+        if (dist > distanceThreshold) {
+            const item = document.createElement('span');
+            item.className = 'magic-item';
+            
+            const elements = ['🎵', '🎸', '🎭', '🎨', '🎹', '🎻', '🎤'];
+            item.innerText = elements[Math.floor(Math.random() * elements.length)];
+            
+            item.style.left = e.pageX + 'px';
+            item.style.top = e.pageY + 'px';
+            
+            // Adiciona uma leve variação de tamanho aleatória para ficar mais orgânico
+            const size = Math.floor(Math.random() * (14 - 16 + 1)) + 16;
+            item.style.fontSize = size + 'px';
+
+            document.body.appendChild(item);
+            
+            // Atualiza a última posição
+            lastPos = { x: e.pageX, y: e.pageY };
+
+            setTimeout(() => {
+                item.remove();
+            }, 400);
+        }
+    });
+</script>
 </body>
 
 </html>

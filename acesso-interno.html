@@ -112,7 +112,7 @@
 <body>
     <div class="login-container">
         <div style="text-align: center; margin-bottom: 1rem;">
-            <img src="assets/logo.png" alt="ANE Logo" style="height: 60px;">
+            <img src="img/logo.png" alt="ANE Logo" style="height: 60px;">
         </div>
         <p class="acesso-titulo">Acesso dos professores</p>
         <h2>🔐 Reservas</h2>
@@ -147,7 +147,7 @@
             if (email === 'professor@ane.com' && password === 'ane2026') {
                 localStorage.setItem('logado', 'true');
                 localStorage.setItem('userEmail', email);
-                window.location.href = 'agendamento.html';
+                window.location.href = 'Agendamento (Acesso Interno).html';
             } else {
                 document.getElementById('error').style.display = 'block';
             }

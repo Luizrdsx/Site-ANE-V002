@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscrição Projeto ANE</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="https://artenasescolas.com.br/img/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tahoma:wght@400;600;900&display=swap');
@@ -218,6 +220,16 @@
             color: var(--success);
             display: none;
         }
+        
+        /* Turno */
+        select#turno {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            color: #333;
+        }
     </style>
 </head>
 
@@ -383,6 +395,18 @@ desenvolvimento da educação e ensino.</p>
                         <label>Curso(s)</label>
                         <input type="text" id="curso" placeholder="Ex: Violão, Teatro" required>
                     </div>
+                    
+                    <!--Turno-->
+                    <div class="input-group full">
+                        <label>Turno que você irá fazer o curso</label>
+                        <select id="turno" required>
+                            <option value="" disabled selected>Selecione o turno</option>
+                            <option value="Manhã">Manhã</option>
+                            <option value="Tarde">Tarde</option>
+                            <option value="Noite">Noite</option>
+                        </select>
+                    </div>
+                    <!--Fim do Turno-->
 
                     <div class="section-title">--- DADOS DO RESPONSÁVEL ---</div>
                     <div class="input-group full">
@@ -574,6 +598,7 @@ desenvolvimento da educação e ensino.</p>
                 nome_ben: document.getElementById('nome_ben').value,
                 nasc_ben: `${ano}-${mes}-${dia}`,
                 curso: document.getElementById('curso').value,
+                turno: document.getElementById('turno').value,
                 nome_res: document.getElementById('nome_res').value,
                 tel: document.getElementById('tel').value,
                 cpf: document.getElementById('cpf').value,
@@ -587,9 +612,9 @@ desenvolvimento da educação e ensino.</p>
 
             // SELEÇÃO DA URL DE CADA APP SCRIPT
             const urlsApps = {
-                "Florianópolis - SC": "https://script.google.com/macros/s/AKfycbyUd2j7EkZkDozrznOrye0F2_N69dY4Gv4nhHWpkazECJaH58BpGsE4hNd7Ry4cfVGwCQ/exec",
-                "São José - SC": "https://script.google.com/macros/s/AKfycbxn5Lm1j9zIFuhFmFVnSp73TBISsbpFofRuvVUR9gmQUxD22sZVhDUleWlxo7TalLE88Q/exec"
-            };
+    "Florianópolis - SC": "https://script.google.com/macros/s/AKfycbyUd2j7EkZkDozrznOrye0F2_N69dY4Gv4nhHWpkazECJaH58BpGsE4hNd7Ry4cfVGwCQ/exec",
+    "São José - SC": "https://script.google.com/macros/s/AKfycbxn5Lm1j9zIFuhFmFVnSp73TBISsbpFofRuvVUR9gmQUxD22sZVhDUleWlxo7TalLE88Q/exec"
+};
 
             const webAppUrl = urlsApps[municipioSelecionado];
 
